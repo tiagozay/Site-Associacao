@@ -114,6 +114,16 @@
             return $this->senha;
         }
 
+        public function tornarAdmin(): void
+        {
+            $this->nivel = 'admin';
+        }
+
+        public function removerDeAdmin(): void
+        {
+            $this->nivel = 'usuario';
+        }
+
         public static function criptografarSenha(string $senha): string
         {
             return password_hash($senha, PASSWORD_DEFAULT);
