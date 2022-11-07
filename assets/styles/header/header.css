@@ -1,0 +1,56 @@
+.semFundo{
+    background: transparent;
+}
+.semFundo .divGrande{
+    border-bottom: 1px rgb(160, 160, 160) solid;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+}
+header{
+    /* background-image:  -webkit-repeating-radial-gradient(rgb(14, 14, 253),rgb(12, 22, 92)); */
+    background: url('../../imagensSite/fundoHeader.jpg');
+    background-position: top;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+}
+.divGrande{
+    background-color: rgba(0, 0, 0, 0.508);
+    backdrop-filter: blur( 4.5px );
+    -webkit-backdrop-filter: blur( 4.5px );
+}
+header .containerHeader{
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+}
+header .containerHeader .a-Logo{
+    display: flex;
+    align-items: center;
+    padding: 5px 0;
+    margin: 20px 0;
+}
+header .containerHeader .a-Logo img{
+    width: 160px;
+}
+@media (max-width: 700px){
+    header .containerHeader{
+        width: 75%;
+    }
+}
+@media (max-width: 610px){
+    header .containerHeader img{
+        width: 120px!important;
+    }
+}
+@media (max-width: 370px){
+    header .containerHeader img{
+        width: 100px!important;
+    }
+    header{
+        font-size: 15px;
+    }
+}

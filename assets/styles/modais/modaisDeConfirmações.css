@@ -1,0 +1,36 @@
+.pergunta{
+    margin: 20px 10px;
+    font-size: 20px;
+    text-align: center;
+}
+.nav{
+    display: flex;
+    justify-content: flex-end;
+    margin: 10px 10px;
+}
+.btnCancelar{
+    background-color: rgb(114, 114, 114);
+    color: white;
+    font-size: 20px;
+    border: 1px white solid;
+    padding: auto 7px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.btnConfirmar{
+    background-color: rgb(5, 157, 5);
+    text-decoration: none;
+    margin-left: 10px;
+    padding: 7px 7px;
+    font-size: 20px;
+    color: white;
+    border: 1px white solid;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.btnEntrar{
+    padding: 9px 12px;
+}
+.conteudoComEspacamento{
+    padding: 0 30px;
+}

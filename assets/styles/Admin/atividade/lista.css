@@ -1,0 +1,90 @@
+.secaoListaDeUsuarios{
+    background-color: rgb(165, 165, 165);
+    padding-bottom: 50px;
+}
+/* ==================THEAD=======================THEAD=================================THEAD=============THEAD*/
+table{
+    font-family: 'Roboto', sans-serif;
+    width: 100%;
+}
+thead{
+    background-color: rgb(179, 179, 179);
+}
+.thead__tr__tdNome{
+    width: 430px;
+    padding-left: 9px;
+}
+.thead__tr__tdAcao{
+    width: 710px;
+}
+.thead__tr__td__divGenericaConteudo{
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+}
+.thead__tr__td__divGenericaConteudo i{
+    font-size: 32px;
+}
+/* ==================TBODY=======================TBODY=================================TBODY=============TBODY*/
+.tbody__tr{
+   
+}
+.secaoListaDeUsuarios .container table tbody tr:nth-child(2n){
+    background-color: rgb(199, 199, 199);
+}
+.tbody__tr__tdGenerico{
+    padding: 10px 0;
+}
+.tbody__tr__tdNome{
+    width: 430px;
+    padding-left: 8px;
+    padding-right: 8px;
+    height: 100%!important;
+}
+.tbody__tr__tdAcao{
+    width: 710px;
+    padding-right: 20px;
+}
+.tbody__tr__td__divConteudoGenerica{
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+.tbody__tr__td__divNome{
+    padding-right: 10px;
+}
+.tbody__tr__tdData{
+    text-align: center;
+}
+.data{
+    min-width: 140px;
+    margin-right: 10px;
+}
+.navBtnVerMaisNoticia{
+    margin-top: 20px;
+    width: 100%;
+    text-align: center;
+    padding: 5px 0;
+}
+.btnVerMaisNoticias{
+    border: 1px black solid;
+    padding: 5px 8px;
+    text-decoration: none;
+    font-size: 21px;
+    font-family: 'Roboto', sans-serif;
+    background-color: transparent;
+    cursor: pointer;
+    transition: 400ms;
+}
+.btnVerMaisNoticias:hover{
+    transform: scale(1.1);
+}
+.nomeForte{
+    font-weight: 500;
+}
+@media(max-width: 800px){
+    .data{
+        min-width: 110px;
+        margin-right: 10px;
+    }
+}

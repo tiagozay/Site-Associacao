@@ -1,0 +1,33 @@
+header .containerHeader .btnLogin{
+    text-decoration: none;
+    background-color: rgb(112, 8, 8);
+    border-radius: 5px;
+    padding: 8px 20px;
+    border: 1px white solid;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    transition: 400ms;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+header .containerHeader .btnLogin:hover{
+    background-color: rgba(135, 135, 135, 0.398);
+    color: white;
+    transform: scale(1.1);
+}
+
+header .containerHeader .btnLogin i{
+    font-size: 22px;
+    margin-bottom: 2px;
+}
+@media (max-width: 600px){
+    header .containerHeader .btnLogin{
+        padding: 8px 10px;
+    }
+}
+@media (max-width: 290px){
+    header .containerHeader .btnLogin{
+        margin-right: 2px;
+    }
+}

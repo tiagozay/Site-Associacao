@@ -1,0 +1,440 @@
+:root{
+    --largura-imagem:149px;
+    --altura-imagem:140px;
+}
+body{
+    background: url('../../../imagensSite/fundoForms.jpg');
+    background-attachment: fixed;
+    background-repeat: no-repeat;   
+    background-size: cover;
+}
+.sectionformularioCadatroNoticias{
+    padding: 20px 0;
+    width: 100%;
+}
+fieldset{
+    width: 70%;
+    padding-bottom: 20px;
+    margin: 0px auto;
+    font-family: 'Roboto', sans-serif;
+    color: rgb(194, 194, 194);
+}
+fieldset legend{
+    text-align:center;
+    font-size: 30px;
+}
+fieldset .divBtnVoltar .btnVoltarPagIniAdmin {
+    margin-left:15px;
+    margin-bottom: 10px;
+    border: 1px solid white;
+    border-radius: 5px;
+    padding: 5px 5px;
+    text-decoration: none;
+    color: white;
+    display: flex;
+    align-items: center;
+    width: 73px;
+    transition: 400ms all;
+}
+fieldset .btnVoltarPagIniAdmin:hover{
+    transform: scale(1.05);
+}
+fieldset .btnVoltarPagIniAdmin i{
+    transform: rotate(180deg);
+    margin-right: 5px;
+}
+fieldset .container{
+    width: 464px;
+}
+fieldset .container form{
+    display: flex;
+    flex-direction: column;
+    
+}
+fieldset .container form .divLabelEInput{
+    display: flex;
+    margin-bottom: 18px;
+    flex-direction: column;
+    
+}
+fieldset .container form .divLabelEInput label{
+    font-size: 18px;
+    margin-bottom: 2px;
+}
+fieldset .container form .divLabelEInput .inputForm{
+    color: rgb(46, 46, 46);
+    width: 460px!important;
+    height: 40px;
+    border-radius: 5px;
+    border:none;
+    font-size: 19px;
+    outline: 0;
+    background-color:#E8F0FE;
+    font-family: 'Roboto', sans-serif;
+}
+fieldset .container form .divLabelEInput select.inputForm{
+    width: 464px!important;
+}
+fieldset .container form .divLabelEInput .inputForm[type='date']{
+    width: 464px!important;
+}
+fieldset .container form .divLabelEInput textarea.inputForm{
+    font-size: 18px;
+    font-family: 'Roboto', sans-serif;
+    height: auto;
+}
+.selectQuantidadeVideos{
+    height: 30px;
+    font-size: 18px;
+    outline: 0;
+    background-color:#E8F0FE;
+    color: rgb(46, 46, 46);
+}
+.inputsVideos{
+    
+}
+fieldset .container form .divLabelEInput .inputForm[type='file']{
+    height: auto;
+    background-color: transparent;
+    border-radius: 0;
+    color: white;
+    margin: 0px auto;
+    margin-top: 3px;
+    margin-bottom: 5px;
+    width: 90%!important;
+    
+}
+fieldset .container form .divLabelEInput .labelPComentarios,.labelPLikes{
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+fieldset .container form .divLabelEInput .labelPComentarios input,.labelPLikes input{ 
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+}
+fieldset .container form button{
+    height: 38px;
+    font-size: 20px;
+    font-family: 'Roboto', sans-serif;
+    background-color: rgb(0, 51, 255);
+    border: none;
+    color: white;
+    border-radius: 5px;
+    border: 1px rgb(196, 196, 196) solid;
+    cursor: pointer;
+    transition: 400ms;
+}
+fieldset .container form button:hover{
+    transform:scale(1.1);
+}
+.erro{
+    background-color: rgba(255, 0, 0, 0.433);
+    border: 1px red solid;
+    margin-bottom: 20px;
+    padding: 10px;
+}
+.gridImagens{
+    width: 100%;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    display: flex;
+    flex-wrap: wrap;
+}
+.telaSuperiorImagem{
+    position: absolute;
+    width: var(--largura-imagem);
+    height: var(--altura-imagem);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    transition: 200ms;
+}
+.telaSuperiorImagem:hover .btnExcluirImagem i{
+    color: white!important;
+}
+.telaSuperiorImagem:hover{
+    background: rgba( 255, 255, 255, 0.25 );
+    backdrop-filter: blur( 3px );
+    -webkit-backdrop-filter: blur( 4px );
+}
+.divImg{
+    margin-left: 3px;
+}
+.btnExcluirImagem{
+    background-color: transparent!important;
+    padding-bottom: 5px;
+    border: none!important;
+}
+.btnExcluirImagem i{
+    background-color: transparent!important;
+    font-size: 40px;
+    color: transparent;
+}
+.imagem{
+    width: var(--largura-imagem);
+    height: var(--altura-imagem);
+    object-fit: cover;
+    border: 1px white solid;
+}
+.gridVideos{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 10px 0;
+}
+.divVideo{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px white solid;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    padding: 5px;
+}
+.divVideo button{
+    background-color: transparent!important;
+    margin-bottom: 5px;
+}
+.gridVideos object{
+    width: 400px;
+    height: 300px;
+   
+    
+}
+@media (max-width: 1100px){
+    fieldset{
+        width: 90%;
+    }
+}
+@media (max-width: 950px){
+    fieldset{
+        width: 95%;
+    }
+}
+@media (max-width: 720px){
+    fieldset .divBtnVoltar{
+        width: 461px;
+        margin: 0 auto;
+    }
+    fieldset .divBtnVoltar .btnVoltarPagIniAdmin{
+        margin-left: 0;
+        margin-bottom: 18px;
+    }
+}
+@media (max-width: 530px){
+    fieldset .divBtnVoltar{
+        width: 441px;
+    }
+    fieldset .container{
+        width: 444px;
+    }
+    fieldset .container form .divLabelEInput .inputForm{
+        width: 440px!important;
+    }
+    fieldset .container form .divLabelEInput select.inputForm{
+        width: 444px!important;
+    }
+    fieldset .container form .divLabelEInput .inputForm[type='date']{
+        width: 443px!important;
+    }
+    
+}
+@media (max-width: 485px){
+    fieldset .divBtnVoltar{
+        width: 421px;
+    }
+    fieldset .container{
+        width: 424px;
+    }
+    fieldset .container form .divLabelEInput .inputForm{
+        width: 420px!important;
+    }
+    fieldset .container form .divLabelEInput select.inputForm{
+        width: 424px!important;
+    }
+    fieldset .container form .divLabelEInput .inputForm[type='date']{
+        width: 423px!important;
+    }
+}
+@media (max-width: 460px){
+    fieldset legend{
+        text-align:center;
+        font-size: 25px;
+    }
+    fieldset .divBtnVoltar{
+        width: 391px;
+    }
+    fieldset .container{
+        width: 394px;
+    }
+    fieldset .container form .divLabelEInput .inputForm{
+        width: 390px!important;
+    }
+    fieldset .container form .divLabelEInput select.inputForm{
+        width: 394px!important;
+    }
+    fieldset .container form .divLabelEInput .inputForm[type='date']{
+        width: 393px!important;
+    }
+    .gridVideos object{
+        width: 300px;
+        height: 200px;
+       
+        
+    }
+}
+@media (max-width: 430px){
+    fieldset legend{
+        text-align:center;
+        font-size: 25px;
+    }
+    fieldset .divBtnVoltar{
+        width: 361px;
+    }
+    fieldset .container{
+        width: 364px;
+    }
+    fieldset .container form .divLabelEInput .inputForm{
+        width: 360px!important;
+    }
+    fieldset .container form .divLabelEInput select.inputForm{
+        width: 364px!important;
+    }
+    fieldset .container form .divLabelEInput .inputForm[type='date']{
+        width: 363px!important;
+    }
+}
+@media (max-width: 400px){
+    fieldset .divBtnVoltar{
+        width: 321px;
+    }
+    fieldset .divBtnVoltar .btnVoltarPagIniAdmin{
+        margin-top: 10px;
+    }
+    fieldset .container{
+        width: 324px;
+    }
+    fieldset .container form .divLabelEInput .inputForm{
+        width: 320px!important;
+    }
+    fieldset .container form .divLabelEInput select.inputForm{
+        width: 324px!important;
+    }
+    fieldset .container form .divLabelEInput .inputForm[type='date']{
+        width: 323px!important;
+    }
+}
+@media (max-width: 360px){
+    fieldset .divBtnVoltar{
+        width: 291px;
+    }
+    fieldset .divBtnVoltar .btnVoltarPagIniAdmin{
+        margin-top: 10px;
+    }
+    fieldset .container{
+        width: 294px;
+    }
+    fieldset .container form .divLabelEInput .inputForm{
+        width: 290px!important;
+    }
+    fieldset .container form .divLabelEInput select.inputForm{
+        width: 294px!important;
+    }
+    fieldset .container form .divLabelEInput .inputForm[type='date']{
+        width: 290px!important;
+    }
+    .gridImagens{
+        justify-content: center;
+    }
+}
+@media(max-width: 360px){
+    .gridVideos object{
+        width: 250px;
+        height: 150px;
+        
+    }
+}
+@media (max-width: 315px){
+    fieldset .divBtnVoltar{
+        width: 271px;
+    }
+    fieldset .divBtnVoltar .btnVoltarPagIniAdmin{
+        margin-top: 10px;
+    }
+    fieldset .container{
+        width: 274px;
+    }
+    fieldset .container form .divLabelEInput .inputForm{
+        width: 270px!important;
+    }
+    fieldset .container form .divLabelEInput select.inputForm{
+        width: 274px!important;
+    }
+    fieldset .container form .divLabelEInput .inputForm[type='date']{
+        width: 270px!important;
+    }
+}
+@media (max-width: 295px){
+    fieldset .divBtnVoltar{
+        width: 261px;
+    }
+    fieldset .divBtnVoltar .btnVoltarPagIniAdmin{
+        margin-top: 10px;
+    }
+    fieldset .container{
+        width: 264px;
+    }
+    fieldset .container form .divLabelEInput .inputForm{
+        width: 260px!important;
+    }
+    fieldset .container form .divLabelEInput select.inputForm{
+        width: 264px!important;
+    }
+    fieldset .container form .divLabelEInput .inputForm[type='date']{
+        width: 260px!important;
+    }
+}
+@media (max-width: 285px){
+    fieldset .divBtnVoltar{
+        width: 251px;
+    }
+    fieldset .divBtnVoltar .btnVoltarPagIniAdmin{
+        margin-top: 10px;
+    }
+    fieldset .container{
+        width: 254px;
+    }
+    fieldset .container form .divLabelEInput .inputForm{
+        width: 250px!important;
+    }
+    fieldset .container form .divLabelEInput select.inputForm{
+        width: 254px!important;
+    }
+    fieldset .container form .divLabelEInput .inputForm[type='date']{
+        width: 250px!important;
+    }
+}
+@media (max-width: 275px){
+    fieldset .divBtnVoltar{
+        width: 231px;
+    }
+    fieldset .divBtnVoltar .btnVoltarPagIniAdmin{
+        margin-top: 10px;
+    }
+    fieldset .container{
+        width: 234px;
+    }
+    fieldset .container form .divLabelEInput .inputForm{
+        width: 230px!important;
+    }
+    fieldset .container form .divLabelEInput select.inputForm{
+        width: 234px!important;
+    }
+    fieldset .container form .divLabelEInput .inputForm[type='date']{
+        width: 230px!important;
+    }
+}

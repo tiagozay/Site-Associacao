@@ -1,0 +1,148 @@
+body{
+    background-image: url(../imagensSite/fundoMuseu.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+main{
+    display: flex;
+    align-items: center;
+}
+section{
+    width: 80%;
+    padding: 30px 0;
+}
+li{
+    display: flex;
+    align-items: center;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.727);
+    border: 1px solid white;
+    margin-top: 15px;
+    border-radius: 5px;
+}
+.foto{
+    width: 90px;
+    height: 90px;
+    object-fit: cover;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+.detalhes{
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
+.divInfo{
+    padding: 0 10px;
+    font-size: 27px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: lighter;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 25px;
+}
+.nome{
+    width: 500px;
+}
+.cargo{
+    width: 200px;
+    margin-right: 15px;
+}
+@media(max-width: 1100px){
+    section{
+        width: 98%;
+    }
+    /* .foto{
+        width: 90px;
+    } */
+    .divInfo{
+        font-size: 27px;
+    }
+    .nome{
+        width: 400px;
+    }
+    .cargo{
+        width: 180px;
+    }
+}
+@media(max-width: 750px){
+    /* .foto{
+        width: 80px;
+    } */
+    .divInfo{
+        font-size: 25px;
+    }
+    .nome{
+        width: 360px;
+    }
+    .cargo{
+        width: 170px;
+    }
+}
+@media(max-width: 690px){
+    .foto{
+        width: 70px;
+        height: 70px;
+    }
+    .divInfo{
+        font-size: 23px;
+    }
+    .nome{
+        width: 330px;;
+    }
+    .cargo{
+        width: 160px;
+    }
+}
+@media(max-width: 620px){
+    /* .foto{
+        width: 70px;
+    } */
+    .divInfo{
+        font-size: 23px;
+    }
+    .nome{
+        width: 250px;
+    }
+}
+@media(max-width: 540px){
+    /* .foto{
+        width: 60px;
+    } */
+    .divInfo{
+        font-size: 20px;
+    }
+    .nome{
+        width: 200px;
+     
+    }
+    .cargo{
+        width: 140px;
+     
+    }
+}
+@media(max-width: 450px){
+    .nome{
+        width: 150px;
+     
+    }
+    .cargo{
+        width: 80px;
+    }
+}
+@media(max-width: 350px){
+    .divInfo{
+        font-size: 17px;
+        line-height: 20px;
+    }
+    .nome{
+        width: 125px;
+    }
+    .cargo{
+        width: 60px;
+    }
+}

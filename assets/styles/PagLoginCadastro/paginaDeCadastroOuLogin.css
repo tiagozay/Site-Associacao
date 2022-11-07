@@ -1,0 +1,186 @@
+body{
+    margin: 0;
+    background-image:url('../../imagensSite/fundoMuseu-escuro-desfocado.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+.sessionCentral{
+    width: 500px;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+}
+.divSeletorLoginOuCadastro{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.divSeletorLoginOuCadastro button{
+    border: none;
+    font-size: 20px;
+    font-family: 'Roboto', sans-serif;
+    color: white;
+    background-color: transparent;
+    width: 150px!important;
+  
+}
+.divSeletorLoginOuCadastro .btnCadastro{
+    width: 30%;
+    height: 50px;
+}
+form{
+    margin-top: 20px;
+    display: none;
+    flex-direction: column;
+    padding-top: 45px!important;
+
+}
+.formularioDeCadastro{
+    padding-top: 20px!important;
+}
+.inputPadrao{
+    border: none;
+    border-bottom: 1px solid white;
+    height: 30px;
+    background-color: transparent;
+    color: white!important;
+    outline: 0;
+    font-size: 20px;
+    font-family: 'Roboto', sans-serif;
+}
+.inputPadrao::placeholder{  
+    color: rgb(209, 209, 209);
+}
+.divInputSenha{
+    display: flex;
+    width: 100%;
+    border-bottom: 1px white solid;
+}
+.inputSenha{
+    width: 100%;
+    border: none;
+    height: 30px;
+    background-color: transparent;
+    color: white;
+    outline: 0;
+    font-size: 20px;
+    font-family: 'Roboto', sans-serif;
+}
+.inputSenha::placeholder{  
+    color:  rgb(209, 209, 209);
+}
+.iconeVerSenha{
+    cursor: pointer;
+    transition: 500ms;
+}
+.iconeVerSenha:hover{
+    transform: scale(1.1);
+}
+.btnEnviarLogin{
+    border: none;
+    border: 1px rgb(165, 165, 165) solid;
+    border-radius: 5px;
+    background-color: rgb(48, 48, 148);
+    color: white;
+    padding: 10px;
+    width: 100px;
+    transition: 400ms;
+    cursor: pointer;
+}
+.btnEnviarLogin:hover{
+    transform: scale(1.1);
+}
+.divEsqueciASenhaEBtn{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.divEsqueciASenhaEBtn a{
+    text-decoration: none;
+    font-size: 18px;
+    font-family: 'Roboto', sans-serif;
+    color:  rgb(209, 209, 209);
+}
+.btnEnviarCadastro{
+    border: none;
+    border: 1px rgb(165, 165, 165) solid;
+    border-radius: 5px;
+    background-color: rgb(48, 48, 148);
+    color: white;
+    padding: 10px;
+    transition: 400ms;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+.btnEnviarCadastro:hover{
+    transform: scale(1.1);
+}
+.especamentoInputs{
+    margin-top: 30px;
+}
+.marginBtnEnviar{
+    margin-top: 20px;
+}
+.mostrarForm{
+    display: flex!important;
+}
+.adcBordaNoBotao{
+    height: 50px;
+    border-bottom: 3px white solid!important ;
+}
+.erro{
+    border: 1px red solid;
+    color: white;
+    background-color: rgba(255, 0, 0, 0.2);
+    padding: 10px 10px;
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+}
+.sucesso{
+    border: 1px rgb(13, 255, 0) solid;
+    color: white;
+    background-color: rgba(32, 238, 5, 0.46);
+    padding: 10px 10px;
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+}
+.linkErro{
+    text-decoration: underline;
+}
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    -webkit-transition: "color 9999s ease-out, background-color 9999s ease-out";
+    -webkit-transition-delay: 9999s;
+}
+@media (max-width: 500px){
+    body{
+        align-items: flex-start;
+    }
+    .divSeletorLoginOuCadastro{
+        margin-top: 10px;
+    }
+    .formularioDeLogin{
+        padding-top: 90px!important;
+    }
+    .formularioDeCadastro{
+        padding-top: 30px!important;
+    }
+    .inputPadrao:nth-child(1){
+        margin-top: 0px!important;
+    }
+    
+}
+@media (max-width: 510px){
+    .sessionCentral form{
+        padding: 0 10px;
+    } 
+}

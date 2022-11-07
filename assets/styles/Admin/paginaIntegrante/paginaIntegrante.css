@@ -1,0 +1,417 @@
+body{
+    background: url('../../../imagensSite/fundoForms.jpg');
+    background-attachment: fixed;
+    background-repeat: no-repeat;   
+    background-size: cover;
+}
+.sectionIntegrantes{
+    width: 100%;
+    padding: 20px 0;
+}
+.section100DeAltura{
+    height: 100vh;
+}
+fieldset{
+    width: 932px;
+    padding-bottom: 40px;
+    margin: 0px auto;
+    font-family: 'Roboto', sans-serif;
+    color: rgb(194, 194, 194);
+}
+fieldset legend{
+    text-align:center;
+    font-size: 30px;
+}
+fieldset .btnVoltarPagIniAdmin{
+    margin-left:15px;
+    margin-bottom: 10px;
+    border: 1px solid white;
+    border-radius: 5px;
+    padding: 5px 5px;
+    text-decoration: none;
+    color: white;
+    display: flex;
+    align-items: center;
+    width: 73px;
+    transition: 400ms all;
+}
+fieldset .btnVoltarPagIniAdmin:hover{
+    transform: scale(1.05);
+}
+fieldset .btnVoltarPagIniAdmin i{
+    transform: rotate(180deg);
+    margin-right: 5px;
+}
+fieldset .container{
+    width: 464px;
+}
+fieldset .container form{
+    display: flex;
+    flex-direction: column;
+}
+.formAlto{
+    height: 400px;
+    justify-content: center;
+}
+fieldset .container form .divLabelEInput{
+    display: flex;
+    margin-bottom: 18px;
+    flex-direction: column;
+}
+fieldset .container form .divLabelEInput label{
+    font-size: 18px;
+    margin-bottom: 2px;
+}
+fieldset .container form .divLabelEInput .inputForm{
+    color: rgb(46, 46, 46);
+    width: 460px!important;
+    height: 40px;
+    border-radius: 5px;
+    border:none;
+    font-size: 19px;
+    outline: 0;
+    background-color:#E8F0FE;
+    font-family: 'Roboto', sans-serif;
+}
+.inputPerfil{
+    font-size: 19px;
+    outline: 0;
+    color: rgb(204, 204, 204);
+    font-family: 'Roboto', sans-serif;
+    background-color: transparent;
+    border-radius: 0;
+    margin: 0px auto;
+    margin-top: 3px;
+    margin-bottom: 5px;
+    width: 90%!important;
+}
+fieldset .container form button{
+    height: 38px;
+    font-size: 20px;
+    font-family: 'Roboto', sans-serif;
+    background-color: rgb(0, 51, 255);
+    border: none;
+    color: white;
+    border-radius: 5px;
+    border: 1px rgb(196, 196, 196) solid;
+    cursor: pointer;
+    transition: 400ms;
+}
+fieldset .container form button:hover{
+    transform: scale(1.1);
+}
+fieldset .divListaIntegrantes{
+    margin: 30px auto;
+    width: 745px;
+}
+fieldset .divListaIntegrantes ul li{
+    border: 1px rgb(255, 255, 255) solid;
+    width: 99%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 90px;
+    /* background-color: rgb(223, 223, 223); */
+    background-color: rgba(0, 0, 0, 0.611);
+    margin: 0 auto;
+    margin-bottom: 10px;
+    transition: all 500ms;
+    cursor: pointer;
+}
+fieldset .divListaIntegrantes ul li div{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+fieldset .divListaIntegrantes ul li div div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 19px;
+    color: rgb(255, 255, 255);
+}
+fieldset .divListaIntegrantes ul li div .fotoIntegrante{
+    width: 80px;
+    height: 100%;
+}
+fieldset .divListaIntegrantes ul li div .fotoIntegrante img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+fieldset .divListaIntegrantes ul li div .nomeIntegrante{
+    width: 300px;
+    height: 100%;
+    text-align: center;
+    padding-right: 8px;
+    padding-left: 8px;
+}
+fieldset .divListaIntegrantes ul li div .cargoIntegrante{
+    width: 300px;
+    padding-right: 5px;
+    text-align: center;
+}
+.divAcoes{
+    width: 90px!important;
+}
+.divAcoes a{
+    border: 1px rgb(255, 255, 255) solid;
+    margin-right: 5px;
+    color: rgb(28, 28, 28);
+    font-size: 18px;
+    padding: 4px 6px;
+    border-radius: 5px;
+}
+.divAcoes i{
+  font-size: 25px;
+  color: white;
+}
+.erro{
+    background-color: rgba(255, 0, 0, 0.433);
+    border: 1px red solid;
+    margin-bottom: 20px;
+    padding: 10px;
+}
+@media (max-width: 955px){
+    fieldset{
+        width: 770px;
+    }
+}
+@media (max-width: 780px){
+    fieldset{
+        width: 670px;
+    }
+    fieldset .divListaIntegrantes{
+        width: 650px;
+    }
+    fieldset .divListaIntegrantes ul li div .fotoIntegrante{
+        width: 100px;
+    }
+   
+}
+@media (max-width: 700px){
+    fieldset{
+        width: 620px;
+    }
+    fieldset .divBtnVoltar{
+        width: 464px;
+        margin: 0 auto;
+        margin-bottom: 20px;
+    }
+    fieldset .divListaIntegrantes{
+        width: 600px;
+    }
+    fieldset .divListaIntegrantes ul li div .cargoIntegrante{
+        width: 200px;
+    }
+    fieldset .divBtnVoltar .btnVoltarPagIniAdmin{
+        margin-left:0px;
+    }
+    fieldset .divListaIntegrantes ul li div div{
+        font-size: 18px;
+    }
+}
+@media (max-width: 640px){
+    fieldset{
+        width: 520px;
+    }
+    fieldset .divListaIntegrantes{
+        width: 500px;
+    }
+    fieldset .divListaIntegrantes ul li div div{
+      font-size: 17px;
+    }
+    fieldset .divListaIntegrantes ul li div .fotoIntegrante{
+        width: 120px;
+    }
+}
+
+@media (max-width: 535px){
+    fieldset{
+        width: 460px;
+    }
+    fieldset .divListaIntegrantes{
+        width: 420px;
+    }
+    fieldset .divListaIntegrantes ul li div .fotoIntegrante{
+        width: 170px;
+    }
+    fieldset .container form .divLabelEInput .inputForm{
+        width: 440px!important;
+    }
+    fieldset .divBtnVoltar{
+        width: 444px;
+    }
+    fieldset .container{
+        width: 444px;
+    }
+}
+@media (max-width: 480px){
+    fieldset{
+        width: 440px;
+    }
+    fieldset .divBtnVoltar{
+        width: 424px;
+    }
+    fieldset .container{
+        width: 424px;
+    }
+    fieldset .container form .divLabelEInput .inputForm{
+        width: 420px!important;
+    }
+}
+@media (max-width: 460px){
+    fieldset .divListaIntegrantes ul li{
+        padding: 10px 0;
+        height: auto;
+    }
+    fieldset .divListaIntegrantes ul li div{
+        flex-direction: column;
+        flex-direction: space-around;
+        width: 100%;
+        align-items: center;
+    }
+    fieldset .divListaIntegrantes ul li div div{
+        height: 35px;
+    }
+    fieldset .divListaIntegrantes ul li div .fotoIntegrante{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        margin-bottom: 10px;
+    }
+    fieldset .divListaIntegrantes ul li div .fotoIntegrante img{
+        width: 50%;
+    }
+    .divAcoes{
+        display: flex!important;
+        flex-direction: row!important;
+        justify-content: space-around!important;
+        width: 100px!important;
+    }
+    .divAcoes a{
+        margin: 0;
+    }
+    fieldset{
+        width: 370px;
+    }
+    fieldset .divBtnVoltar{
+        width: 354px;
+        margin-top: 10px;
+    }
+    fieldset .container{
+        width: 354px;
+    }
+    fieldset .container form .divLabelEInput .inputForm{
+        width: 350px!important;
+    }
+    fieldset .divListaIntegrantes{
+        width: 350px;
+    }
+}
+@media (max-width: 420px){
+   
+}
+@media (max-width: 380px){
+    fieldset{
+        width: 340px;
+    }
+    fieldset .divBtnVoltar{
+        width: 324px;
+    }
+    fieldset .container{
+        width: 324px;
+    }
+    fieldset .container form .divLabelEInput .inputForm{
+        width: 320px!important;
+    }
+    fieldset .divListaIntegrantes{
+        width: 320px;
+    }
+    fieldset .divListaIntegrantes ul li div .fotoIntegrante{
+        width: 230px;
+    }
+}
+@media (max-width: 350px){
+    fieldset{
+        width: 300px;
+    }
+    fieldset .divListaIntegrantes{
+        width: 280px;
+    }
+    fieldset .divBtnVoltar{
+        width: 280px;
+    }
+    fieldset .container{
+        width: 284px;
+    }
+    fieldset .container form .divLabelEInput .inputForm{
+        width: 280px!important;
+    }
+}
+@media (max-width: 330px){
+    fieldset .divBtnVoltar{
+        width: 284px;
+    }
+    fieldset .container{
+        width: 284px;
+    }
+    fieldset .container form .divLabelEInput .inputForm{
+        width: 280px!important;
+    }
+}
+@media (max-width: 320px){
+    fieldset legend{
+        text-align:center;
+        font-size: 25px;
+    }
+    fieldset .container form .divLabelEInput .divInputSenha input{
+        width: 250px!important;
+    }
+    fieldset .container form .divLabelEInput .divInputSenha img{
+        margin-right: 0px!important;
+    }
+}
+@media (max-width: 310px){
+    fieldset .divBtnVoltar{
+        width: 264px;
+    }
+    fieldset .container{
+        width: 264px;
+    }
+    fieldset .container form .divLabelEInput .inputForm{
+        width: 260px!important;
+    }
+    fieldset .container form .divLabelEInput .divInputSenha input{
+        width: 233px!important;
+    }
+}
+@media (max-width: 290px){
+    fieldset .divBtnVoltar{
+        width: 254px;
+    }
+    fieldset .container{
+        width: 254px;
+    }
+    fieldset .container form .divLabelEInput .inputForm{
+        width: 250px!important;
+    }
+    fieldset .container form .divLabelEInput .divInputSenha input{
+        width: 223px!important;
+    }
+}
+@media (max-width: 280px){
+    fieldset .divBtnVoltar{
+        width: 244px;
+    }
+    fieldset .container{
+        width: 244px;
+    }
+    fieldset .container form .divLabelEInput .inputForm{
+        width: 240px!important;
+    }
+    fieldset .container form .divLabelEInput .divInputSenha input{
+        width: 213px!important;
+    }
+}

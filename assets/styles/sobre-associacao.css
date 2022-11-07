@@ -1,0 +1,65 @@
+body{
+    background-image: url(../imagensSite/fundoMuseu.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+main{
+    display: flex;
+    align-items: center;
+    padding: 30px 5px!important;
+}
+.sobre-associacao{
+    width: 80%;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.535);
+    border: 1px white solid;
+    box-shadow: 0 8px 32px 0 rgba(56, 56, 56, 0.37);
+    border-radius: 5px;
+    padding: 20px 15px;
+}
+.texto-sobre{
+    line-height: 44px;
+    font-weight: 300;
+    color: rgb(238, 238, 238);
+    font-size: 30px;
+    font-family: 'Roboto', sans-serif;
+}
+.p-objetivosDaAssociacao{
+    margin-top: 30px;
+}
+@media(max-width: 1000px){
+    .sobre-associacao{
+        width: 90%;
+    } 
+    .texto-sobre{
+        font-size: 28px;
+    }
+}
+@media(max-width: 850px){
+    .sobre-associacao{
+        width: 93%;
+    } 
+    .texto-sobre{
+        font-size: 27px;
+        line-height: 39px;
+    }
+}
+@media(max-width: 420px){
+    .sobre-associacao{
+        padding: 20px 10px;
+    }
+    .texto-sobre{
+        font-size: 26px;
+        line-height: 36px;
+    }
+    main{
+        padding: 20px 0;
+    }
+}
+@media(max-width: 400px){
+    .texto-sobre{
+        line-height: 34px;
+    }
+}

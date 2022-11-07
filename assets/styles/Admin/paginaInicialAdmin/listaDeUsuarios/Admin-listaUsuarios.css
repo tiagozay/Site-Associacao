@@ -1,0 +1,213 @@
+/* ==================THEAD=======================THEAD=================================THEAD=============THEAD*/
+table{
+    font-family: 'Roboto', sans-serif;
+    width: 100%;
+}
+thead{
+    background-color: rgb(179, 179, 179);
+}
+.thead__tr__tdNome{
+    width: 450px;
+    padding-left: 9px;
+}
+.thead__tr__tdEmail{
+    width: 477px;
+    
+}
+.thead__tr__tdNivel{
+    width: 100px;
+    
+}
+.thead__tr__tdAcoes{
+    width: 200px;
+}
+.thead__tr__td__divGenericaConteudo{
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+}
+.thead__tr__td__divGenericaConteudo i{
+    font-size: 32px;
+}
+/* ==================TBODY=======================TBODY=================================TBODY=============TBODY*/
+.tbody__tr{
+    height: 40px;
+}
+.secaoListaDeUsuarios .container table tbody tr:nth-child(2n){
+    background-color: rgb(199, 199, 199);
+}
+.tbody__tr__tdGenerico{
+    height: 40px;
+}
+.tbody__tr__tdNome{
+    width: 450px;
+    padding-left: 9px;
+    padding-right: 10px;
+}
+.tbody__tr__td__divNome{
+    margin-bottom: 20px;
+}
+.tbody__tr__tdEmail{
+    width: 477px;
+    
+}
+.tbody__tr__tdNivel{
+    width: 100px;
+    
+}
+.tbody__tr__tdAcoes{
+    width: 200px;
+}
+.tbody__tr__td__divConteudoGenerica{
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+.containerAcoesItemListaUsuarios{
+    display: flex;
+}
+.containerAcoesItemListaUsuarios .divGenericaBtnAcoes{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.containerAcoesItemListaUsuarios .divAcoesNivel{
+    width: 125px;
+    display: flex;
+    align-items: center;
+}
+.containerAcoesItemListaUsuarios .divAcoesAtividade{
+    width: 100px;
+}
+.divAcoesExcluir {
+    margin-left: 10px;
+}
+.btns_acoes_usuarios{
+    text-decoration: none;
+    border: 1px black solid;
+    border-radius: 5px;
+    padding: 5px;
+    background-color: #005a98;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    cursor: pointer;
+}
+button.btns_acoes_usuarios{
+    font-size: 16px;
+    padding: 4px 5px;
+}
+.tbody__tr__tdAcoes .btnAbrirModal{
+    display: none;
+    font-size: 30px;
+}
+.navBtnVerMaisUsuarios{
+    margin-top: 20px;
+    width: 100%;
+    text-align: center;
+    padding: 5px 0;
+}
+.btnVerMaisUsuarios{
+    border: 1px black solid;
+    padding: 5px 8px;
+    text-decoration: none;
+    font-size: 20px;
+    font-family: 'Roboto', sans-serif;
+    background-color: transparent;
+    cursor: pointer;
+    transition: 400ms;
+}
+.btnVerMaisUsuarios:hover{
+    transform: scale(1.1);
+}
+.displayNone{
+    display: none;
+}
+@media(min-width: 1400px){
+  
+}
+@media(max-width: 1000px){
+    .thead__tr__tdNivel{
+        width: 200px;
+    }
+    .tbody__tr__tdNivel{
+        width: 200px;
+    }
+}
+@media(max-width:960px){
+    .thead__tr__tdEmail{
+        display: none;
+        
+    }
+    .tbody__tr__tdEmail{
+        display: none;
+    }
+    .tbody__tr__td__divNome{
+        margin-bottom: 0px;
+    }
+}
+@media(max-width: 830px){
+    .thead__tr__tdNivel{
+        width: 140px;
+    }
+    .tbody__tr__tdNivel{
+        width: 140px;
+    }
+}
+@media(max-width: 750px){
+    .thead__tr__tdNivel{
+        width: 110px;
+    }
+    .tbody__tr__tdNivel{
+        width: 110px;
+    }
+}
+
+
+@media(max-width: 730px){
+    .modal__conteudo a{
+        font-size: 19px;
+    }
+    .conteudo__acoes{
+        width: 320px;
+    }
+    .thead__tr__tdNivel{
+        width: auto;
+    }
+    .tbody__tr__tdNivel{
+        width: auto;
+    }
+    .thead__tr__td__divAcoes{
+        justify-content: center;
+    }
+    .tbody__tr__tdAcoes{
+        width: 110px;
+    }
+    .thead__tr__tdAcoes{
+        width: 110px;
+    }
+    .containerAcoesItemListaUsuarios{
+        display: none;
+    }
+    .tbody__tr__tdAcoes .btnAbrirModal{
+        display: block;
+        text-align: center;
+        font-size: 36px;
+    }
+    .tbody__tr__td__divConteudoGenerica p{
+        position: relative;
+        bottom: 10px!important;
+    }
+}
+@media(max-width: 340px){
+    .conteudo__acoes{
+        width:100%;
+    }
+    .modal__conteudo a{
+        font-size: 18px;
+    }
+}
+
+.mostrarMenu{
+    display: flex!important;
+}
+

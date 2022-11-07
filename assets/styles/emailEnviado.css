@@ -1,0 +1,110 @@
+body{
+    background-image: url('../imagensSite/fundoMuseu.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+main{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.divCentral{
+    max-width: 80%;
+    text-align: center;
+    font-size: 30px;
+    color: white;
+    font-weight: 300;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: rgba(92, 92, 92, 0.145);
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 7.5px );
+    -webkit-backdrop-filter: blur( 7.5px );
+    border-radius: 10px;
+    border: 1px solid rgb(255, 255, 255);
+    padding: 20px;
+    font-family: 'Roboto', sans-serif;
+    line-height: 34px;
+
+}
+.email{
+    word-break: break-all!important;
+    color: rgb(255, 255, 255);
+    font-weight: lighter;
+    margin-top: 10px;
+}
+.divBtnVoltar{
+    width: 100%;
+}
+.btnVoltarPagIniAdmin {
+    margin-bottom: 20px;
+    border: 1px solid white;
+    border-radius: 5px;
+    padding: 0px 5px;
+    text-decoration: none;
+    color: white;
+    display: flex;
+    align-items: center;
+    width: 73px;
+    height: 35px;
+    transition: 400ms all;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+}
+.btnVoltarPagIniAdmin:hover{
+    transform: scale(1.05);
+}
+.btnVoltarPagIniAdmin i{
+    transform: rotate(180deg);
+    margin-right: 5px;
+}
+form{
+    display: flex;
+    margin-top: 20px;
+}
+.inputCodigo{
+    height: 30px;
+    width: 230px;
+    outline: none;
+    font-size: 20px;
+    border: 1px white solid;
+    margin-right: 5px;
+}
+.btnVerificarCodigo{
+    font-size: 20px;
+    background-color: rgb(0, 184, 0);
+    border: 1px white solid;
+    cursor: pointer;
+    color: white;
+    
+}
+.erro{
+    background-color: rgba(255, 0, 0, 0.357);
+    border: 1px red solid;
+    margin-top: 15px;
+    padding: 0px;
+    font-size: 16px;
+    width: 94%;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    
+}
+@media(max-width: 900px){
+    .divCentral{
+        max-width: 88%;
+    }
+}
+@media(max-width: 370px){
+    .divCentral{    
+        margin: 0 5px!important;
+        width: 310px!important;
+    }
+    .inputCodigo{
+        width: 200px;
+    }
+}

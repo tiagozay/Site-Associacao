@@ -1,0 +1,6 @@
+.secaoListaDeUsuarios{
+    display: flex;
+}
+.secaoListaDeUsuarios .container{
+    width: 100%!important;   
+}

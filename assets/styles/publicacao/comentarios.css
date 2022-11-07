@@ -1,0 +1,80 @@
+.telaComentarios{
+    color: rgb(255, 255, 255);
+    font-family: 'Montserrat', sans-serif;
+    width: 74%;
+    margin: 0 auto;
+    margin-top: 50px;
+}
+.formAdcComentario{
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
+.formAdcComentario input{
+    width: 100%;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px white solid;
+    outline: none;
+    font-size: 20px;
+    color: white;
+    padding-bottom: 5px;
+    font-weight: 400!important;
+}
+.formAdcComentario input::placeholder{
+    color: white;
+}
+.formAdcComentario button{
+    background-color: transparent;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-size: 30px;
+}
+.formAdcComentario button:active{
+    transform: scale(1.1);
+}
+.btnExluirComentario{
+    background-color: transparent;
+    color: white;
+    border: 1px solid white;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 10px;
+    padding: 2px 3px;
+    font-size: 18px;
+}
+.comentarios{
+    width: 100%;
+    margin: 50px auto;
+}
+h2{
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+
+.comentario{
+    margin-top: 45px;
+}
+.comentario__usuario{
+    font-size: 21px;
+    display: flex;
+    font-weight: 700;
+    align-items: center;
+}
+.comentario__usuario i{
+    font-size: 35px;
+}
+.comentario__conteudo{
+    font-size: 18px;
+    margin-left: 40px;
+    margin-top: 2px;
+    line-height: 20px;
+}
+
+
+@media(max-width: 600px){
+    .telaComentarios{
+        width: 95%;
+    }
+}

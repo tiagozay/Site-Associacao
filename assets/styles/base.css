@@ -1,0 +1,30 @@
+body{
+    z-index: 1;
+    /* overflow-y: hidden;  */
+}
+.container{
+    margin: 0 auto;
+}
+.rodape{
+    width: 100%;
+    padding: 50px 0;
+    background-color: black;
+    margin-top: 20px;
+    color: white;
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+}
+.textoDesenvolvido{
+    font-size: 14px;
+    margin-bottom: 0px;
+    margin-top: 10px;
+}
+.textoDesenvolvido a{
+    color: rgb(169, 169, 169);
+}
+@media (max-width: 430px){
+    .rodape{
+        font-size: 12px;
+    }
+}

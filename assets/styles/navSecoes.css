@@ -1,0 +1,120 @@
+header .navOpcoes{
+    width: 100%;
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+}
+header .navOpcoes .btnAbrirMenu{
+    display: none;
+    background-color: black;
+    color: white;
+    border: none;
+}
+header .navOpcoes .btnAbrirMenu i{
+    font-size: 40px;
+}
+header .navOpcoes .container{
+    height: 100%;
+    width: 1090px;
+    display: flex;
+    align-items: center;
+}
+header .navOpcoes .container a{
+    padding: 19px 20px;
+    text-decoration: none;
+    font-size: 18px;
+    font-family: 'Roboto', sans-serif;
+    border-right: rgb(39, 39, 39)  1px solid;
+    color: white;
+    transition: 200ms;
+}
+.textoNos{
+    display: none;
+}
+.abrirMenu{
+    padding: 19px 0!important;
+    font-size: 16px!important;
+}
+header .navOpcoes .container a:nth-child(1){
+    border-left:  rgb(39, 39, 39)   1px solid;
+}
+.active{
+    border-bottom: 3px white solid;
+}
+header .navOpcoes .container a:hover{
+    background-color: rgb(12, 12, 12);
+}
+@media(max-width: 1115px){
+    header .navOpcoes .container{
+        width: 973px;
+    }
+}
+@media(max-width: 1000px){
+    header .navOpcoes .container{
+        width: 914px;
+    }
+}
+@media(max-width: 930px){
+    header .navOpcoes .container{
+        width: 832px;
+    }
+}
+@media(max-width: 850px){
+    header .navOpcoes .container{
+        width: 530px;
+        justify-content: center;
+    }
+}
+@media(max-width: 770px){
+    header .navOpcoes .container{
+        width: 640px;
+    }
+}
+@media(max-width: 660px){
+    header .navOpcoes .container{
+        width: 100%;
+        justify-content: center;
+    }
+}
+@media(max-width: 540px){
+    header .navOpcoes .container a{
+        font-size: 16px;
+    }
+}
+@media(max-width: 495px){
+    header .navOpcoes .container a{
+        padding: 19px 15px;
+    }
+    .textoAAssociacao{
+        display: none;
+    }
+    .textoNos{
+        display: inline;
+    }
+}
+@media(max-width: 380px){
+    header .navOpcoes .container a{
+        padding: 19px 15px;
+    }
+    .textoAAssociacao{
+        display: none;
+    }
+    .textoNos{
+        display: none;
+    }
+}
+@media(max-width: 345px){
+    header .navOpcoes .container a{
+        padding: 19px 13px;
+    }
+}
+@media(max-width: 330px){
+    header .navOpcoes .container a{
+        padding: 19px 12px;
+    }
+}
+@media(max-width: 320px){
+    header .navOpcoes .container a{
+        padding: 19px 11px;
+    }
+}

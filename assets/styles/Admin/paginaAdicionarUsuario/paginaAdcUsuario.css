@@ -1,0 +1,276 @@
+body{
+   background: url('../../../imagensSite/fundoForms.jpg');
+    background-attachment: fixed;
+    background-repeat: no-repeat;   
+    background-size: cover;
+}
+.sectionFormCadastroUsuario{
+    padding: 20px 0!important;
+}
+fieldset{
+    width: 70%;
+    margin: 0px auto;
+    font-family: 'Roboto', sans-serif;
+    color: rgb(194, 194, 194);
+    padding-bottom: 50px;
+}
+fieldset legend{
+    text-align:center;
+    font-size: 30px;
+}
+fieldset .divBtnVoltar .btnVoltarPagIniAdmin {
+    margin-left:15px;
+    margin-bottom: 10px;
+    border: 1px solid white;
+    border-radius: 5px;
+    padding: 5px 5px;
+    text-decoration: none;
+    color: white;
+    display: flex;
+    align-items: center;
+    width: 73px;
+    transition: 400ms all;
+}
+fieldset .btnVoltarPagIniAdmin:hover{
+    transform: scale(1.05);
+}
+fieldset .btnVoltarPagIniAdmin i{
+    transform: rotate(180deg);
+    margin-right: 5px;
+}
+fieldset .container{
+    width: 464px;
+}
+fieldset .container form{
+    display: flex;
+    flex-direction: column;
+}
+fieldset .container form .divLabelEInput{
+    display: flex;
+    margin-bottom: 18px;
+    flex-direction: column;
+}
+fieldset .container form .divLabelEInput label{
+    font-size: 18px;
+    margin-bottom: 2px;
+}
+fieldset .container form .divLabelEInput .inputForm{
+    color: rgb(46, 46, 46);
+    width: 460px!important;
+    height: 40px;
+    border-radius: 5px;
+    border:none;
+    font-size: 19px;
+    outline: 0;
+    background-color:#E8F0FE;
+    font-family: 'Roboto', sans-serif;
+}
+
+/* ------------------------------------------------- */
+fieldset .container form .divLabelEInput .divInputSenha {
+    background-color: #E8F0FE;
+    display: flex;
+    border-radius: 5px;
+}
+fieldset .container form .divLabelEInput .divInputSenha img{
+    transition: 400ms;
+    cursor: pointer;
+    margin-right: 10px!important;
+}
+fieldset .container form .divLabelEInput .divInputSenha img:hover{
+    transform: scale(1.1);
+}
+fieldset .container form .divLabelEInput .divInputSenha input{
+    width: 450px!important;
+}
+
+fieldset .container form button{
+    height: 38px;
+    font-size: 20px;
+    font-family: 'Roboto', sans-serif;
+    background-color: rgb(0, 51, 255);
+    border: none;
+    color: white;
+    border-radius: 5px;
+    border: 1px rgb(196, 196, 196) solid;
+    cursor: pointer;
+    transition: 400ms;
+}
+fieldset .container form button:hover{
+    transform: scale(1.1);
+}
+.erro{
+    background-color: rgba(255, 0, 0, 0.433);
+    border: 1px red solid;
+    margin-bottom: 20px;
+    padding: 10px;
+}
+@media (max-width: 800px){
+    fieldset{
+        width: 85%;
+    }
+}
+@media (max-width: 700px){
+    fieldset{
+        width: 95%;
+    }
+    fieldset .divBtnVoltar{
+        width: 464px;
+        margin: 0 auto;
+        margin-bottom: 20px;
+    }
+    fieldset .divBtnVoltar .btnVoltarPagIniAdmin{
+        margin-left:0px;
+    }
+}
+@media (max-width: 520px){
+    fieldset{
+        margin-top: 10px!important;
+    }
+}
+@media (max-width: 500px){
+    fieldset .divBtnVoltar{
+        width: 444px;
+    }
+    fieldset .container{
+        width: 444px;
+    }
+    fieldset .container form .divLabelEInput .inputForm{
+        width: 440px!important;
+    }
+}
+@media (max-width: 480px){
+    fieldset .divBtnVoltar{
+        width: 424px;
+    }
+    fieldset .container{
+        width: 424px;
+    }
+    fieldset .container form .divLabelEInput .inputForm{
+        width: 420px!important;
+    }
+}
+@media (max-width: 460px){
+    fieldset .divBtnVoltar{
+        width: 404px;
+    }
+    fieldset .container{
+        width: 404px;
+    }
+    fieldset .container form .divLabelEInput .inputForm{
+        width: 400px!important;
+    }
+}
+@media (max-width: 440px){
+    fieldset .divBtnVoltar{
+        width: 374px;
+    }
+    fieldset .container{
+        width: 374px;
+    }
+    fieldset .container form .divLabelEInput .inputForm{
+        width: 370px!important;
+    }
+}
+@media (max-width: 400px){
+    fieldset{
+        height: 538px;
+    }
+    fieldset .divBtnVoltar{
+        width: 354px;
+        margin-top: 10px;
+    }
+    fieldset .container{
+        width: 354px;
+    }
+    fieldset .container form .divLabelEInput .inputForm{
+        width: 350px!important;
+    }
+}
+@media (max-width: 380px){
+    fieldset .divBtnVoltar{
+        width: 324px;
+    }
+    fieldset .container{
+        width: 324px;
+    }
+    fieldset .container form .divLabelEInput .inputForm{
+        width: 320px!important;
+    }
+}
+@media (max-width: 350px){
+    fieldset .divBtnVoltar{
+        width: 304px;
+    }
+    fieldset .container{
+        width: 304px;
+    }
+    fieldset .container form .divLabelEInput .inputForm{
+        width: 300px!important;
+    }
+}
+@media (max-width: 330px){
+    fieldset .divBtnVoltar{
+        width: 284px;
+    }
+    fieldset .container{
+        width: 284px;
+    }
+    fieldset .container form .divLabelEInput .inputForm{
+        width: 280px!important;
+    }
+}
+@media (max-width: 320px){
+    fieldset legend{
+        text-align:center;
+        font-size: 25px;
+    }
+    fieldset .container form .divLabelEInput .divInputSenha input{
+        width: 250px!important;
+    }
+    fieldset .container form .divLabelEInput .divInputSenha img{
+        margin-right: 0px!important;
+    }
+}
+@media (max-width: 310px){
+    fieldset .divBtnVoltar{
+        width: 264px;
+    }
+    fieldset .container{
+        width: 264px;
+    }
+    fieldset .container form .divLabelEInput .inputForm{
+        width: 260px!important;
+    }
+    fieldset .container form .divLabelEInput .divInputSenha input{
+        width: 233px!important;
+    }
+}
+@media (max-width: 290px){
+    fieldset .divBtnVoltar{
+        width: 254px;
+    }
+    fieldset .container{
+        width: 254px;
+    }
+    fieldset .container form .divLabelEInput .inputForm{
+        width: 250px!important;
+    }
+    fieldset .container form .divLabelEInput .divInputSenha input{
+        width: 223px!important;
+    }
+}
+@media (max-width: 280px){
+    fieldset .divBtnVoltar{
+        width: 244px;
+    }
+    fieldset .container{
+        width: 244px;
+    }
+    fieldset .container form .divLabelEInput .inputForm{
+        width: 240px!important;
+    }
+    fieldset .container form .divLabelEInput .divInputSenha input{
+        width: 213px!important;
+    }
+}
