@@ -6,7 +6,7 @@
 
     require_once "vendor/autoload.php";
 
-    require_once "../credenciais-banco.php";
+    require_once __DIR__."/../credenciais-banco.php";
 
     class EntityManagerCreator
     {

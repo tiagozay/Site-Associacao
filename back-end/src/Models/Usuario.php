@@ -19,7 +19,7 @@
         #[Column(length: 260, unique: true)]
         private string $email;
 
-        #[Column()]
+        #[Column(length: 20)]
         private string $nivel;
 
         #[Column(length: 255)]
