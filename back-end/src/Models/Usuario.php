@@ -1,13 +1,28 @@
 <?php
     namespace APBPDN\Models;
 
+    use Doctrine\ORM\Mapping\Column;
     use DomainException;
+    use Doctrine\ORM\Mapping\Entity;
+    use Doctrine\ORM\Mapping\GeneratedValue;
+    use Doctrine\ORM\Mapping\Id;
 
+    #[Entity]
     class Usuario
     {
+        #[Column, Id, GeneratedValue]
+        public int $id;
+
+        #[Column(length: 80)]
         private string $nome;
+
+        #[Column(length: 260, unique: true)]
         private string $email;
+
+        #[Column()]
         private string $nivel;
+
+        #[Column(length: 255)]
         private string $senha;
 
         /** @throws \DomainException */
