@@ -8,13 +8,19 @@
     use Doctrine\ORM\Mapping\GeneratedValue;
     use Doctrine\ORM\Mapping\Id;
 
+    #[Entity]
     class Integrante
     {
         #[Column, Id, GeneratedValue]
         public int $id;
 
+        #[Column(length: 90)]
         private string $nome;
+
+        #[Column(length: 25)]
         private string $cargo;
+
+        #[Column(length: 50)]
         private string $nomeImagem;
 
 
