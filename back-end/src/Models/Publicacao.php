@@ -1,36 +1,62 @@
 <?php
     namespace APBPDN\Models;
 
-use APBPDN\Helpers\EntityManagerCreator;
-use APBPDN\Services\ImagemService;
+    use APBPDN\Helpers\EntityManagerCreator;
+    use APBPDN\Services\ImagemService;
     use DateTime;
+    use Doctrine\Common\Collections\ArrayCollection;
     use Doctrine\Common\Collections\Collection;
     use Doctrine\ORM\Mapping\Column;
     use DomainException;
     use Doctrine\ORM\Mapping\Entity;
     use Doctrine\ORM\Mapping\GeneratedValue;
     use Doctrine\ORM\Mapping\Id;
+    use Doctrine\ORM\Mapping\OneToMany;
 
+    #[Entity()]
     class Publicacao
     {
+        #[Id(), GeneratedValue(), Column()]
         public int $id;
+
+        #[Column()]
         private string $titulo;
 
-        #[Column(name: 'dataRegistro')]
+        #[Column(name: 'dataRegistro', type:'date')]
         private DateTime $data;
 
+        #[Column()]
         private string $texto;
+
+        #[Column(length:50)]
         private string $capa;
+
+        #[Column()]
         public bool $permitirCurtidas;
+
+        #[Column()]
         public bool $permitirComentarios;
+
+        #[OneToMany(mappedBy: 'publicacao', targetEntity: ImagemPublicacao::class, cascade:['persist', 'remove'])]
         private Collection $imagens;
+
+        #[OneToMany(mappedBy: 'publicacao', targetEntity: VideoPublicacao::class, cascade:['persist', 'remove'])]
         private Collection $videos;
+
+        #[OneToMany(mappedBy: 'publicacao', targetEntity: Comentario::class, cascade:['persist', 'remove'])]
         private Collection $comentarios;
+
+        #[OneToMany(mappedBy: 'publicacao', targetEntity: Curtida::class, cascade:['persist', 'remove'])]
         private Collection $curtidas;
 
         /** @throws DomainException */
         public function __construct(string $titulo, DateTime $data, string $texto, array $capa, array $imagens, array $urlsVideos, bool $permitirCurtidas, bool $permitirComentarios)
         {
+            $this->imagens = new ArrayCollection();
+            $this->videos = new ArrayCollection();
+            $this->comentarios = new ArrayCollection();
+            $this->curtidas = new ArrayCollection();
+
             $this->setTitulo($titulo);
             $this->setData($data);
             $this->setTexto($texto);
@@ -82,15 +108,7 @@ use APBPDN\Services\ImagemService;
         {
             if($this->verificaSeUsuarioJaCurtiu($usuario)){
 
-                $curtida = $this->buscaCurtidaDeUsuario($usuario);
-
-                $entityManager = EntityManagerCreator::create();
-
-                $entityManager->remove($curtida);
-
-                $this->removerCurtida($curtida);
-
-                $entityManager->flush();
+                $this->descurtir($usuario);
 
                 return;
             }
@@ -202,33 +220,24 @@ use APBPDN\Services\ImagemService;
             $this->curtidas->add($curtida);
         }
 
-        public function removerComentario(Comentario $comentario): void
+        public function excluirComentario(Comentario $comentario): void
         {
-            $chaveComentario = $this->buscaChaveComentario($comentario);
+            $entityManager = EntityManagerCreator::create();
 
-            $this->comentarios->remove($chaveComentario);
+            $entityManager->remove($comentario);
 
+            $entityManager->flush();
         }
 
-        public function removerCurtida(Curtida $curtida): void
+        private function descurtir(Usuario $usuario): void
         {
-            $chaveCurtida = $this->buscaChaveCurtida($curtida);
+            $curtida = $this->buscaCurtidaDeUsuario($usuario);
 
-            $this->curtidas->remove($chaveCurtida);
-        }
+            $entityManager = EntityManagerCreator::create();
 
-        public function removerVideo(VideoPublicacao $video)
-        {
-            $chaveVideo = $this->buscaChaveVideo($video);
+            $entityManager->remove($curtida);
 
-            $this->videos->remove($chaveVideo);
-        }
-
-        public function removerImagem(ImagemPublicacao $imagem)
-        {
-            $chaveImagem = $this->buscaChaveImagem($imagem);
-
-            $this->imagens->remove($chaveImagem);
+            $entityManager->flush();
         }
 
         private function buscaChaveComentario(Comentario $comentario): ?int
