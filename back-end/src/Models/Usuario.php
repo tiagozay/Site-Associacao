@@ -1,7 +1,8 @@
 <?php
     namespace APBPDN\Models;
 
-    use Doctrine\Common\Collections\ArrayCollection;
+use APBPDN\Models\Operacoes\Operacao;
+use Doctrine\Common\Collections\ArrayCollection;
     use Doctrine\Common\Collections\Collection;
     use Doctrine\ORM\Mapping\Column;
     use DomainException;
@@ -9,6 +10,7 @@
     use Doctrine\ORM\Mapping\GeneratedValue;
     use Doctrine\ORM\Mapping\Id;
     use Doctrine\ORM\Mapping\OneToMany;
+use Doctrine\ORM\Mapping\OneToOne;
 
     #[Entity]
     class Usuario
@@ -27,6 +29,9 @@
 
         #[Column(length: 255)]
         private string $senha;
+
+        #[OneToMany(mappedBy: 'usuario', targetEntity: Operacao::class, cascade:['persist', 'remove'])]
+        private Collection $operacoes;
 
         /** @throws \DomainException */
         public function __construct(string $nome, string $email, string $nivel, string $senha, string $confSenha)
@@ -95,6 +100,11 @@
             if(strlen($senha) < 8)  throw new DomainException("senha_curta");
 
             $this->senha = Usuario::criptografarSenha($senha);
+        }
+
+        public function setOperacao(Operacao $operacao): void
+        {
+            $this->operacoes->add($operacao);
         }
 
         public function getNome(): string
