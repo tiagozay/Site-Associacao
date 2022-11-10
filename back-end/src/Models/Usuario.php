@@ -28,12 +28,6 @@
         #[Column(length: 255)]
         private string $senha;
 
-        #[OneToMany(mappedBy:'usuario', targetEntity:Comentario::class, cascade:['persist', 'remove'])]
-        private Collection $comentarios;
-
-        #[OneToMany(mappedBy:'usuario', targetEntity:Curtida::class, cascade:['persist', 'remove'])]
-        private Collection $curtidas;
-
         /** @throws \DomainException */
         public function __construct(string $nome, string $email, string $nivel, string $senha, string $confSenha)
         {
@@ -41,8 +35,6 @@
             $this->setEmail($email);
             $this->setNivel($nivel);
             $this->setSenha($senha, $confSenha);
-            $this->comentarios = new ArrayCollection();
-            $this->curtidas = new ArrayCollection();
         }
 
 
@@ -133,16 +125,6 @@
         public function removerDeAdmin(): void
         {
             $this->nivel = 'usuario';
-        }
-
-        public function setComentario(Comentario $comentario): void
-        {
-            $this->comentarios->add($comentario);
-        }
-
-        public function setCurtida(Curtida $curtida): void
-        {
-            $this->curtidas->add($curtida);
         }
 
         public static function criptografarSenha(string $senha): string

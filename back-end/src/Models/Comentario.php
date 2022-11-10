@@ -33,8 +33,6 @@
             $this->publicacao = $publicacao;
             $this->usuario = $usuario;
 
-            $usuario->setComentario($this);
-
             $this->comentario = $comentario;
             
         }

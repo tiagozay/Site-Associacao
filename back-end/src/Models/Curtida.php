@@ -25,8 +25,6 @@
         {
             $this->publicacao = $publicacao;
             $this->usuario = $usuario;
-
-            $usuario->setCurtida($this);
         }
 
         public function getPublicacao(): Publicacao
