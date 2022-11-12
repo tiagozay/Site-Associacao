@@ -4,7 +4,7 @@
     use Doctrine\ORM\EntityManager;
     use Doctrine\ORM\ORMSetup;
 
-    require_once "vendor/autoload.php";
+    require_once __DIR__."/../../vendor/autoload.php";
 
     require_once __DIR__."/../credenciais-banco.php";
 

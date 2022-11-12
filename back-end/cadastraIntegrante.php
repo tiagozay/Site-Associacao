@@ -1,17 +1,55 @@
 <?php
 
+    use APBPDN\Helpers\EntityManagerCreator;
     use APBPDN\Models\Integrante;
 
     require_once 'vendor/autoload.php';
 
-    $nome = $_POST['nome'];
-    $cargo = $_POST['cargo'];
-    $imagem = $_FILES['imagem'];
+    session_start();
 
-    echo json_encode($imagem);
-    exit();
+    $_SESSION['nivel'] = 'admin';
 
-    // $integrante = new Integrante($nome, $cargo, $imagem);
+    if($_SESSION['nivel'] != 'admin'){
+        header('HTTP/1.1 403 Forbidden');
+        echo "Acesso negado!";
+        exit();
+    }
 
-    // echo json_encode($integrante->toArray());
+    try{
+        $nome =  isset($_POST['nome']) ? $_POST['nome'] : throw new Exception('Campo nome não informado');
+        $cargo = isset($_POST['cargo']) ? $_POST['cargo'] : throw new Exception('Campo cargo não informado');
+        $imagem = isset($_FILES['imagem']) ? $_FILES['imagem'] : throw new Exception('Campo imagem não informado');
+    }catch( Exception $e){
+        header('HTTP/1.1 500 Internal Server Error');
+        echo $e->getMessage();
+        exit();
+    }
+
+    //Instância e validação das regras de negócio
+    try{
+        $integrante = new Integrante($nome, $cargo, $imagem);
+    }catch(DomainException $e){
+        header('HTTP/1.1 500 Internal Server Error');
+        echo $e->getMessage();
+        exit();
+    }
+
+    try{
+
+        $integrante->salvarImagem();
+
+        $entityManeger = EntityManagerCreator::create();
+
+        $entityManeger->persist($integrante);
+    
+        $entityManeger->flush();
+
+        header('HTTP/1.1 200 OK');
+
+    }catch(Exception){
+        header('HTTP/1.1 500 Internal Server Error');
+        echo "Erro inesperado";
+    }
+
+
 ?>

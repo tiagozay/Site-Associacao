@@ -1,5 +1,7 @@
 body{
-    background: url('../../../imagensSite/fundoForms.jpg');
+    /* background: url('../../../imagensSite/fundoForms.jpg'); */
+    /* background-color: rgb(150, 150, 150); */
+    background: url('../../../imagensSite/fundoTextura.jpg');
     background-attachment: fixed;
     background-repeat: no-repeat;   
     background-size: cover;
@@ -7,6 +9,9 @@ body{
 .sectionIntegrantes{
     width: 100%;
     padding: 20px 0;
+    box-sizing: border-box;
+    background-color: rgba(0, 0, 0, 0.697);
+    min-height: 100vh;
 }
 .section100DeAltura{
     height: 100vh;
@@ -15,7 +20,7 @@ fieldset{
     width: 932px;
     padding-bottom: 40px;
     margin: 0px auto;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     color: rgb(194, 194, 194);
 }
 fieldset legend{
@@ -60,24 +65,31 @@ fieldset .container form .divLabelEInput{
 }
 fieldset .container form .divLabelEInput label{
     font-size: 18px;
-    margin-bottom: 2px;
+    margin-bottom: 5px;
+
 }
 fieldset .container form .divLabelEInput .inputForm{
     color: rgb(46, 46, 46);
     width: 460px!important;
-    height: 40px;
+    height: 37px;
     border-radius: 5px;
     border:none;
-    font-size: 19px;
+    font-size: 18px;
+    padding-left: 5px;
     outline: 0;
-    background-color:#E8F0FE;
-    font-family: 'Roboto', sans-serif;
+    background-color:#dfdfdf;
+    font-family: 'Montserrat', sans-serif;
+}
+.error{
+    margin-top: 5px;
+    color: rgb(176, 0, 0);
+
 }
 .inputPerfil{
     font-size: 19px;
     outline: 0;
     color: rgb(204, 204, 204);
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     background-color: transparent;
     border-radius: 0;
     margin: 0px auto;
@@ -87,18 +99,35 @@ fieldset .container form .divLabelEInput .inputForm{
 }
 fieldset .container form button{
     height: 38px;
-    font-size: 20px;
-    font-family: 'Roboto', sans-serif;
-    background-color: rgb(0, 51, 255);
+    font-size: 19px;
+    font-family: 'Montserrat', sans-serif;
+    background-color: rgb(0, 38, 190);
     border: none;
     color: white;
     border-radius: 5px;
     border: 1px rgb(196, 196, 196) solid;
     cursor: pointer;
-    transition: 400ms;
+    transition: 200ms;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 fieldset .container form button:hover{
-    transform: scale(1.1);
+    background-color: rgb(0, 30, 148);
+}
+#loaderCadastrarIntegrante{
+    border: 3px solid #f3f3f3; /* Light grey */
+    border-top: 3px solid #00233b; /* Blue */
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    animation: spin 700ms linear infinite;
+    margin-left: 10px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }
 fieldset .divListaIntegrantes{
     margin: 30px auto;

@@ -23,6 +23,9 @@ body{
 .textoDesenvolvido a{
     color: rgb(169, 169, 169);
 }
+.display-none{
+    display: none;
+}
 @media (max-width: 430px){
     .rodape{
         font-size: 12px;

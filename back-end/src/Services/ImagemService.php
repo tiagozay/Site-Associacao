@@ -13,13 +13,25 @@ use DomainException;
             $extensaoImagem = pathinfo($imagem['name'], PATHINFO_EXTENSION);
 
             if(
-                $extensaoImagem != 'jpg' &&
-                $extensaoImagem != 'jpeg' &&
-                $extensaoImagem != 'png' &&
-                $extensaoImagem != 'svg' &&
-                $extensaoImagem != 'pdf' &&
                 $extensaoImagem != 'tiff' &&
-                $extensaoImagem != 'eps'
+                $extensaoImagem != 'jfif' &&
+                $extensaoImagem != 'bmp' &&
+                $extensaoImagem != 'pjp' &&
+                $extensaoImagem != 'apng' &&
+                $extensaoImagem != 'gif' &&
+                $extensaoImagem != 'svg' &&
+                $extensaoImagem != 'png' &&
+                $extensaoImagem != 'xbm' &&
+                $extensaoImagem != 'dib' &&
+                $extensaoImagem != 'jxl' &&
+                $extensaoImagem != 'jpeg' &&
+                $extensaoImagem != 'svgz' &&
+                $extensaoImagem != 'jpg' &&
+                $extensaoImagem != 'webp' &&
+                $extensaoImagem != 'ico' &&
+                $extensaoImagem != 'tif' &&
+                $extensaoImagem != 'pjpeg' &&
+                $extensaoImagem != 'avif'
             ) throw new DomainException("arquivo_invalido");
 
             $tamanhoDaImagemEmMB = $imagem['size'] / 1000 / 1000;
@@ -64,7 +76,7 @@ use DomainException;
             unlink($caminhoImagem);
         }
 
-        public static function imagemNaoInformada($imagem): bool
+        public static function imagemNaoInformada(array $imagem): bool
         {
             return $imagem['error'] == 4;
         }

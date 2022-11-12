@@ -23,6 +23,8 @@
         #[Column(length: 50)]
         private string $nomeImagem;
 
+        private $imagemTemporaria;
+
 
         /** @throws DomainException */
         public function __construct(string $nome, string $cargo, array $imagem)
@@ -66,9 +68,17 @@
 
             $imagem['name'] = $novoNomeImagem;
 
-            ImagemService::salvaImagemNoDiretorio(imagem: $imagem, diretório: "assets/imagens_dinamicas/imagens_integrantes/");
+            $this->imagemTemporaria = $imagem;
 
             $this->nomeImagem = $novoNomeImagem;
+        }
+
+        public function salvarImagem(): void
+        {
+            ImagemService::salvaImagemNoDiretorio(
+                imagem: $this->imagemTemporaria, 
+                diretório: "assets/imagens_dinamicas/imagens_integrantes/"
+            );
         }
 
         public function getNome(): string
