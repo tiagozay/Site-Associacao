@@ -1,0 +1,35 @@
+.mensagemLateralDaTela{
+    background-color: rgba(0, 0, 0, 0.864);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 12px;
+    z-index: 20;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    position: fixed;
+    bottom: 10%;
+    left: 2%;
+    border: 1px white solid;
+    border-radius: 5px;
+    font-size: 18px;
+    -webkit-animation: scale-in 0.3s cubic-bezier(0.250, 0.460, 0.450, 0.940);
+    animation: scale-in 0.3s cubic-bezier(0.250, 0.460, 0.450, 0.940);
+
+}
+.mensagemLateralDaTela button{
+    background-color: transparent;
+    color: white;
+    padding: 0;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    margin-left: 10px;
+    font-size: 25px;
+    font-weight: 500;
+}
+.fade-out-1000{
+    opacity:  0;
+    transition: 1000ms;
+}
+

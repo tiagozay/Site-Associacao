@@ -89,7 +89,7 @@
     <script src="JavaScript/modal.js"></script>
 
     <script src="JavaScript/Services/HttpService.js"></script>
-    <script src="JavaScript/Services/MensagemLateral.js"></script>
+    <script src="JavaScript/Services/MensagemLateralService.js"></script>
     <script>
 
         const formulario = document.querySelector("#formulario");
@@ -117,11 +117,11 @@
 
                 loader.classList.add("display-none");
 
-                new MensagemLateral("Integrante cadastrado com sucesso!");
+                new MensagemLateralService("Integrante cadastrado com sucesso!");
 
             })
             .catch( msg => {
-                new MensagemLateral("Erro ao cadastrar integrante");
+                new MensagemLateralService("Erro ao cadastrar integrante");
             })
     
         }
