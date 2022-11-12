@@ -104,11 +104,11 @@
                 return;
             }
 
+            const httpService = new HttpService();
+
             let loader = document.querySelector("#loaderCadastrarIntegrante");
 
             loader.classList.remove("display-none");
-
-            const httpService = new HttpService();
 
             httpService.postFormulario(formulario, 'back-end/cadastraIntegrante.php')
             .then( resposta => resposta.text() )
@@ -121,6 +121,8 @@
 
             })
             .catch( msg => {
+                loader.classList.add("display-none");
+
                 new MensagemLateralService("Erro ao cadastrar integrante");
             })
     

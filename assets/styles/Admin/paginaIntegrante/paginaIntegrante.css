@@ -14,7 +14,7 @@ body{
     min-height: 100vh;
 }
 .section100DeAltura{
-    height: 100vh;
+    min-height: 100vh;
 }
 fieldset{
     width: 932px;
@@ -83,7 +83,6 @@ fieldset .container form .divLabelEInput .inputForm{
 .error{
     margin-top: 5px;
     color: rgb(176, 0, 0);
-
 }
 .inputPerfil{
     font-size: 19px;
