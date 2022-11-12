@@ -1,6 +1,8 @@
 <?php
     session_start();
 
+    $_SESSION['nivel'] = 'admin';
+
     if($_SESSION['nivel'] != 'admin'){
         header("Location: index.php");
         exit();
@@ -40,13 +42,13 @@
                         <div class="divLabelEInput">
                             <label for="nome">Nome:</label>
                             <input type="text" id="nome" name="nome" class="inputForm" >
-                            <span class="error display-none" id='msgErro-nome'></span>
+                            <span class="eror display-none" id='msgErro-nome'></span>
                         </div>
 
                         <div class="divLabelEInput">
                             <label for="nome">Email:</label>
                             <input type="email" id="email" name="email" class="inputForm">
-                            <span class="error display-none" id='msgErro-email'></span>
+                            <span class="eror display-none" id='msgErro-email'></span>
                         </div>
 
                         <div class="divLabelEInput">
@@ -55,7 +57,7 @@
                                 <option value="usuario">Usuário</option>
                                 <option value="admin">Administrador</option>
                             </select>
-                            <span class="error display-none" id='msgErro-nivel'></span>
+                            <span class="eror display-none" id='msgErro-nivel'></span>
                         </div>
 
                         <div class="divLabelEInput">
@@ -64,7 +66,7 @@
                                 <input type="password" id="inputSenha" name="senha" data-pagina='admin' class="inputForm" >
                                 <img src="assets/icons/eyePagAdmin.svg"  onclick="exibirOuOcultarSenha('inputSenha')" alt="">
                             </div>
-                            <span class="error display-none" id='msgErro-senha'></span>
+                            <span class="eror display-none" id='msgErro-senha'></span>
                         
                         </div>
 
@@ -74,7 +76,7 @@
                                 <input type="password" id="inputCSenha" name="confSenha" data-pagina='admin' class="inputForm" >
                                 <img src="assets/icons/eyePagAdmin.svg" class="img" onclick="exibirOuOcultarSenha('inputCSenha')">
                             </div>
-                            <span class="error display-none" id='msgErro-confSenha'></span>
+                            <span class="eror display-none" id='msgErro-confSenha'></span>
                         </div>
 
                         <button type="submit">
@@ -115,7 +117,7 @@
 
             loader.classList.remove("display-none");
 
-            httpService.postFormulario(formulario, 'back-end/cadastraUsuario.php')
+            httpService.postFormulario(formulario, 'back-end/cadastraUsuarioAdmin.php')
             .then( resposta => {
                 new MensagemLateralService("Usuário cadastrado com sucesso!");
 
@@ -130,9 +132,8 @@
                 if(resposta.message == 'usuario_ja_cadastrado'){
                     abrirMensagemDeErroDoInput(formulario.email, "Este e-mail já foi cadastrado.");
                 }else{
-                    fecharMensagemDeErroDoInput(campoNome);
+                    fecharMensagemDeErroDoInput(formulario.email);
                 }
-                console.log(resposta);
             } )
 
         }

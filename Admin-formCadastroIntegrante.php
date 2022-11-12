@@ -53,7 +53,7 @@
                     <div class="divLabelEInput">
                         <label for="nome">Nome:</label>
                         <input type="text" id="nome" name="nome" class="inputForm">
-                        <span class="error display-none" id='msgErro-nome'></span>
+                        <span class="eror display-none" id='msgErro-nome'></span>
                     </div>
                 
                     <div class="divLabelEInput">
@@ -68,13 +68,13 @@
                             <option value="2º Tesoureiro(a)">2º Tesoureiro(a)</option>
                             <option value="Integrante">Integrante</option>
                         </select>
-                        <span class="error display-none" id='msgErro-cargo'></span>
+                        <span class="eror display-none" id='msgErro-cargo'></span>
                     </div>
 
                     <div class="divLabelEInput">
                         <label for="perfil">Perfil:</label>
                         <input type="file" name="imagem" id="perfil" class="inputPerfil" accept="image/*">
-                        <span class="error display-none" id='msgErro-imagem'></span>
+                        <span class="eror display-none" id='msgErro-imagem'></span>
                     </div> 
         
                     <button type="submit">
