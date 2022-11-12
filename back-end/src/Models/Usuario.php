@@ -95,9 +95,9 @@ use Doctrine\ORM\Mapping\OneToOne;
             if(strlen($senha) > 200) throw new DomainException("senha_invalida");
             if(strlen($confSenha) > 200) throw new DomainException("senha_invalida");
 
-            if($senha != $confSenha) throw new DomainException("senhas_nao_coincidem");
-
             if(strlen($senha) < 8)  throw new DomainException("senha_curta");
+
+            if($senha != $confSenha) throw new DomainException("senhas_nao_coincidem");
 
             $this->senha = Usuario::criptografarSenha($senha);
         }
