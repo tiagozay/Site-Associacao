@@ -24,7 +24,7 @@ body{
 .divSeletorLoginOuCadastro button{
     border: none;
     font-size: 20px;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     color: white;
     background-color: transparent;
     width: 150px!important;
@@ -35,7 +35,7 @@ body{
     height: 50px;
 }
 form{
-    margin-top: 20px;
+    margin-top: 15px;
     display: none;
     flex-direction: column;
     padding-top: 45px!important;
@@ -51,8 +51,8 @@ form{
     background-color: transparent;
     color: white!important;
     outline: 0;
-    font-size: 20px;
-    font-family: 'Roboto', sans-serif;
+    font-size: 19px;
+    font-family: 'Montserrat', sans-serif;
 }
 .inputPadrao::placeholder{  
     color: rgb(209, 209, 209);
@@ -69,8 +69,8 @@ form{
     background-color: transparent;
     color: white;
     outline: 0;
-    font-size: 20px;
-    font-family: 'Roboto', sans-serif;
+    font-size: 19px;
+    font-family: 'Montserrat', sans-serif;
 }
 .inputSenha::placeholder{  
     color:  rgb(209, 209, 209);
@@ -105,7 +105,7 @@ form{
 .divEsqueciASenhaEBtn a{
     text-decoration: none;
     font-size: 18px;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     color:  rgb(209, 209, 209);
 }
 .btnEnviarCadastro{
@@ -114,13 +114,33 @@ form{
     border-radius: 5px;
     background-color: rgb(48, 48, 148);
     color: white;
-    padding: 10px;
-    transition: 400ms;
+    padding: 8px;
+    font-size: 14px;
+    transition: 200ms;
     cursor: pointer;
     margin-bottom: 20px;
+    font-family: 'Montserrat', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
 }
 .btnEnviarCadastro:hover{
-    transform: scale(1.1);
+    background-color: rgb(27, 27, 125);
+
+}
+#loaderCadastrar{
+    border: 2px solid #f3f3f3; /* Light grey */
+    border-top: 2px solid #00233b; /* Blue */
+    border-radius: 50%;
+    width: 16px;
+    height: 16px;
+    animation: spin 700ms linear infinite;
+    margin-left: 10px;
+}
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }
 .especamentoInputs{
     margin-top: 30px;
@@ -135,25 +155,13 @@ form{
     height: 50px;
     border-bottom: 3px white solid!important ;
 }
-.erro{
-    border: 1px red solid;
-    color: white;
-    background-color: rgba(255, 0, 0, 0.2);
-    padding: 10px 10px;
-    margin: 0;
-    font-family: 'Roboto', sans-serif;
+.eror{
+    margin-top: 5px;
+    color: rgb(217, 0, 0);
+    font-family: 'Montserrat', sans-serif;
+
 }
-.sucesso{
-    border: 1px rgb(13, 255, 0) solid;
-    color: white;
-    background-color: rgba(32, 238, 5, 0.46);
-    padding: 10px 10px;
-    margin: 0;
-    font-family: 'Roboto', sans-serif;
-}
-.linkErro{
-    text-decoration: underline;
-}
+
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
