@@ -31,7 +31,12 @@
 
         public static function buscaQuantidadeDeTentativasUsuario(Usuario $usuario): int 
         {
-            $pdo = new \PDO('mysql:host=localhost;dbname=apbpdn_2', 'root', 'cachorroquente123');
+            $host = HOST;
+            $db_name = DB_NAME;
+            $user = USER;
+            $password = PASSWORD;
+
+            $pdo = new \PDO("mysql:host=$host;dbname=$db_name", "$user", "$password");
 
             $timezone = new \DateTimeZone('America/Sao_Paulo');
             $agora = new \DateTime('now', $timezone);
@@ -61,7 +66,12 @@
 
         public static function adicionaTentativaDeUsuario(Usuario $usuario)
         {
-            $pdo = new \PDO('mysql:host=localhost;dbname=apbpdn_2', 'root', 'cachorroquente123');
+            $host = HOST;
+            $db_name = DB_NAME;
+            $user = USER;
+            $password = PASSWORD;
+
+            $pdo = new \PDO("mysql:host=$host;dbname=$db_name", "$user", "$password");
 
             $timezone = new \DateTimeZone('America/Sao_Paulo');
             $agora = new \DateTime('now', $timezone);
