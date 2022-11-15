@@ -34,9 +34,11 @@
         exit();
     }
 
+    echo $integrante->salvarImagem();
+
     try{
 
-        $integrante->salvarImagem();
+        
 
         $entityManeger = EntityManagerCreator::create();
 
