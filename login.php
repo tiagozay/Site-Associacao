@@ -77,7 +77,7 @@
     <script src="JavaScript/exibirOuOcultarSenhaInput.js"></script>
     <script src="JavaScript/Services/HttpService.js"></script>
     <script src="JavaScript/Services/MensagemLateralService.js"></script>
-    <script src="JavaScript/cadastroCliente.js"></script>
+    <script src="JavaScript/cadastroUsuario.js"></script>
 
 
     <script>
