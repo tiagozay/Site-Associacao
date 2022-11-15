@@ -113,9 +113,6 @@
             httpService.postFormulario(formulario, 'back-end/cadastraIntegrante.php')
             .then( resposta => resposta.text() )
             .then(resposta => {
-
-                console.log("Then: "+resposta);
-
                 formulario.reset();
 
                 loader.classList.add("display-none");
@@ -124,8 +121,6 @@
 
             })
             .catch( msg => {
-                console.log("Catch: "+msg);
-
                 loader.classList.add("display-none");
 
                 new MensagemLateralService("Erro ao cadastrar integrante");

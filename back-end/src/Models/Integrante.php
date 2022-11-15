@@ -73,9 +73,9 @@
             $this->nomeImagem = $novoNomeImagem;
         }
 
-        public function salvarImagem()
+        public function salvarImagem(): void
         {
-            return ImagemService::salvaImagemNoDiretorio(
+            ImagemService::salvaImagemNoDiretorio(
                 imagem: $this->imagemTemporaria, 
                 diretorio: __DIR__."\..\..\..\assets\imagens_dinamicas\imagens_integrantes\\"
             );

@@ -1,8 +1,8 @@
 <?php
     namespace APBPDN\Services;
 
-use Doctrine\DBAL\Types\SimpleArrayType;
-use DomainException;
+    use Doctrine\DBAL\Types\SimpleArrayType;
+    use DomainException;
 
     class ImagemService
     {
@@ -63,11 +63,11 @@ use DomainException;
             return $imagens;
         }
 
-        public static function salvaImagemNoDiretorio(array $imagem, string $diretorio)
+        public static function salvaImagemNoDiretorio(array $imagem, string $diretorio): void
         {
             $diretorio = str_replace(['/', '\\'], DIRECTORY_SEPARATOR, $diretorio);
 
-            return move_uploaded_file(
+            move_uploaded_file(
                 $imagem['tmp_name'],
                 $diretorio.$imagem['name']
             );
