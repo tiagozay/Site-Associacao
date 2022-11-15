@@ -1,2 +1,4 @@
 back-end/src/credenciais-banco.php
-assets/imagens_dinamicas/
+assets/imagens_dinamicas/capas_publicacoes/*
+assets/imagens_dinamicas/imagens_integrantes/*
+assets/imagens_dinamicas/imagens_publicacoes/*
