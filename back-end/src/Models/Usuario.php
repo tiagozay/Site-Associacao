@@ -48,13 +48,19 @@ use Doctrine\ORM\Mapping\OneToOne;
         {
             $nome = trim($nome);
 
+            Usuario::validaNome($nome);
+
+            $this->nome = $nome;
+        }
+
+        /** @throws \DomainException */
+        public static function validaNome(string $nome)
+        {
             if(empty($nome)) throw new DomainException("campo_vazio");
 
             if(strlen($nome) > 80) throw new DomainException("nome_invalido");
 
             if(strlen($nome) < 3)  throw new DomainException("nome_curto");
-
-            $this->nome = $nome;
         }
 
         /** @throws \DomainException */
@@ -62,13 +68,19 @@ use Doctrine\ORM\Mapping\OneToOne;
         {
             $email = trim($email);
 
+            Usuario::validaEmail($email);
+
+            $this->email = $email;
+        }
+
+        /** @throws \DomainException */
+        public static function validaEmail(string $email)
+        {
             if(empty($email)) throw new DomainException("campo_vazio");
 
             if(strlen($email) > 260) throw new DomainException("email_incorreto");
 
             if(!filter_var($email, FILTER_VALIDATE_EMAIL)) throw new DomainException("email_incorreto");  
-
-            $this->email = $email;
         }
 
         /** @throws \DomainException */
@@ -76,11 +88,17 @@ use Doctrine\ORM\Mapping\OneToOne;
         {
             $nivel = trim($nivel);
 
-            if(empty($nivel)) throw new DomainException("campo_vazio");
-
-            if($nivel != 'admin' && $nivel != 'usuario') throw new DomainException("nivel_invalido");
+            Usuario::validaNivel($nivel);
 
             $this->nivel = $nivel;
+        }
+
+        /** @throws \DomainException */
+        public static function validaNivel(string $nivel)
+        {
+            if(empty($nivel)) throw new DomainException("campo_vazio");
+
+            if($nivel != 'admin' && $nivel != 'usuario') throw new DomainException("nivel_invalido");  
         }
 
         /** @throws \DomainException */
@@ -89,17 +107,22 @@ use Doctrine\ORM\Mapping\OneToOne;
             $senha = trim($senha);
             $confSenha = trim($confSenha);
 
-            if(empty($senha)) throw new DomainException("campo_vazio");
-            if(empty($confSenha)) throw new DomainException("campo_vazio");
-
-            if(strlen($senha) > 200) throw new DomainException("senha_invalida");
-            if(strlen($confSenha) > 200) throw new DomainException("senha_invalida");
-
-            if(strlen($senha) < 8)  throw new DomainException("senha_curta");
+            Usuario::validaSenha($senha);
+            Usuario::validaSenha($confSenha);
 
             if($senha != $confSenha) throw new DomainException("senhas_nao_coincidem");
 
             $this->senha = Usuario::criptografarSenha($senha);
+        }
+
+        /** @throws \DomainException */
+        public static function validaSenha(string $senha)
+        {
+            if(empty($senha)) throw new DomainException("campo_vazio");
+
+            if(strlen($senha) < 8)  throw new DomainException("senha_curta");
+
+            if(strlen($senha) > 200) throw new DomainException("senha_invalida");
         }
 
         public function setOperacao(Operacao $operacao): void
