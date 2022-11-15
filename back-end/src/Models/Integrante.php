@@ -77,7 +77,7 @@
         {
             return ImagemService::salvaImagemNoDiretorio(
                 imagem: $this->imagemTemporaria, 
-                diretório: "assets/imagens_dinamicas/imagens_integrantes/"
+                diretorio: __DIR__."\..\..\..\assets\imagens_dinamicas\imagens_integrantes\\"
             );
         }
 

@@ -63,11 +63,13 @@ use DomainException;
             return $imagens;
         }
 
-        public static function salvaImagemNoDiretorio(array $imagem, string $diretório)
+        public static function salvaImagemNoDiretorio(array $imagem, string $diretorio)
         {
+            $diretorio = str_replace(['/', '\\'], DIRECTORY_SEPARATOR, $diretorio);
+
             return move_uploaded_file(
                 $imagem['tmp_name'],
-                $diretório.$imagem['name']
+                $diretorio.$imagem['name']
             );
         }
 
