@@ -34,7 +34,7 @@
         exit();
     }
 
-    echo json_encode($integrante->salvarImagem());
+    echo $integrante->salvarImagem();
 
     try{
 
