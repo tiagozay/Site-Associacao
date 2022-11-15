@@ -74,11 +74,14 @@ fieldset .container form .divLabelEInput .inputForm{
     height: 37px;
     border-radius: 5px;
     border:none;
+    height: 36px;
     font-size: 18px;
     padding-left: 5px;
     outline: 0;
     background-color:#dfdfdf;
     font-family: 'Montserrat', sans-serif;
+    border: 2px black solid;
+
 }
 .eror{
     margin-top: 5px;

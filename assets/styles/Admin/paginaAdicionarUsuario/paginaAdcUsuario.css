@@ -60,7 +60,7 @@ fieldset .container form .divLabelEInput label{
 fieldset .container form .divLabelEInput .inputForm{
     color: rgb(46, 46, 46);
     width: 460px!important;
-    height: 37px;
+    height: 36px;
     border-radius: 5px;
     padding-left: 5px;
     border:none;
@@ -68,6 +68,7 @@ fieldset .container form .divLabelEInput .inputForm{
     outline: 0;
     background-color:#dfdfdf;
     font-family: 'Montserrat', sans-serif;
+    border: 2px black solid;
 }
 .eror{
     margin-top: 5px;
@@ -79,6 +80,7 @@ fieldset .container form .divLabelEInput .divInputSenha {
     background-color:#dfdfdf;
     display: flex;
     border-radius: 5px;
+    border: 2px black solid;
 }
 fieldset .container form .divLabelEInput .divInputSenha img{
     transition: 400ms;
@@ -90,6 +92,9 @@ fieldset .container form .divLabelEInput .divInputSenha img:hover{
 }
 fieldset .container form .divLabelEInput .divInputSenha input{
     width: 450px!important;
+    border: none;
+    height: 36px;
+
 }
 
 fieldset .container form button{
