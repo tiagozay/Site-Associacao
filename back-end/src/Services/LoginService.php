@@ -28,6 +28,52 @@
             return password_verify($senhaDigitada, $usuario->getSenha());
         }
 
+
+        public static function buscaQuantidadeDeTentativasUsuario(Usuario $usuario): int 
+        {
+            $pdo = new \PDO('mysql:host=localhost;dbname=apbpdn_2', 'root', 'cachorroquente123');
+
+            $timezone = new \DateTimeZone('America/Sao_Paulo');
+            $agora = new \DateTime('now', $timezone);
+            $diaDeHoje = $agora->format("d");
+            $mes = $agora->format('m');
+            $ano = $agora->format('Y');
+            $horario = $agora->format("H:i:s");
+
+
+            //Busca na tabela de tentativas registros de determinado usuário, que sejem do dia, mes e ano (data) atual e que a diferença do horário atual com cada registro seja menor que 15 minutos. Assim, toda tentativa desse usuário nesse dia que tenha menos de 15 minutos do acontecimento será buscado.
+            $stmt = $pdo->prepare("
+                SELECT * FROM tentativas_de_login 
+                WHERE email = :email AND 
+                DAY(dataRegistro) = '$diaDeHoje' AND
+                MONTH(dataRegistro) = $mes AND
+                YEAR(dataRegistro) = $ano AND
+                TIMEDIFF('$horario',TIME(dataRegistro)) < '00:15:00'"
+            );
+
+            
+            $stmt->bindValue(":email", $usuario->getEmail());
+            $stmt->execute();
+
+            return count($stmt->fetchAll(\PDO::FETCH_ASSOC));
+
+        }
+
+        public static function adicionaTentativaDeUsuario(Usuario $usuario)
+        {
+            $pdo = new \PDO('mysql:host=localhost;dbname=apbpdn_2', 'root', 'cachorroquente123');
+
+            $timezone = new \DateTimeZone('America/Sao_Paulo');
+            $agora = new \DateTime('now', $timezone);
+            $data = $agora->format("Y-m-d H:i:s");
+
+            $stmt = $pdo->prepare("INSERT INTO tentativas_de_login (email, dataRegistro) values (:email, '$data')");
+            $stmt->bindValue(":email", $usuario->getEmail());
+            $stmt->execute();
+
+        }
+
+
     }
 
 

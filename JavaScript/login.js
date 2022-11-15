@@ -20,9 +20,7 @@ formularioLogin.onsubmit = (event) => {
     loader.classList.remove("display-none");
 
     httpService.postFormulario(formularioLogin, 'back-end/login.php')
-    .then( (resposta) => {
-
-        console.log(resposta);
+    .then( () => {
 
         formularioLogin.reset();
 
@@ -35,9 +33,12 @@ formularioLogin.onsubmit = (event) => {
         loader.classList.add("display-none");
 
         if(resposta.message == 'usuario_nao_encontrado' || resposta.message == 'senha_invalida'){
-            console.log("Caiu aqui");
             abrirMensagemDeErroDoInputLogin(formularioLogin.email, "E-mail ou senha inválidos.");
             abrirMensagemDeErroDoInputLogin(formularioLogin.senha, "E-mail ou senha inválidos.");
+        }
+
+        if(resposta.message == 'quantidade_de_tentativas_excedida'){
+            new MensagemLateralService("Quantidade de tentativas excedida.");
         }
 
     } );

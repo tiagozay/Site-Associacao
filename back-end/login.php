@@ -36,9 +36,18 @@
         exit();
     }
 
+    if(LoginService::buscaQuantidadeDeTentativasUsuario($usuario) >= 15){
+        header('HTTP/1.1 500 Internal Server Error');
+        echo "quantidade_de_tentativas_excedida";
+        exit();
+    }
+
     $teste = LoginService::testaSenha($senha, $usuario);
 
     if(!$teste){
+        
+        LoginService::adicionaTentativaDeUsuario($usuario);
+
         header('HTTP/1.1 500 Internal Server Error');
         echo "senha_invalida";
         exit();
