@@ -1,6 +1,6 @@
 const formularioCadastro = document.querySelector(".formularioDeCadastro");
 
-formularioDeCadastro.onsubmit = (event) => {
+formularioCadastro.onsubmit = (event) => {
 
     event.preventDefault();
 
@@ -82,6 +82,12 @@ function validaUsuario(campoNome, campoEmail, campoSenha, campoConfSenha)
 
     if(senha.trim().length < 8){
         abrirMensagemDeErroDoInput(campoSenha, "A senha deve conter no mínimo 8 caracteres.");
+        return false;
+    }
+    fecharMensagemDeErroDoInput(campoSenha);
+
+    if(senha.trim().length > 200){
+        abrirMensagemDeErroDoInput(campoSenha, "Senha inválida.");
         return false;
     }
     fecharMensagemDeErroDoInput(campoSenha);

@@ -51,7 +51,7 @@ form{
     background-color: transparent;
     color: white!important;
     outline: 0;
-    font-size: 19px;
+    font-size: 18px;
     font-family: 'Montserrat', sans-serif;
 }
 .inputPadrao::placeholder{  
@@ -69,7 +69,7 @@ form{
     background-color: transparent;
     color: white;
     outline: 0;
-    font-size: 19px;
+    font-size: 18px;
     font-family: 'Montserrat', sans-serif;
 }
 .inputSenha::placeholder{  
@@ -89,12 +89,17 @@ form{
     background-color: rgb(48, 48, 148);
     color: white;
     padding: 10px;
-    width: 100px;
-    transition: 400ms;
+    width: 110px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    transition: 300ms;
     cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
+
 }
 .btnEnviarLogin:hover{
-    transform: scale(1.1);
+    transform: scale(1.05);
 }
 .divEsqueciASenhaEBtn{
     display: flex;
@@ -104,7 +109,7 @@ form{
 }
 .divEsqueciASenhaEBtn a{
     text-decoration: none;
-    font-size: 18px;
+    font-size: 17px;
     font-family: 'Montserrat', sans-serif;
     color:  rgb(209, 209, 209);
 }
@@ -130,8 +135,17 @@ form{
 
 }
 #loaderCadastrar{
-    border: 2px solid #f3f3f3; /* Light grey */
-    border-top: 2px solid #00233b; /* Blue */
+    border: 2px solid #f3f3f3;
+    border-top: 2px solid #004b7d;
+    border-radius: 50%;
+    width: 16px;
+    height: 16px;
+    animation: spin 700ms linear infinite;
+    margin-left: 10px;
+}
+#loaderLogin{
+    border: 2px solid #f3f3f3;
+    border-top: 2px solid #004b7d;
     border-radius: 50%;
     width: 16px;
     height: 16px;

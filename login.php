@@ -30,17 +30,23 @@
         </div>
 
         <!-- Formulário de login -->
-        <form action="src/recebeDoForm/recebeDadosDeLogin.php" method='POST' class="formularioDeLogin mostrarForm">
-            <input type="text" name="email" placeholder="Email" autofocus="true" class="inputPadrao especamentoInputs" required>
+        <form class="formularioDeLogin mostrarForm">
+            <input type="email" name="email" placeholder="Email" autofocus="true" class="inputPadrao especamentoInputs">
+            <span class="eror display-none" id='msgErroLogin-email'></span>
  
             <div class="divInputSenha especamentoInputs">
-                <input type="password" name="senha" placeholder="Senha" class="inputSenhaLogin inputSenha" id="inputSenhaLogin" required>
+                <input type="password" name="senha" placeholder="Senha" class="inputSenhaLogin inputSenha" id="inputSenhaLogin">
                 <img src="assets/icons/eye.svg" onclick="exibirOuOcultarSenha('inputSenhaLogin')" alt="ícone ver senha" class="iconeVerSenha">
             </div>
+            <span class="eror display-none" id='msgErroLogin-senha'></span>
+
        
             <div class="divEsqueciASenhaEBtn marginBtnEnviar">
                 <a href="Usuario-confirmarEmail.php">Esqueci minha senha</a>
-                <button type="submit" class="btnEnviarLogin">ENTRAR</button>
+                <button type="submit" class="btnEnviarLogin">
+                    ENTRAR
+                    <div class="display-none" id="loaderLogin"></div>
+                </button>
             </div>
         </form>
 
@@ -77,6 +83,7 @@
     <script src="JavaScript/exibirOuOcultarSenhaInput.js"></script>
     <script src="JavaScript/Services/HttpService.js"></script>
     <script src="JavaScript/Services/MensagemLateralService.js"></script>
+    <script src="JavaScript/login.js"></script>
     <script src="JavaScript/cadastroUsuario.js"></script>
 
 
