@@ -90,6 +90,7 @@
 
     <script src="JavaScript/Services/HttpService.js"></script>
     <script src="JavaScript/Services/MensagemLateralService.js"></script>
+    <script src="JavaScript/Services/ImagemService.js"></script>
     <script>
 
         const formulario = document.querySelector("#formulario");
@@ -144,6 +145,9 @@
 
         function validaIntegrante(campoNome, campoCargo, campoImagem)
         {
+            let nome = campoNome.value;
+            let cargo = campoCargo.value;
+            let imagem = campoImagem.files[0];
 
             //Faz essa validação, pois se colocarmos apenas required no campo, se eu preencher com espaços vazios acaba passando
             if(campoNome.value.trim().length == 0){
@@ -160,48 +164,30 @@
             fecharMensagemDeErroDoInput(campoCargo);
 
 
-            const imagem = campoImagem.files[0];
+            //Chama a função valida imagem da ImagemService. A mesma lança um erro caso algo esteja incorreto passando o tipo do erro, aí no catch pego ele e chamo a função correspondente de cada mensagem de erro que deve aparecer no input. Caso não tenha erros, as mensagens de erro (caso existam), serão removidas
+            try{
+                ImagemService.validaImagem(imagem);
+                fecharMensagemDeErroDoInput(campoImagem);
+            }catch(e){
 
-            if(!imagem){
-                abrirMensagemDeErroDoInput(campoImagem, "Informe um perfil.");   
+                let errors = {
+                    'imagem_nao_informada' : () => {
+                        abrirMensagemDeErroDoInput(campoImagem, "Informe um perfil.");  
+                    },
+                    'imagem_muito_grande' : () => {
+                        abrirMensagemDeErroDoInput(campoImagem, "Imagem muito grande.");
+                    },
+                    'extensao_de_imagem_invalida' : () =>  {
+                        abrirMensagemDeErroDoInput(campoImagem, "Imagem inválida.");
+                    }
+                };
+
+                errors[e.message]();
+
                 return false;
-            }
-            fecharMensagemDeErroDoInput(campoImagem);
 
-            const extensaoImagem = imagem.name.split('.').pop();
-
-            if((imagem.size / 1000 / 1000) > 20){
-                abrirMensagemDeErroDoInput(campoImagem, "Imagem muito grande.");   
-                return false;
             }
-            fecharMensagemDeErroDoInput(campoImagem);
-
-            if(
-                extensaoImagem != 'tiff' &&
-                extensaoImagem != 'jfif' &&
-                extensaoImagem != 'bmp' &&
-                extensaoImagem != 'pjp' &&
-                extensaoImagem != 'apng' &&
-                extensaoImagem != 'gif' &&
-                extensaoImagem != 'svg' &&
-                extensaoImagem != 'png' &&
-                extensaoImagem != 'xbm' &&
-                extensaoImagem != 'dib' &&
-                extensaoImagem != 'jxl' &&
-                extensaoImagem != 'jpeg' &&
-                extensaoImagem != 'svgz' &&
-                extensaoImagem != 'jpg' &&
-                extensaoImagem != 'webp' &&
-                extensaoImagem != 'ico' &&
-                extensaoImagem != 'tif' &&
-                extensaoImagem != 'pjpeg' &&
-                extensaoImagem != 'avif'
-            ){
-                abrirMensagemDeErroDoInput(campoImagem, "Imagem inválida.");
-                return false;
-            }
-            fecharMensagemDeErroDoInput(campoImagem);
-            
+                
             return true;
         }
 
