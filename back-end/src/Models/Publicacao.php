@@ -49,6 +49,10 @@
         #[OneToMany(mappedBy: 'publicacao', targetEntity: Curtida::class, cascade:['persist', 'remove'])]
         private Collection $curtidas;
 
+        private $capaTemporaria;
+        private $imagensTemporarias;
+
+
         /** @throws DomainException */
         public function __construct(string $titulo, DateTime $data, string $texto, array $capa, array $imagens, array $urlsVideos, bool $permitirCurtidas, bool $permitirComentarios)
         {
@@ -156,8 +160,6 @@
         {
             $texto = trim($texto);
 
-            if(empty($texto)) throw new DomainException('campo_vazio');
-
             $this->texto = $texto;
         }
 
@@ -170,14 +172,30 @@
 
             $capa['name'] = $novoNomeCapa;
 
-            ImagemService::salvaImagemNoDiretorio(imagem: $capa, diretório: "assets/imagens_dinamicas/capas_publicacoes/");
+            $this->capaTemporaria = $capa;
 
             $this->capa = $novoNomeCapa;
+        }
+
+        public function salvarCapa(): void
+        {
+            ImagemService::salvaImagemNoDiretorio(
+                imagem: $this->capaTemporaria,
+                diretorio: __DIR__."\..\..\..\assets\imagens_dinamicas\capas_publicacoes\\"
+            );
+
+            $this->capaTemporaria = null;
         }
 
         /** @throws DomainException */
         public function setImagens(array $imagens): void
         {
+
+            //Se não foram informadas imagens, não faz nada
+            if($imagens['error'][0] == 4){
+                return;
+            }
+
             $imagens = ImagemService::transofrmaArrayDeImagensHttpParaOutroFormato($imagens);
 
             foreach ($imagens as $imagem) {
@@ -190,12 +208,30 @@
 
                 $imagem['name'] = $novoNomeImagem;
 
-                ImagemService::salvaImagemNoDiretorio(imagem: $imagem, diretório: "assets/imagens_dinamicas/imagens_publicacoes/");
+                $this->imagensTemporarias[] = $imagem;
+        
+                $this->imagens->add(new ImagemPublicacao($this, $novoNomeImagem));
 
-                $this->imagens[] = new ImagemPublicacao($this, $novoNomeImagem);
+            }       
+        }
+
+        public function salvarImagens(): void
+        {
+            //Se não tiber imagens, não faz nada
+            if(!$this->imagensTemporarias){
+                return;
+            }
+
+            foreach ($this->imagensTemporarias as $imagem) {
+
+                ImagemService::salvaImagemNoDiretorio(
+                    imagem: $imagem, 
+                    diretorio: __DIR__."\..\..\..\assets\imagens_dinamicas\imagens_publicacoes\\"
+                );
 
             }
-       
+
+            $this->imagensTemporarias = null;
         }
 
         /** @throws DomainException */

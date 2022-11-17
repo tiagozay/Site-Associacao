@@ -43,7 +43,7 @@
             $nomeSeparadoPorPontos = explode('.',$imagem['name']);
             $extencao = end($nomeSeparadoPorPontos);
 
-            $textoAleatorio = date('dmYHis');
+            $textoAleatorio = date('dmYHis'.$imagem['size']);
 
             return $textoAleatorio.".".$extencao;
         }
