@@ -75,6 +75,8 @@
 
         public static function removeImagemDoDiretorio(string $caminhoImagem): void
         {
+            $caminhoImagem = str_replace(['/', '\\'], DIRECTORY_SEPARATOR, $caminhoImagem);
+
             unlink($caminhoImagem);
         }
 

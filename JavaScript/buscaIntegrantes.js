@@ -30,9 +30,9 @@ function buscarIntegrantes()
                         <div class="nomeIntegrante">${integrante['nome']}</div>
                         <div class="cargoIntegrante">${integrante['cargo']}</div>
                         <div class="divAcoes">
-                            <a href="Admin-formEditarIntegrante.php?id="><i class="material-icons">edit</i></a>
+                            <a class='divAcoes__btn' href="Admin-formEditarIntegrante.php?id="><i class="material-icons">edit</i></a>
 
-                            <a onclick="create_modal('confirmação para excluir integrante')" data-nome="" data-id=""><i class="material-icons" data-nome="" data-id="">delete</i></a>
+                            <button class='divAcoes__btn' onclick="excluirIntegrante(${integrante['id']})"><i class="material-icons">delete</i></button>
                         </div>
                     </div>
                 </li>

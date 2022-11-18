@@ -206,15 +206,16 @@ fieldset .divListaIntegrantes ul li div .cargoIntegrante{
 .divAcoes{
     width: 90px!important;
 }
-.divAcoes a{
+.divAcoes__btn{
     border: 1px rgb(255, 255, 255) solid;
+    background-color: transparent;
     margin-right: 6px;
     color: rgb(28, 28, 28);
     padding: 3px 5px;
     border-radius: 5px;
     transition: 200ms;
 }
-.divAcoes a:hover{
+.divAcoes__btn:hover{
     background-color: rgba(255, 255, 255, 0.202);
 }
 .divAcoes i{

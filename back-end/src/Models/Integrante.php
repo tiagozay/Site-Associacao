@@ -169,6 +169,7 @@
         public function toArray(): array
         {
             return [
+                'id' => $this->id,
                 'nome' => $this->nome,
                 'cargo' => $this->cargo,
                 'nomeImagem' => $this->nomeImagem,

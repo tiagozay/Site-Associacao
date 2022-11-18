@@ -104,6 +104,7 @@
     <script src="JavaScript/Services/MensagemLateralService.js"></script>
     <script src="JavaScript/Services/ImagemService.js"></script>
     <script src="JavaScript/buscaIntegrantes.js"></script>
+    <script src="JavaScript/excluirIntegrante.js"></script>
     <script>
 
         const formulario = document.querySelector("#formulario");

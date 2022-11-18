@@ -11,12 +11,27 @@ class HttpService
         .then( res => this._handleErrors(res) )
     }
 
+    post(url, body)
+    {
+        return fetch(
+            url,
+            {   
+                headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+                method: 'POST',
+                body
+            }
+        )
+        .then( res => this._handleErrors(res) )
+
+    }
+
     get(url)
     {
         return fetch(url)
         .then( res => this._handleErrors(res) );
     }
 
+    
     _handleErrors(res) 
     {
         if(!res.ok){
