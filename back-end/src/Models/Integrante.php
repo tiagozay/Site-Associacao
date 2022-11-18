@@ -110,6 +110,62 @@
             $this->setCargo($cargo);
         }
 
+
+        private static function defineNivelDoCargo(array &$integrantes): array
+        {
+            //Pega cada integrante e atribui um valor de 1 a 7 de acordo com seu cargo. Esse valor indica o nivel do cargo, que será usado na ordenação.
+            
+            $cargos = [
+                'Presidente' => 1,
+                'Vice presidente' => 2,
+                '1º Secretário(a)' => 3,
+                '2º Secretário(a)' => 4,
+                '1º Tesoureiro(a)' => 5,
+                '2º Tesoureiro(a)' => 6,
+                'Integrante' => 7
+            ];
+    
+            foreach($integrantes as &$integrante){
+    
+                $numeroCargo = $cargos[$integrante['cargo']];
+        
+                $integrante['numeroCargo'] = $numeroCargo;
+        
+            }
+
+            return $integrantes;
+        }
+
+        public static function ordenaIntegrantesPorCargo(array $integrantes): array
+        {
+            //Depois de definir o nível de cada cargo, roda um loop de 1 a 7, onde para cada numero percorre a lista de integrantes buscando os que o cargo é desse nível e adicionando-os no array, fazendo assim uma ordenação crescente dos integrantes pelo cargo
+
+            $integrantes = Integrante::defineNivelDoCargo($integrantes);
+
+            $integrantesOrdenados = [];
+
+            for($nivelCargo = 1; $nivelCargo <= 7; $nivelCargo++){
+        
+                foreach($integrantes as $integrante){
+        
+                    if($integrante['numeroCargo'] == $nivelCargo){
+                        $integrantesOrdenados[] = $integrante;
+                    }
+                }
+        
+            }
+
+            return $integrantesOrdenados;
+
+        }
+
+        public static function toArrays(array $integrantes) : array 
+        {
+            return array_map(function($integrante){
+                return $integrante->toArray();
+            }, $integrantes);
+        }
+
         public function toArray(): array
         {
             return [

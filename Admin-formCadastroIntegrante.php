@@ -84,6 +84,18 @@
                 </form>
 
             </div>
+
+            <div class="divListaIntegrantes">
+
+                    <div class="desativarLoader"  id="divLoaderBuscarIntegrantes">
+                        <div id="loaderBuscarIntegrantes"></div>
+                        Buscando integrantes...
+                    </div>
+                   
+                    <ul id="divListaIntegrantes__lista">
+                
+                    </ul>
+            </div>
         </fieldset>
     </section>
     <script src="JavaScript/modal.js"></script>
@@ -91,6 +103,7 @@
     <script src="JavaScript/Services/HttpService.js"></script>
     <script src="JavaScript/Services/MensagemLateralService.js"></script>
     <script src="JavaScript/Services/ImagemService.js"></script>
+    <script src="JavaScript/buscaIntegrantes.js"></script>
     <script>
 
         const formulario = document.querySelector("#formulario");
@@ -119,6 +132,8 @@
                 loader.classList.add("display-none");
 
                 new MensagemLateralService("Integrante cadastrado com sucesso!");
+
+                buscarIntegrantes();
 
             })
             .catch( msg => {
