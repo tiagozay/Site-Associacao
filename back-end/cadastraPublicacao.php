@@ -44,7 +44,7 @@
 
         $publicacao = new Publicacao(
             $titulo,
-            new DateTime($data),
+            $data,
             $texto,
             $capa,
             $imagens,

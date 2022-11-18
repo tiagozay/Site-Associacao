@@ -17,6 +17,7 @@
     <title>Adicionar publicação</title>
     <link rel="stylesheet" href="assets/styles/reset.css">
     <link rel="stylesheet" href="assets/styles/base.css">
+    <link rel="stylesheet" href="assets/styles/mensagemLateral.css">
     <link rel="stylesheet" href="assets/styles/Admin/paginaAdicionarPublicacao/paginaAdcPublicacao.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -98,7 +99,10 @@
                     <!-- <input type="hidden" name="qtdeVideos" value="0" id="inputQtdeVideos"> -->
 
                   
-                    <button type="submit">Cadastrar publicação</button>
+                    <button type="submit">
+                        Cadastrar publicação
+                        <div class="display-none" id="loaderCadastrarPublicacao"></div>
+                    </button>
                 </form>
             </div>
         </fieldset>
@@ -106,6 +110,7 @@
     <script src="JavaScript/geraInputsDeVideos.js"></script>
     <script src="JavaScript/Services/ImagemService.js"></script>
     <script src="JavaScript/Services/HttpService.js"></script>
+    <script src="JavaScript/Services/MensagemLateralService.js"></script>
     <script src="JavaScript/cadastraPublicacao.js"></script>
 
 </body>

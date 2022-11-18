@@ -71,7 +71,6 @@ fieldset .container form .divLabelEInput label{
 fieldset .container form .divLabelEInput .inputForm{
     color: rgb(46, 46, 46);
     width: 460px!important;
-    height: 37px;
     border-radius: 5px;
     border:none;
     height: 36px;
@@ -80,7 +79,7 @@ fieldset .container form .divLabelEInput .inputForm{
     outline: 0;
     background-color:#dfdfdf;
     font-family: 'Montserrat', sans-serif;
-    border: 2px black solid;
+    border: 1px black solid;
 
 }
 .eror{

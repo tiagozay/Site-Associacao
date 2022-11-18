@@ -54,7 +54,7 @@
 
 
         /** @throws DomainException */
-        public function __construct(string $titulo, DateTime $data, string $texto, array $capa, array $imagens, array $urlsVideos, bool $permitirCurtidas, bool $permitirComentarios)
+        public function __construct(string $titulo, string $data, string $texto, array $capa, array $imagens, array $urlsVideos, bool $permitirCurtidas, bool $permitirComentarios)
         {
             $this->imagens = new ArrayCollection();
             $this->videos = new ArrayCollection();
@@ -73,7 +73,7 @@
         }
 
         /** @throws DomainException */
-        public function edita(string $titulo, string $texto, DateTime $data, array $capa, array $imagens, array $urlsVideos, bool $permitirCurtidas, bool $permitirComentarios)
+        public function edita(string $titulo, string $texto, string $data, array $capa, array $imagens, array $urlsVideos, bool $permitirCurtidas, bool $permitirComentarios)
         {
             $this->setTitulo($titulo);
             $this->setTexto($texto);
@@ -150,9 +150,13 @@
         }
 
         /** @throws DomainException */
-        public function setData(DateTime $data): void
+        public function setData(string $data): void
         {
-            $this->data = $data;
+            $data = trim($data);
+
+            if(empty($data)) throw new DomainException('campo_vazio');
+
+            $this->data = new DateTime($data);
         }
         
         /** @throws DomainException */

@@ -21,9 +21,9 @@ formulario.onsubmit = (event) => {
 
     const httpService = new HttpService();
 
-    // let loader = document.querySelector("#loaderCadastrar");
+    let loader = document.querySelector("#loaderCadastrarPublicacao");
 
-    // loader.classList.remove("display-none");
+    loader.classList.remove("display-none");
 
     httpService.postFormulario(formulario, 'back-end/cadastraPublicacao.php')
     .then( (resposta) => {
@@ -31,17 +31,21 @@ formulario.onsubmit = (event) => {
         resposta.text()
         .then( txt => console.log(txt) );
 
-        // formulario.reset();
+        formulario.reset();
 
-        // loader.classList.add("display-none");
+        loader.classList.add("display-none");
+
+        new MensagemLateralService("Publicação adicionada com sucesso.");
         
         // location.href = "index.php";
     } )
     .catch( resposta => {
 
-        // loader.classList.add("display-none");
+        loader.classList.add("display-none");
 
         console.log(resposta);
+
+        new MensagemLateralService("Não foi possível adicionar publicação.");
 
     } )
 
