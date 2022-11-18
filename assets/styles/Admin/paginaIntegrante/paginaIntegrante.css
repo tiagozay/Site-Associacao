@@ -215,7 +215,7 @@ fieldset .divListaIntegrantes ul li div .cargoIntegrante{
     transition: 200ms;
 }
 .divAcoes a:hover{
-    background-color: rgba(255, 255, 255, 0.359);
+    background-color: rgba(255, 255, 255, 0.202);
 }
 .divAcoes i{
   font-size: 22px;
