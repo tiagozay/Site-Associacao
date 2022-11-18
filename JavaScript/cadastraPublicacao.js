@@ -36,14 +36,10 @@ formulario.onsubmit = (event) => {
         loader.classList.add("display-none");
 
         new MensagemLateralService("Publicação adicionada com sucesso.");
-        
-        // location.href = "index.php";
     } )
     .catch( resposta => {
 
         loader.classList.add("display-none");
-
-        console.log(resposta);
 
         new MensagemLateralService("Não foi possível adicionar publicação.");
 
