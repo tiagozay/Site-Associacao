@@ -2,6 +2,7 @@
 
     use APBPDN\Helpers\EntityManagerCreator;
     use APBPDN\Models\Integrante;
+    use APBPDN\Services\RequestService;
 
     require_once 'vendor/autoload.php';
 
@@ -16,9 +17,9 @@
     }
 
     try{
-        $nome =  isset($_POST['nome']) ? $_POST['nome'] : throw new Exception('Campo nome não informado');
-        $cargo = isset($_POST['cargo']) ? $_POST['cargo'] : throw new Exception('Campo cargo não informado');
-        $imagem = isset($_FILES['imagem']) ? $_FILES['imagem'] : throw new Exception('Campo imagem não informado');
+        $nome =  RequestService::pegaValorDoCampoPOSTOuLancaExcecao('nome');
+        $cargo = RequestService::pegaValorDoCampoPOSTOuLancaExcecao('cargo');
+        $imagem = RequestService::pegaValorDoCampoFILESOuLancaExcecao('imagem');
     }catch( Exception $e){
         header('HTTP/1.1 500 Internal Server Error');
         echo $e->getMessage();

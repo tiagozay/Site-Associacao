@@ -2,15 +2,16 @@
 
     use APBPDN\Helpers\EntityManagerCreator;
     use APBPDN\Models\Usuario;
-use APBPDN\Services\LoginService;
+    use APBPDN\Services\LoginService;
+    use APBPDN\Services\RequestService;
 
     require_once 'vendor/autoload.php';
 
     try{
-        $nome =  isset($_POST['nome']) ? $_POST['nome'] : throw new Exception('Campo nome não informado');
-        $email = isset($_POST['email']) ? $_POST['email'] : throw new Exception('Campo email não informado');
-        $senha = isset($_POST['senha']) ? $_POST['senha'] : throw new Exception('Campo senha não informado');
-        $confSenha = isset($_POST['confSenha']) ? $_POST['confSenha'] : throw new Exception('Campo confSenha não informado');        
+        $nome =  RequestService::pegaValorDoCampoPOSTOuLancaExcecao('nome');
+        $email = RequestService::pegaValorDoCampoPOSTOuLancaExcecao('email');
+        $senha = RequestService::pegaValorDoCampoPOSTOuLancaExcecao('senha');
+        $confSenha = RequestService::pegaValorDoCampoPOSTOuLancaExcecao('confSenha');        
     }catch( Exception $e){
         header('HTTP/1.1 500 Internal Server Error');
         echo $e->getMessage();
