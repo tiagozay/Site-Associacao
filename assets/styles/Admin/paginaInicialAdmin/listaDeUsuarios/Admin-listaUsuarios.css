@@ -144,6 +144,13 @@ button.btns_acoes_usuarios{
     animation: spin 700ms linear infinite;
     margin-bottom: 6px;
 }
+#mensagemSemRegistros{
+    text-align: center;
+}
+#mensagemSemRegistros td{
+    font-size: 18px;
+    padding: 20px 0;
+}
 @keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
