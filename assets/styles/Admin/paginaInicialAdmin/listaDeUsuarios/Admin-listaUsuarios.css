@@ -1,6 +1,6 @@
 /* ==================THEAD=======================THEAD=================================THEAD=============THEAD*/
 table{
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     width: 100%;
 }
 thead{
@@ -89,11 +89,11 @@ thead{
     padding: 5px;
     background-color: #005a98;
     color: white;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     cursor: pointer;
 }
 button.btns_acoes_usuarios{
-    font-size: 16px;
+    font-size: 14px;
     padding: 4px 5px;
 }
 .tbody__tr__tdAcoes .btnAbrirModal{
@@ -111,7 +111,7 @@ button.btns_acoes_usuarios{
     padding: 5px 8px;
     text-decoration: none;
     font-size: 20px;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     background-color: transparent;
     cursor: pointer;
     transition: 400ms;
@@ -122,18 +122,35 @@ button.btns_acoes_usuarios{
 .displayNone{
     display: none;
 }
-@media(min-width: 1400px){
-  
+.desativarLoader{
+    display: none!important;
 }
-@media(max-width: 1000px){
-    .thead__tr__tdNivel{
-        width: 200px;
-    }
-    .tbody__tr__tdNivel{
-        width: 200px;
-    }
+#divLoaderBuscarUsuarios{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 25px;
+    cursor: progress;
+    font-family: 'Montserrat', sans-serif;
+
 }
-@media(max-width:960px){
+#loaderBuscarUsuarios{
+    border: 3px solid #f3f3f3; /* Light grey */
+    border-top: 3px solid #00233b; /* Blue */
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    animation: spin 700ms linear infinite;
+    margin-bottom: 6px;
+}
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+
+@media(max-width: 760px){
     .thead__tr__tdEmail{
         display: none;
         
@@ -141,73 +158,14 @@ button.btns_acoes_usuarios{
     .tbody__tr__tdEmail{
         display: none;
     }
-    .tbody__tr__td__divNome{
-        margin-bottom: 0px;
-    }
-}
-@media(max-width: 830px){
-    .thead__tr__tdNivel{
-        width: 140px;
-    }
-    .tbody__tr__tdNivel{
-        width: 140px;
-    }
-}
-@media(max-width: 750px){
-    .thead__tr__tdNivel{
-        width: 110px;
-    }
-    .tbody__tr__tdNivel{
-        width: 110px;
-    }
 }
 
-
-@media(max-width: 730px){
-    .modal__conteudo a{
-        font-size: 19px;
-    }
-    .conteudo__acoes{
-        width: 320px;
-    }
+@media(max-width: 430px){
     .thead__tr__tdNivel{
-        width: auto;
+        display: none;
+        
     }
     .tbody__tr__tdNivel{
-        width: auto;
-    }
-    .thead__tr__td__divAcoes{
-        justify-content: center;
-    }
-    .tbody__tr__tdAcoes{
-        width: 110px;
-    }
-    .thead__tr__tdAcoes{
-        width: 110px;
-    }
-    .containerAcoesItemListaUsuarios{
         display: none;
     }
-    .tbody__tr__tdAcoes .btnAbrirModal{
-        display: block;
-        text-align: center;
-        font-size: 36px;
-    }
-    .tbody__tr__td__divConteudoGenerica p{
-        position: relative;
-        bottom: 10px!important;
-    }
 }
-@media(max-width: 340px){
-    .conteudo__acoes{
-        width:100%;
-    }
-    .modal__conteudo a{
-        font-size: 18px;
-    }
-}
-
-.mostrarMenu{
-    display: flex!important;
-}
-

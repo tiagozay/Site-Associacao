@@ -164,5 +164,22 @@ use Doctrine\ORM\Mapping\OneToOne;
         {
             return password_hash($senha, PASSWORD_DEFAULT);
         }
+
+        public static function toArrays(array $usuarios): array
+        {
+            return array_map(function($usuario){
+                return $usuario->toArray();
+            }, $usuarios);
+        }
+
+        public function toArray(): array 
+        {
+            return [
+                'id' => $this->id,
+                'nome' => $this->getNome(),
+                'email' => $this->getEmail(),
+                'nivel' => $this->getNivel()
+            ];
+        }
     }
 ?>
