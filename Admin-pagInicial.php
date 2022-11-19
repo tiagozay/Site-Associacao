@@ -170,6 +170,7 @@
     <script src="JavaScript/Services/MensagemLateralService.js"></script>
     <script src="JavaScript/buscaUsuarios.js"></script>
     <script src="JavaScript/excluirUsuario.js"></script>
+    <script src="JavaScript/tornarUsuarioAdmin.js"></script>
 
 
 
