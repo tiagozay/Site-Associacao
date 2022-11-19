@@ -18,29 +18,29 @@ const quantidadeUsuarios = document.querySelector(".quantidadeUsuarios");
 
 const tbdoy = document.querySelector(".tbody");
 
-const menuDeAcoesParaUsuarios = {
-    usuario: 
-    `
-        <div class='divAcoesNivel divGenericaBtnAcoes'>
-            <button onclick='create_modal("")' class='btns_acoes_usuarios'>Tornar admin</button>
-        </div>
-        <div class='divAcoesExcluir divGenericaBtnAcoes'>
-            <button  onclick='create_modal("")' class='btns_acoes_usuarios'>Excluir</button>
-        </div>
-    `,
+function geraCampoDeAcoes(id, nivel)
+{
+    if(nivel == 'usuario'){
+        return `
+            <div class='divAcoesNivel divGenericaBtnAcoes'>
+                <button onclick='create_modal("")' class='btns_acoes_usuarios'>Tornar admin</button>
+            </div>
+            <div class='divAcoesExcluir divGenericaBtnAcoes'>
+                <button  onclick='excluirUsuario(${id})' class='btns_acoes_usuarios'>Excluir</button>
+            </div>
+        `;
+    }else if(nivel == 'admin'){
+        return `
+            <div class='divAcoesNivel divGenericaBtnAcoes'>
+                <button  onclick='create_modal("")'  class='btns_acoes_usuarios' '>Remover admin</button>
+            </div>
+            <div class='divAcoesExcluir divGenericaBtnAcoes'>
+                <button onclick='excluirUsuario(${id})' class='btns_acoes_usuarios' >Excluir</button>
+            </div>
+        `;
+    }
 
-
-    admin: 
-    `
-        <div class='divAcoesNivel divGenericaBtnAcoes'>
-            <button  onclick='create_modal("")'  class='btns_acoes_usuarios' '>Remover admin</button>
-        </div>
-        <div class='divAcoesExcluir divGenericaBtnAcoes'>
-            <button onclick='create_modal("")' class='btns_acoes_usuarios' >Excluir</button>
-        </div>
-    `
 }
-
 
 
 buscaUsuarios();
@@ -70,7 +70,7 @@ function buscaUsuarios()
             let email = usuario['email'];
             let nivel = usuario['nivel'];
         
-            let acoesUsuario = menuDeAcoesParaUsuarios[nivel];
+            let acoesUsuario = geraCampoDeAcoes(id, nivel);
 
 
             tbdoy.innerHTML += 

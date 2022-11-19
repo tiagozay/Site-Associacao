@@ -25,6 +25,7 @@
 
     <link rel="stylesheet" href="assets/styles/base.css">
     <link rel="stylesheet" href="assets/styles/header/header.css">
+    <link rel="stylesheet" href="assets/styles/mensagemLateral.css">
 
     <link rel="stylesheet" href="assets/styles/header/header-logadoAdmin.css">
     
@@ -166,8 +167,10 @@
         </div>
     </section>
     <script src="JavaScript/Services/HttpService.js"></script>
-    <script src="JavaScript/buscaUsuarios.js"></script>
     <script src="JavaScript/Services/MensagemLateralService.js"></script>
+    <script src="JavaScript/buscaUsuarios.js"></script>
+    <script src="JavaScript/excluirUsuario.js"></script>
+
 
 
     <script>
