@@ -25,5 +25,16 @@
 
             throw new \Exception("Campo $nomeDoCampo não informado");
         }
+
+        //Função utlizada onde é obrigatório que determinado campo seja informado
+        /** @throws Exception */
+        public static function pegaValorDoCampoGETOuLancaExcecao(string $nomeDoCampo)
+        {
+            if(isset($_GET[$nomeDoCampo])){
+                return $_GET[$nomeDoCampo];
+            }
+
+            throw new \Exception("Campo $nomeDoCampo não informado");
+        }
     }
 ?>

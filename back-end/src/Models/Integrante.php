@@ -101,9 +101,13 @@
             //Verifica se uma nova imagem foi selecionada, se não foi, altera somente nome e cargo, se foi, altera ela também
             if(!ImagemService::imagemNaoInformada($imagem)){
 
-                ImagemService::removeImagemDoDiretorio(caminhoImagem: "assets/imagens_dinamicas/imagens_integrantes/{$this->nomeImagem}");
+                ImagemService::removeImagemDoDiretorio(
+                    caminhoImagem: __DIR__."\..\..\..\assets\imagens_dinamicas\imagens_integrantes\\{$this->nomeImagem}"
+                );
 
                 $this->setImagem($imagem);
+
+                $this->salvarImagem();
             }
 
             $this->setNome($nome);

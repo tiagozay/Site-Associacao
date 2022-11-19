@@ -79,7 +79,7 @@
         
                     <button type="submit">
                         Cadastrar integrante
-                        <div class="display-none" id="loaderCadastrarIntegrante"></div>
+                        <div class="display-none" id="loaderEnviar"></div>
                     </button>
                 </form>
 
@@ -121,7 +121,7 @@
 
             const httpService = new HttpService();
 
-            let loader = document.querySelector("#loaderCadastrarIntegrante");
+            let loader = document.querySelector("#loaderEnviar");
 
             loader.classList.remove("display-none");
 
@@ -166,14 +166,14 @@
             let imagem = campoImagem.files[0];
 
             //Faz essa validação, pois se colocarmos apenas required no campo, se eu preencher com espaços vazios acaba passando
-            if(campoNome.value.trim().length == 0){
+            if(nome.trim().length == 0){
                 abrirMensagemDeErroDoInput(campoNome, "Preencha o nome.");
                 return false;
             }
             fecharMensagemDeErroDoInput(campoNome);
             
 
-            if(campoCargo.value == 'SELECIONAR'){
+            if(cargo == 'SELECIONAR'){
                 abrirMensagemDeErroDoInput(campoCargo, "Informe o cargo.");
                 return false;
             }

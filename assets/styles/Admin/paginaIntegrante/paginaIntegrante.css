@@ -116,12 +116,12 @@ fieldset .container form button{
 fieldset .container form button:hover{
     background-color: rgb(0, 30, 148);
 }
-#loaderCadastrarIntegrante{
+#loaderEnviar{
     border: 3px solid #f3f3f3; /* Light grey */
-    border-top: 3px solid #00233b; /* Blue */
+    border-top: 3px solid #014573; /* Blue */
     border-radius: 50%;
-    width: 20px;
-    height: 20px;
+    width: 19px;
+    height: 19px;
     animation: spin 700ms linear infinite;
     margin-left: 10px;
 }
@@ -227,6 +227,18 @@ fieldset .divListaIntegrantes ul li div .cargoIntegrante{
     border: 1px red solid;
     margin-bottom: 20px;
     padding: 10px;
+}
+.inputDesativado{
+    background-color:#a5a5a5!important;
+    border: none!important;
+    cursor: progress;
+    opacity: 1;
+}
+.btnDesativado{
+    background-color: rgb(109, 109, 109)!important;
+    cursor: progress!important;
+
+
 }
 @media (max-width: 955px){
     fieldset{
