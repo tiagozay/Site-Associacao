@@ -32,7 +32,7 @@ function geraCampoDeAcoes(id, nivel)
     }else if(nivel == 'admin'){
         return `
             <div class='divAcoesNivel divGenericaBtnAcoes'>
-                <button  onclick='create_modal("")'  class='btns_acoes_usuarios' '>Remover admin</button>
+                <button  onclick='removerAdminDeUsuario(${id})' class='btns_acoes_usuarios' '>Remover admin</button>
             </div>
             <div class='divAcoesExcluir divGenericaBtnAcoes'>
                 <button onclick='excluirUsuario(${id})' class='btns_acoes_usuarios' >Excluir</button>

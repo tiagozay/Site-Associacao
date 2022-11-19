@@ -31,6 +31,7 @@
     padding: 1px;
     border-radius: 4px;
     box-shadow: 0 0 4px rgb(120 120 120);
+    background-color: rgb(234, 234, 234);
 }
 .secaoListaDeUsuarios .container .cabecalhoDaTabela label input{
     font-size: 14px;
@@ -41,6 +42,8 @@
     border-radius: 4px;
     padding: 1px;
     height: 23px;
+    background-color: rgb(234, 234, 234);
+
 
 
 }

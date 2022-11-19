@@ -22,7 +22,7 @@
     left: 2%;
     border: 1px white solid;
     border-radius: 5px;
-    font-size: 18px;
+    font-size: 17px;
     -webkit-animation: scale-in 0.3s cubic-bezier(0.250, 0.460, 0.450, 0.940);
     animation: scale-in 0.3s cubic-bezier(0.250, 0.460, 0.450, 0.940);
 
