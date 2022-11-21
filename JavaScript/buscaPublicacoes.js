@@ -54,7 +54,7 @@ function escrevePublicacoesNaLista(publicacoes)
 
                         <div id="divOpcoesPublicacao">
                             <button class="material-icons" id="btnEditarPublicacao">edit</button>
-                            <button class="material-icons" id="btnExcluirPublicacao">delete</button>
+                            <button class="material-icons" id="btnExcluirPublicacao" onclick='excluirPublicacao(${publicacao['id']})'>delete</button>
                         </div>
                     </div>
                 

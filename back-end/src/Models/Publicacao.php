@@ -192,6 +192,13 @@
             $this->capaTemporaria = null;
         }
 
+        public function removerCapa(): void
+        {
+            ImagemService::removeImagemDoDiretorio(
+                __DIR__."\..\..\..\assets\imagens_dinamicas\capas_publicacoes\\".$this->getCapa()
+            );
+        }
+
         /** @throws DomainException */
         public function setImagens(array $imagens): void
         {
@@ -237,6 +244,18 @@
             }
 
             $this->imagensTemporarias = null;
+        }
+
+        public function removerImagens(): void
+        {
+            /** @var ImagemPublicacao[] */
+            $imagens = $this->getImagens();
+
+            foreach($imagens as $imagem){
+                ImagemService::removeImagemDoDiretorio(
+                    __DIR__."\..\..\..\assets\imagens_dinamicas\imagens_publicacoes\\".$imagem->nome
+                );
+            }
         }
 
         /** @throws DomainException */
