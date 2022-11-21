@@ -65,7 +65,7 @@
     <section class="secaoAcoes">
         <i class="material-icons" onclick="abrirOuFecharMenuAcoes()">menu_open</i>
         <div class="container containerAcoes">
-            <a href="Admin-formCadastroNoticias.php" class="btnAcoes">PUBLICAR</a>
+            <a href="Admin-formCadastroPublicacao.php" class="btnAcoes">PUBLICAR</a>
             <a href="Admin-formCadastroUsuario.php" class="btnAcoes">CADASTRAR USUÁRIO</a>
             <a href="Admin-formCadastroIntegrante.php" class="btnAcoes">INTEGRANTES</a>
             <a href="Admin-atividade.php" class="btnAcoes">ATIVIDADE</a>
@@ -75,19 +75,25 @@
 
     <section class="secaoSeletorNoticiasOuUsuarios">
         <div class="container">
-            <button id="btnMostrarNoticias" class="">Publicações</button>
-            <button id="btnMostrarUsuarios" class="bordaInferior" >Usuarios</button>
+            <button id="btnMostrarNoticias" class="bordaInferior">Publicações</button>
+            <button id="btnMostrarUsuarios" class="" >Usuarios</button>
         </div>
     </section>
 
     <section class="secaoListaDeNoticias">
         <div class="container">
-            <ul>            
+            <ul id="listaPublicacoes" class="displayNone">     
+               
             </ul>
+
+            <div class="desativarLoader"  id="divLoaderBuscarPublicacoes">
+                <div id="loaderBuscarPublicacoes"></div>
+                Buscando Publicações...
+            </div>
         </div>
     </section>
 
-    <section class="secaoListaDeUsuarios">
+    <section class="secaoListaDeUsuarios displayNone">
         <div class="container">
 
             <div class="cabecalhoDaTabela">
@@ -163,20 +169,22 @@
             <div class="desativarLoader"  id="divLoaderBuscarUsuarios">
                     <div id="loaderBuscarUsuarios"></div>
                     Buscando usuários...
-                </div>
+            </div>
         </div>
     </section>
     <script src="JavaScript/Services/HttpService.js"></script>
     <script src="JavaScript/Services/MensagemLateralService.js"></script>
+    <script src="JavaScript/Helpers/DateHelper.js"></script>
     <script src="JavaScript/buscaUsuarios.js"></script>
     <script src="JavaScript/excluirUsuario.js"></script>
     <script src="JavaScript/tornarUsuarioAdmin.js"></script>
     <script src="JavaScript/removerAdminDeUsuario.js"></script>
+    <script src="JavaScript/ajustarCardDeAcordoComTela.js"></script>
+    <script src="JavaScript/buscaPublicacoes.js"></script>
 
 
 
     <script>
-
 
         var btnMostrarUsuarios = document.querySelector("#btnMostrarUsuarios")
         btnMostrarUsuarios.addEventListener("click", function(){buscaUsuarios()})

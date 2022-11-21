@@ -51,5 +51,22 @@
         {
             return $this->comentario;
         }
+
+        public static function toArrays($comentarios): array 
+        {
+            return array_map(function($comentario){
+                return $comentario->toArray();
+            }, $comentarios);
+        }
+
+        public function toArray(): array
+        {
+            return [
+                'id' => $this->id,
+                'id_publicacao' => $this->getPublicacao()->id,
+                'usuario' => $this->getUsuario()->toArray(),
+                'comentario' => $this->getComentario()
+            ];
+        }
     }
 ?>

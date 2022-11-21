@@ -3,6 +3,7 @@
 
     use APBPDN\Helpers\EntityManagerCreator;
     use APBPDN\Services\ImagemService;
+    use APBPDN\Services\VideoService;
     use DateTime;
     use Doctrine\Common\Collections\ArrayCollection;
     use Doctrine\Common\Collections\Collection;
@@ -393,6 +394,50 @@
             return $this->comentarios->count();
         }
         
+        public static function toArraysSimples($publicacoes): array 
+        {
+            return array_map(function($publicacao){
+                return $publicacao->toArraySimples();
+            }, $publicacoes);
+        }
+
+        public static function toArrays($publicacoes): array 
+        {
+            return array_map(function($publicacao){
+                return $publicacao->toArray();
+            }, $publicacoes);
+        }
+
+        public function toArraySimples(): array
+        {
+            return [
+                'id' => $this->id,
+                'titulo' => $this->getTitulo(),
+                'data' => $this->getData(),
+                'capa' => $this->getCapa(),
+                'quantidadeComentarios' => $this->getQuantidadeComentarios(),
+                'quantidadeCurtidas' => $this->getQuantidadeCurtidas(),
+            ];
+        }
+
+        public function toArray(): array
+        {
+            return [
+                'id' => $this->id,
+                'titulo' => $this->getTitulo(),
+                'data' => $this->getData(),
+                'texto' => $this->getTexto(),
+                'capa' => $this->getCapa(),
+                'permitirCurtidas' => $this->permitirCurtidas,
+                'permitirComentarios' => $this->permitirComentarios,
+                'imagens' => ImagemPublicacao::toArrays($this->getImagens()->toArray()),
+                'videos' => VideoPublicacao::toArrays($this->getVideos()->toArray()),
+                'comentarios' => Comentario::toArrays($this->getComentarios()->toArray()),
+                'curtidas' => Curtida::toArrays($this->getCurtidas()->toArray()),
+                'quantidadeComentarios' => $this->getQuantidadeComentarios(),
+                'quantidadeCurtidas' => $this->getQuantidadeCurtidas(),
+            ];
+        }
 
     }
 ?>

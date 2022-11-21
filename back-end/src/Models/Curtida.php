@@ -36,5 +36,21 @@
         {
             return $this->usuario;
         }
+
+        public static function toArrays($curtidas): array 
+        {
+            return array_map(function($curtida){
+                return $curtida->toArray();
+            }, $curtidas);
+        }
+
+        public function toArray(): array
+        {
+            return [
+                'id' => $this->id,
+                'id_publicacao' => $this->getPublicacao()->id,
+                'usuario' => $this->getUsuario()->toArray()
+            ];
+        }
     }
 ?>
