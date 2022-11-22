@@ -34,7 +34,7 @@
         $permitirComentarios = isset($_POST['permitirComentarios']) ? 1 : 0;
         $permitirCurtidas = isset($_POST['permitirCurtidas']) ? 1 : 0;
 
-    }catch( Exception $e){
+    }catch( Throwable $e){
         header('HTTP/1.1 500 Internal Server Error');
         echo $e->getMessage();
         exit();
