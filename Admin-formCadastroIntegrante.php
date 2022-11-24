@@ -107,11 +107,19 @@
     <script src="JavaScript/excluirIntegrante.js"></script>
     <script>
 
-        const formulario = document.querySelector("#formulario");
+        let formulario = document.querySelector("#formulario");
 
-        formulario.onsubmit = (event) => {
+        async function cadastra()
+        {
+            let loader = document.querySelector("#loaderEnviar");
 
-            event.preventDefault();
+            loader.classList.remove("display-none");
+
+            let imagemDiminuida = await ImagemService.diminuiTamanhoDeImagem(800, formulario.imagem.files[0]);
+
+            let formData = new FormData(formulario);
+
+            formData.set('imagem', imagemDiminuida);
 
             const validacao = validaIntegrante(formulario.nome, formulario.cargo, formulario.imagem);
 
@@ -121,13 +129,13 @@
 
             const httpService = new HttpService();
 
-            let loader = document.querySelector("#loaderEnviar");
+            try{
+                let res = await httpService.postFormulario(formData, 'back-end/cadastraIntegrante.php');
 
-            loader.classList.remove("display-none");
+                let msg = await res.text();
 
-            httpService.postFormulario(formulario, 'back-end/cadastraIntegrante.php')
-            .then( resposta => resposta.text() )
-            .then(resposta => {
+                console.log(msg);
+
                 formulario.reset();
 
                 loader.classList.add("display-none");
@@ -135,15 +143,24 @@
                 new MensagemLateralService("Integrante cadastrado com sucesso!");
 
                 buscarIntegrantes();
+            }catch(e){
+                console.log("Caiu no catch: ", e);
 
-            })
-            .catch( msg => {
                 loader.classList.add("display-none");
 
                 new MensagemLateralService("Erro ao cadastrar integrante");
-            })
-    
+            }
+
         }
+
+    
+    formulario.onsubmit = (event) => {
+
+        event.preventDefault();
+
+        cadastra();
+
+    }
 
         function abrirMensagemDeErroDoInput(input, mensagem){
             input.focus();

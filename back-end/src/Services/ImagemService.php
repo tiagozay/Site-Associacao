@@ -10,28 +10,12 @@
         /** @throws DomainException */
         public static function validaImagem(array $imagem)
         {
-            $extensaoImagem = pathinfo($imagem['name'], PATHINFO_EXTENSION);
+            $tipoImagem = $imagem['type'];
 
             if(
-                $extensaoImagem != 'tiff' &&
-                $extensaoImagem != 'jfif' &&
-                $extensaoImagem != 'bmp' &&
-                $extensaoImagem != 'pjp' &&
-                $extensaoImagem != 'apng' &&
-                $extensaoImagem != 'gif' &&
-                $extensaoImagem != 'svg' &&
-                $extensaoImagem != 'png' &&
-                $extensaoImagem != 'xbm' &&
-                $extensaoImagem != 'dib' &&
-                $extensaoImagem != 'jxl' &&
-                $extensaoImagem != 'jpeg' &&
-                $extensaoImagem != 'svgz' &&
-                $extensaoImagem != 'jpg' &&
-                $extensaoImagem != 'webp' &&
-                $extensaoImagem != 'ico' &&
-                $extensaoImagem != 'tif' &&
-                $extensaoImagem != 'pjpeg' &&
-                $extensaoImagem != 'avif'
+                $tipoImagem != 'image/png' &&
+                $tipoImagem != 'image/jpeg' &&
+                $tipoImagem != 'image/jpg' 
             ) throw new DomainException("arquivo_invalido");
 
             $tamanhoDaImagemEmMB = $imagem['size'] / 1000 / 1000;

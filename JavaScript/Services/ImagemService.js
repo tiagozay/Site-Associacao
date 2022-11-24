@@ -14,27 +14,70 @@ class ImagemService
         const extensaoImagem = imagem.name.split('.').pop();
 
         if(
-            extensaoImagem != 'tiff' &&
-            extensaoImagem != 'jfif' &&
-            extensaoImagem != 'bmp' &&
-            extensaoImagem != 'pjp' &&
-            extensaoImagem != 'apng' &&
-            extensaoImagem != 'gif' &&
-            extensaoImagem != 'svg' &&
             extensaoImagem != 'png' &&
-            extensaoImagem != 'xbm' &&
-            extensaoImagem != 'dib' &&
-            extensaoImagem != 'jxl' &&
             extensaoImagem != 'jpeg' &&
-            extensaoImagem != 'svgz' &&
-            extensaoImagem != 'jpg' &&
-            extensaoImagem != 'webp' &&
-            extensaoImagem != 'ico' &&
-            extensaoImagem != 'tif' &&
-            extensaoImagem != 'pjpeg' &&
-            extensaoImagem != 'avif'
+            extensaoImagem != 'jpg' 
         ){
             throw new Error('extensao_de_imagem_invalida');
         }
     }
+
+    static diminuiTamanhoDeImagem(width, image_file)
+    {
+        return new Promise( (resolve, reject) => {
+    
+            let reader = new FileReader();
+        
+            reader.readAsDataURL(image_file);
+        
+            reader.onload = (event) => {
+        
+                let image_url = event.target.result;
+        
+                let image = document.createElement("img");
+                image.src = image_url;
+        
+                image.onload = (e) => {
+        
+                    let canvas = document.createElement("canvas");
+                    let ratio = width / e.target.width;
+                    canvas.width = width;
+                    canvas.height = e.target.height * ratio;
+                
+                    const context = canvas.getContext('2d');
+                    context.drawImage(image, 0, 0, canvas.width, canvas.height);
+        
+                    let new_image_url = canvas.toDataURL('image/jpeg', 100);
+
+                    let arquivo = ImagemService._urlToFile(new_image_url);
+
+                    resolve(arquivo);
+
+                }
+            }
+        })
+    }
+
+    static _urlToFile(url)
+    {
+        let arr = url.split(',');
+
+        let mime = arr[0].match(/:(.*?);/)[1];
+        let data = arr[1];
+
+        let dataStr = atob(data);
+
+        let n = dataStr.length;
+
+        let dataArr = new Uint8Array(n);
+
+        while(n--){
+            dataArr[n] = dataStr.charCodeAt(n)
+        }
+
+        let file = new File([dataArr], 'File.jpg', {type: mime})
+
+        return file;
+    }
+
 }

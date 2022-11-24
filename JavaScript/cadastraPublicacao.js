@@ -25,7 +25,9 @@ formulario.onsubmit = (event) => {
 
     loader.classList.remove("display-none");
 
-    httpService.postFormulario(formulario, 'back-end/cadastraPublicacao.php')
+    let formData = new FormData(formulario);
+
+    httpService.postFormulario(formData, 'back-end/cadastraPublicacao.php')
     .then( (resposta) => {
 
         resposta.text()

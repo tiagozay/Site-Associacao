@@ -21,7 +21,9 @@ formularioCadastro.onsubmit = (event) => {
 
     loader.classList.remove("display-none");
 
-    httpService.postFormulario(formularioCadastro, 'back-end/cadastraUsuario.php')
+    let formData = new FormData(formularioCadastro);
+
+    httpService.postFormulario(formData, 'back-end/cadastraUsuario.php')
     .then( () => {
 
         formularioCadastro.reset();

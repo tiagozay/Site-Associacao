@@ -1,9 +1,7 @@
 class HttpService
 {
-    postFormulario(formulario, url) 
+    postFormulario(formData, url) 
     {
-        const formData = new FormData(formulario);
-
         return fetch(url, {   
             method: 'POST',
             body: formData
