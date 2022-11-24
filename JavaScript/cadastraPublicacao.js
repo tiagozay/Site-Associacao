@@ -1,8 +1,12 @@
 const formulario = document.querySelector("#formulario");
 
-formulario.onsubmit = (event) => {
+async function cadastra()
+{
+    let formData = new FormData(formulario);
 
-    event.preventDefault();
+    let loader = document.querySelector("#loaderCadastrarPublicacao");
+
+    loader.classList.remove("display-none");
 
     const validacao = validaPublicacao(
         formulario.titulo,
@@ -19,33 +23,52 @@ formulario.onsubmit = (event) => {
         return;
     }
 
+    const capaDiminuida = await ImagemService.diminuiTamanhoDeImagem(800, formulario.capa.files[0]);
+
+    const imagensDiminuidas = await ImagemService.diminuiTamanhoDeImagens(800, formulario.imagens.files);
+
+    formData.set('capa', capaDiminuida);
+
+    if(formulario.imagens.files.length > 0){
+        formData.delete('imagens[]');
+
+        imagensDiminuidas.forEach( imagem => {
+            formData.append('imagens[]', imagem);
+        } );
+    }
+   
+
     const httpService = new HttpService();
 
-    let loader = document.querySelector("#loaderCadastrarPublicacao");
+    try{
+        let res = await httpService.postFormulario(formData, 'back-end/cadastraPublicacao.php');
 
-    loader.classList.remove("display-none");
+        let text = await res.text();
+    
+        console.log(text);
 
-    let formData = new FormData(formulario);
-
-    httpService.postFormulario(formData, 'back-end/cadastraPublicacao.php')
-    .then( (resposta) => {
-
-        resposta.text()
-        .then( txt => console.log(txt) );
-
+        
         formulario.reset();
 
         loader.classList.add("display-none");
 
         new MensagemLateralService("Publicação adicionada com sucesso.");
-    } )
-    .catch( resposta => {
+
+    }catch(e){
+        console.log("Caiu no catch. ", e);
 
         loader.classList.add("display-none");
 
         new MensagemLateralService("Não foi possível adicionar publicação.");
+    }
 
-    } )
+}
+
+formulario.onsubmit = (event) => {
+
+    event.preventDefault();
+
+    cadastra();
 
 }
 

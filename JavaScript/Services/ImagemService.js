@@ -80,4 +80,19 @@ class ImagemService
         return file;
     }
 
+    static async diminuiTamanhoDeImagens(width, fileListImagens)
+    {
+        const imagens = Array.from(fileListImagens);
+
+        let imagensDiminuidas = [];
+
+        for(let i = 0; i < imagens.length; i++){
+            let imagemDiminuida = await ImagemService.diminuiTamanhoDeImagem(width, imagens[i]);
+    
+            imagensDiminuidas.push(imagemDiminuida);
+        }
+
+        return imagensDiminuidas;
+    }
+
 }
