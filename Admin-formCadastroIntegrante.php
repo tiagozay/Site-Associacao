@@ -111,21 +111,21 @@
 
         async function cadastra()
         {
+            let formData = new FormData(formulario);
+
             let loader = document.querySelector("#loaderEnviar");
 
             loader.classList.remove("display-none");
-
-            let imagemDiminuida = await ImagemService.diminuiTamanhoDeImagem(800, formulario.imagem.files[0]);
-
-            let formData = new FormData(formulario);
-
-            formData.set('imagem', imagemDiminuida);
 
             const validacao = validaIntegrante(formulario.nome, formulario.cargo, formulario.imagem);
 
             if(!validacao){
                 return;
             }
+
+            let imagemDiminuida = await ImagemService.diminuiTamanhoDeImagem(800, formulario.imagem.files[0]);
+
+            formData.set('imagem', imagemDiminuida);
 
             const httpService = new HttpService();
 
