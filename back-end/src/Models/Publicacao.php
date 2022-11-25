@@ -84,14 +84,20 @@
 
             //Verifica se uma nova capa foi informada, se sim, sobreescreve a antiga
             if(!ImagemService::imagemNaoInformada($capa)){
-                ImagemService::removeImagemDoDiretorio(caminhoImagem: "assets/imagens_dinamicas/capas_publicacoes/{$this->capa}");
+                ImagemService::removeImagemDoDiretorio(
+                    caminhoImagem: __DIR__."\..\..\..\assets\imagens_dinamicas\capas_publicacoes\\{$this->capa}"
+                );
 
                 $this->setCapa($capa);
+
+                $this->salvarCapa();
             }
 
             //Verifica se foram informadas novas imagens
             if($imagens['error'][0] != 4){
                 $this->setImagens($imagens);
+
+                $this->salvarImagens();
             }
 
             //Verifica se foram informadas novos videos

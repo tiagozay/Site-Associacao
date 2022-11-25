@@ -38,18 +38,20 @@
             </div>
 
             <div class="container">
-                <form enctype="multipart/form-data">
+                <form enctype="multipart/form-data" id="formulario">
 
-                    <input type="hidden" name="id" class="idPublicacao" value="">
+                    <input type="hidden" name="id" id="id" value="">
 
                     <div class="divLabelEInput">
-                        <label for="titulo">Titulo:</label>
+                        <label for="titulo">Titulo*:</label>
                         <input type="text" name="titulo" id="titulo" class="inputForm">
+                        <span class="eror display-none" id='msgErro-titulo'></span>
                     </div>
 
                     <div class="divLabelEInput">
-                        <label for="data">Data:</label>
+                        <label for="data">Data*:</label>
                         <input type="date" name="data" id="data" class="inputForm">
+                        <span class="eror display-none" id='msgErro-data'></span>
                     </div>
 
                     <div class="divLabelEInput">
@@ -60,6 +62,7 @@
                     <div class="divLabelEInput">
                         <label for="capa">Redefinir capa:</label>
                         <input type="file" name="capa" id="capa" class="inputForm" accept="image/*">
+                        <span class="eror display-none" id='msgErro-capa'></span>
                     </div>
 
                     Imagens:
@@ -70,6 +73,7 @@
                     <div class="divLabelEInput">
                         <label for="imagens">Adicionar novas imagens:</label>
                         <input type="file" name="imagens[]" id="imagens" class="inputForm" accept="image/*" multiple="multiple">
+                        <span class="eror display-none" id='msgErro-imagens[]'></span>
                     </div>
 
                     Videos:
@@ -79,7 +83,7 @@
 
                     <div class="divLabelEInput">
                         <label for="video">Adicionar novos vídeos</label>
-                        <select name="" id="quantidadeDeVideos" class="selectQuantidadeVideos">
+                        <select name="quantidadeDeVideos" id="quantidadeDeVideos" class="selectQuantidadeVideos">
                             <option value="0">0</option>
                             <option value="1">1</option>
                             <option value="2">2</option>
@@ -89,42 +93,40 @@
                         </select>
                     </div>
 
-                    <div id="inputsVideos">
+                    <div id="divInputsVideos">
 
                     </div>
 
                     <div class="divLabelEInput">
                         <label for="permitirComentarios" class="labelPComentarios">
-                            <input type="checkbox" name="comentarios" id="permitirComentarios">
+                            <input type="checkbox" name="permitirComentarios" id="permitirComentarios">
                             Permitir comentários
                         </label>
                     </div>
 
                     <div class="divLabelEInput">
                         <label for="permitirLikes" class="labelPLikes">
-                            <input type="checkbox" name="likes" id="permitirLikes">
+                            <input type="checkbox" name="permitirCurtidas" id="permitirLikes">
                             Permitir curtidas
                         </label>
                     </div>
                     
-                    <button type="submit" id="btnSalvar">Salvar</button>
+                    <button type="submit" id="btnSalvar">
+                        Salvar
+                        <div class="display-none" id="loaderEditarPublicacao"></div>
+                    </button>
                 </form>
             </div>
         </fieldset>
     </section>
 
     <script src="JavaScript/Services/MensagemLateralService.js"></script>
+    <script src="JavaScript/Services/ImagemService.js"></script>
     <script src="JavaScript/Services/HttpService.js"></script>
     <script src="JavaScript/Helpers/DateHelper.js"></script>
     <script src="JavaScript/buscaPublicacaoParaEditar.js"></script>
     <script src="JavaScript/geraInputsDeVideos.js"></script>
-
-    <!-- <script src="JavaScript/buscarImagensDeUmaPublicacao.js"></script> -->
-    <!-- <script src="JavaScript/buscarVideos.js"></script> -->
-
-    <script src="JavaScript/excluirImagensDaPublicacao.js"></script>
-    <script src="JavaScript/excluirVideo.js"></script>
-
+    <script src="JavaScript/editarPublicacao.js"></script>
 
 </body>
 </html>

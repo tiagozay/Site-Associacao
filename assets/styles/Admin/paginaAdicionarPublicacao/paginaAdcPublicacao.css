@@ -155,6 +155,15 @@ fieldset .container form button:hover{
     animation: spin 700ms linear infinite;
     margin-left: 10px;
 }
+#loaderEditarPublicacao{
+    border: 3px solid #f3f3f3; /* Light grey */
+    border-top: 3px solid #00233b; /* Blue */
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    animation: spin 700ms linear infinite;
+    margin-left: 10px;
+}
 .inputDesativado{
     background-color:#a5a5a5!important;
     border: none!important;

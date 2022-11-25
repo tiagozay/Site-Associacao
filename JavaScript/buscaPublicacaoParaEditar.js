@@ -1,3 +1,4 @@
+const inputId = document.querySelector("#id");
 const inputTitulo = document.querySelector("#titulo");
 const inputData = document.querySelector("#data");
 const inputTexto = document.querySelector("#texto");
@@ -11,6 +12,8 @@ const btnSalvar = document.querySelector("#btnSalvar");
 
 const listaDeImagens = document.querySelector(".gridImagens");
 const listaDeVideos = document.querySelector(".gridVideos");
+
+let publicacaoEditada;
 
 buscaPublicacaoParaEditar();
 
@@ -31,31 +34,32 @@ async function buscaPublicacaoParaEditar()
 
     let res = await httpService.get(`back-end/buscaPublicacao.php?id=${id}`);
 
-    let publicacao = await res.json();
+    publicacaoEditada = await res.json();
 
     habilitarForm();
 
-    inputTitulo.value = publicacao['titulo'];
-    inputData.value =  DateHelper.removeHorarioDaData(publicacao['data'].date);
-    inputTexto.value = publicacao['texto'];
-    inputTexto.value = publicacao['texto'];
+    inputId.value = id;
+    inputTitulo.value = publicacaoEditada['titulo'];
+    inputData.value =  DateHelper.removeHorarioDaData(publicacaoEditada['data'].date);
+    inputTexto.value = publicacaoEditada['texto'];
+    inputTexto.value = publicacaoEditada['texto'];
 
-    if(publicacao['permitirComentarios']){
+    if(publicacaoEditada['permitirComentarios']){
         inputPermitirComentarios.setAttribute('checked', true);
     }
 
-    if(publicacao['permitirCurtidas']){
+    if(publicacaoEditada['permitirCurtidas']){
         inputPermitirCurtidas.setAttribute('checked', true);
     }
 
-    publicacao['imagens'].forEach(imagem => {
+    publicacaoEditada['imagens'].forEach(imagem => {
         
         listaDeImagens.innerHTML += 
         `
             <div class="divImg">
                 <div class="telaSuperiorImagem">
-                    <button type="button" onclick="create_modal('confirmação para excluir imagem')" data-idImg="${imagem['id']}" class="btnExcluirImagem">
-                        <i class="material-icons" data-idImg="${imagem['id']}">delete</i>
+                    <button type="button" onclick="excluirImagem(${imagem['id']})" class="btnExcluirImagem">
+                        <i class="material-icons">delete</i>
                     </button>
                 </div>
                 <img src="assets/imagens_dinamicas/imagens_publicacoes/${imagem['nome']}" class="imagem">
@@ -65,7 +69,7 @@ async function buscaPublicacaoParaEditar()
     });
 
     
-    publicacao['videos'].forEach(video => {
+    publicacaoEditada['videos'].forEach(video => {
         
         listaDeVideos.innerHTML += 
         `
