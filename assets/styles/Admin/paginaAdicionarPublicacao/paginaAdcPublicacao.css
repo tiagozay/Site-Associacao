@@ -62,7 +62,7 @@ fieldset .container form .divLabelEInput{
 }
 fieldset .container form .divLabelEInput label{
     font-size: 18px;
-    margin-bottom: 5px;
+    margin-bottom: 3px;
 }
 fieldset .container form .divLabelEInput .inputForm{
     color: rgb(46, 46, 46);
@@ -154,6 +154,16 @@ fieldset .container form button:hover{
     height: 20px;
     animation: spin 700ms linear infinite;
     margin-left: 10px;
+}
+.inputDesativado{
+    background-color:#a5a5a5!important;
+    border: none!important;
+    cursor: progress;
+    opacity: 1;
+}
+.btnDesativado{
+    background-color: rgb(109, 109, 109)!important;
+    cursor: progress!important;
 }
 @keyframes spin {
     0% { transform: rotate(0deg); }

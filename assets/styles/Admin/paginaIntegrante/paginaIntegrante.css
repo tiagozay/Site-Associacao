@@ -237,8 +237,6 @@ fieldset .divListaIntegrantes ul li div .cargoIntegrante{
 .btnDesativado{
     background-color: rgb(109, 109, 109)!important;
     cursor: progress!important;
-
-
 }
 @media (max-width: 955px){
     fieldset{

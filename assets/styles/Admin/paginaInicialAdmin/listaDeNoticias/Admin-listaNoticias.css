@@ -86,8 +86,9 @@
     background-color: transparent;
     border: 2px rgb(211, 211, 211) solid;
     border-radius: 50%;
-    height: 30px;
-    width: 30px;
+    height: 26px;
+    width: 26px;
+    text-decoration: none;
     outline: none;
     color: rgb(211, 211, 211);
     cursor: pointer;

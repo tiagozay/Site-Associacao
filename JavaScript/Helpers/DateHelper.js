@@ -8,4 +8,12 @@ class DateHelper
 
         return `${dia}/${mes}/${ano}`;
     }
+
+    static removeHorarioDaData(stringData)
+    {
+        let dataArr = stringData.split(" ");
+
+        return dataArr[0];
+    }
+
 }
