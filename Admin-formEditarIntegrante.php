@@ -79,7 +79,7 @@
     <script src="JavaScript/Services/MensagemLateralService.js"></script>
     <script src="JavaScript/Services/ImagemService.js"></script>
     <script src="JavaScript/buscaIntegranteParaEditar.js"></script>
-    <script src="JavaScript/salvarAlteracoesIntegrante.js"></script>
+    <script src="JavaScript/editarIntegrante.js"></script>
 
 </body>
 </html>

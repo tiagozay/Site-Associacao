@@ -4,10 +4,6 @@ async function cadastra()
 {
     let formData = new FormData(formulario);
 
-    let loader = document.querySelector("#loaderCadastrarPublicacao");
-
-    loader.classList.remove("display-none");
-
     const validacao = validaPublicacao(
         formulario.titulo,
         formulario.data, 
@@ -22,6 +18,10 @@ async function cadastra()
     if(!validacao){
         return;
     }
+
+    let loader = document.querySelector("#loaderCadastrarPublicacao");
+
+    loader.classList.remove("display-none");
 
     const capaDiminuida = await ImagemService.diminuiTamanhoDeImagem(800, formulario.capa.files[0]);
 

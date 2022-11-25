@@ -113,15 +113,15 @@
         {
             let formData = new FormData(formulario);
 
-            let loader = document.querySelector("#loaderEnviar");
-
-            loader.classList.remove("display-none");
-
             const validacao = validaIntegrante(formulario.nome, formulario.cargo, formulario.imagem);
 
             if(!validacao){
                 return;
             }
+            
+            let loader = document.querySelector("#loaderEnviar");
+
+            loader.classList.remove("display-none");
 
             let imagemDiminuida = await ImagemService.diminuiTamanhoDeImagem(800, formulario.imagem.files[0]);
 

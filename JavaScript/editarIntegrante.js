@@ -1,7 +1,8 @@
 const form = document.querySelector("#formulario");
 
-form.onsubmit = (event) => {
-    event.preventDefault();
+async function enviar()
+{
+    let formData = new FormData(form);
 
     const validacao = validaIntegrante(form.nome, form.cargo, form.imagem)
 
@@ -13,20 +14,34 @@ form.onsubmit = (event) => {
 
     loader.classList.remove("display-none");
 
+    if(form.imagem.files[0]){
+        let imagemDiminuida = await ImagemService.diminuiTamanhoDeImagem(800, form.imagem.files[0]);
+
+        formData.set("imagem", imagemDiminuida);
+    }
+
     const httpService = new HttpService();
 
-    httpService.postFormulario(form, 'back-end/editaIntegrante.php')
-    .then( () => {
+    try{
+        let res = await httpService.postFormulario(formData, 'back-end/editaIntegrante.php');
+
         loader.classList.add("display-none");
 
         location.href = 'Admin-formCadastroIntegrante.php';
-    })
-    .catch( () => {
+    }catch(e){
+        console.log(e);
+
         loader.classList.add("display-none");
 
         new MensagemLateralService("Erro ao editar integrante.");
-    });
+    }
 
+}
+
+form.onsubmit = (event) => {
+    event.preventDefault();
+
+    enviar();
 }
 
 
