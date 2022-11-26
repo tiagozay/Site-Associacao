@@ -85,10 +85,10 @@
 header .containerHeader .btnEntrarPainel{
     text-decoration: none;
     border-radius: 5px;
-    padding: 10px 15px;
+    padding: 8px 15px;
     border: 1px white solid;
     color: white;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     transition: 400ms;
     display: flex;
     justify-content: center;
@@ -98,7 +98,6 @@ header .containerHeader .btnEntrarPainel{
 header .containerHeader .btnEntrarPainel:hover{
     background-color: rgba(135, 135, 135, 0.398);
     color: white;
-    transform: scale(1.1);
 }
 
 header .containerHeader .btnEntrarPainel i{
@@ -117,10 +116,6 @@ header .containerHeader .btnEntrarPainel i{
     .textoOla{
         display: none;
     }
-    .opcoes button{
-        padding: 15px 10px;
-        font-size: 21px;
-    }
 }
 @media(max-width: 550px){
     .navConfigUsuario{
@@ -131,14 +126,14 @@ header .containerHeader .btnEntrarPainel i{
     }
 }
 @media(max-width: 430px){
-    .btnAbrirMenuConfigUser i{
-        font-size: 29px
-    }
-    header .containerHeader .btnEntrarPainel{
-        padding: 6px 10px;
-    }
     .conteudo{
         top: 62px;
+    }
+}
+@media(max-width: 390px){
+    header .containerHeader .btnEntrarPainel{
+        padding: 6px 10px;
+        font-size: 15px;
     }
 }
 @media (max-width: 370px){

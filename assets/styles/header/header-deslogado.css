@@ -6,15 +6,14 @@ header .containerHeader .btnLogin{
     border: 1px white solid;
     color: white;
     font-family: 'Roboto', sans-serif;
-    transition: 400ms;
+    transition: 200ms;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 header .containerHeader .btnLogin:hover{
-    background-color: rgba(135, 135, 135, 0.398);
+    background-color: rgb(97, 2, 2);
     color: white;
-    transform: scale(1.1);
 }
 
 header .containerHeader .btnLogin i{

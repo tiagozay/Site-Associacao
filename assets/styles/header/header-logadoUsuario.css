@@ -1,7 +1,8 @@
 .navConfigUsuario{
-    display: flex;
+    display: flex!important;
     flex-direction: column;
-    align-items: center;
+    align-items: center!important;
+    justify-content: center!important;
 }
 .divNomeEMenu{
     display: flex;
@@ -22,12 +23,15 @@
     cursor: pointer;
     border: 1px rgb(191, 191, 191) solid;
     border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .btnAbrirMenuConfigUser:hover{
     border: 1px rgb(226, 226, 226) solid;
 }
 .btnAbrirMenuConfigUser i{
-    font-size: 37px;
+    font-size: 35px!important;
     color: white;
 }
 .conteudo{
@@ -65,7 +69,7 @@
 }
 .btnOpcoesUsuario{
     padding: 15px 10px;
-    font-size: 22px;
+    font-size: 19px!important;
     text-align: center;
     background-color: transparent;
     border: none;
@@ -95,9 +99,6 @@
     .divNomeEMenu{
         flex-direction: column;
     }
-    .btnAbrirMenuConfigUser{
-        margin-top: 7px;
-    }
     .conteudo{
         padding-right: 5px;
         top: 78px;
@@ -112,11 +113,17 @@
     }
 }
 @media(max-width: 430px){
-    .btnAbrirMenuConfigUser i{
-        font-size: 29px
-    }
     .conteudo{
         top: 75px;
+    }
+}
+@media(max-width: 390px){
+    .btnAbrirMenuConfigUser{
+        padding: 1px 5px;
+        font-size: 1px!important;
+    }
+    .btnAbrirMenuConfigUser i{
+        font-size: 31px!important;
     }
 }
 @media (max-width: 370px){

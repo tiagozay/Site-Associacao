@@ -6,17 +6,22 @@
     use Classes\Publicacao;
     use Classes\ConectionCreator;
 
-    // require_once "src/Classes/Publicacao.php";
-    // require_once "src/Classes/ConectionCreator.php";
+    require_once "back-end/vendor/autoload.php";
 
-    require_once "includes/autoload.php";
+    $_SESSION['nivel'] = 'dsf';
+    $_SESSION['nome'] = 'Tiago zay';
 
-    $nivelDoUsuario = 'deslogado';
-    if(isset($_SESSION['id'])){
-        $id = $_SESSION['id'];
-        $nome = $_SESSION['nome'];
-        $nivelDoUsuario = $_SESSION['nivel'];
-    }
+
+    // echo "==============<br>";
+    // echo "Seja bem vindo: ".$_SESSION['nome'];
+    // echo "<br>==============<br>";
+
+    // $nivelDoUsuario = 'deslogado';
+    // if(isset($_SESSION['id'])){
+    //     $id = $_SESSION['id'];
+    //     $nome = $_SESSION['nome'];
+    //     $nivelDoUsuario = $_SESSION['nivel'];
+    // }
     
     
 ?>
@@ -29,34 +34,35 @@
     <title>Início</title>
     
     <link rel="stylesheet" href="assets/styles/reset.css">
-    <?php
-        new Fontes($nivelDoUsuario);
-    ?>           
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;1,100&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="assets/styles/base.css">
     <link rel="stylesheet" href="assets/styles/header/header.css">
 
-    <!-- Carrega o css correspondente ao nivel/estado do usuário -->
-    <?php
-        if($nivelDoUsuario == 'deslogado'){
-            echo '<link rel="stylesheet" href="assets/styles/header/header-deslogado.css">';
-        }else if($nivelDoUsuario == 'usuario'){
-            echo '<link rel="stylesheet" href="assets/styles/header/header-logadoUsuario.css">';
-        }else if($nivelDoUsuario == 'admin'){
-            echo '<link rel="stylesheet" href="assets/styles/header/header-logadoAdmin.css">';
-        }
-    ?>
+    <link rel="stylesheet" href="assets/styles/header/header-deslogado.css">
 
+    <link rel="stylesheet" href="assets/styles/header/header-logadoUsuario.css">
+    <link rel="stylesheet" href="assets/styles/header/header-logadoAdmin.css">
     
+
 
     <link rel="stylesheet" href="assets/styles/navSecoes.css">
     <link rel="stylesheet" href="assets/styles/Home/noticias.css"> 
 </head> 
 <body>
     <header>
-        <?php
-            new Header($nivelDoUsuario);
-        ?>
+        <div class="divHeader">
+
+            <!-- <div class="" id="loaderCarregandoHeader"></div> -->
+
+        </div>
 
         <nav class="navOpcoes">
             <button class="btnAbrirMenu" onclick="abrirFecharMenu()"><i class="material-icons">menu_open</i></button>
@@ -71,20 +77,7 @@
     
     <section class="secaoNoticias">
         <div class="noticias__container">
-            <?php  
-                require_once "src/buscaDeDados/todasPublicacoesParaHome.php";
-                foreach($publicacoes as $noticia){
-                ?>
-                    <a href="publicacao.php?pag=<?php echo basename($_SERVER['PHP_SELF']) ?>&id=<?=$noticia['id']?>" class="card">
-                        <div class="card__conteudo">
-                            <h2 class="conteudo__titulo"><?=$noticia['titulo']?></h2>
-                            <p class="conteudo__data"><?=$noticia['dataRegistroFormatada']?></p>
-                        </div>
-                        <img class="card__capa" src="assets/imagens_dinamicas/capas_noticias/<?=$noticia['capa']?>" alt="">
-                    </a>
 
-                <?php } ?>
-            
         </div>
     </section>
 
@@ -94,9 +87,14 @@
         <h2 class="textoDesenvolvido">Desenvolvido por <a href="https://tiagozay.github.io/portfolio/"> Tiago zay </a>e <a href="https://github.com/WillianMateusUss"> Willian uss </a></h2>
     </footer>
 
-    <script src="JavaScript/abrirOuFecharMenuSecoes.js"></script>          
+    <script src="JavaScript/Services/HttpService.js"></script>
+    <script src="JavaScript/gerarHeader.js"></script>
     <script src="JavaScript/abrirMenuAcoesUsuario.js"></script>
+  
+
+    <!--       
+    <script src="JavaScript/abrirOuFecharMenuSecoes.js"></script>  
     <script src="JavaScript/verMaisNoticias.js"></script>
-    <script src="JavaScript/enviarTamanhoDeTela.js"></script>
+    <script src="JavaScript/enviarTamanhoDeTela.js"></script> -->
 </body>
 </html>

@@ -1,7 +1,7 @@
 .semFundo{
     background: transparent;
 }
-.semFundo .divGrande{
+.semFundo .divHeader{
     border-bottom: 1px rgb(160, 160, 160) solid;
     backdrop-filter: none;
     -webkit-backdrop-filter: none;
@@ -13,13 +13,27 @@ header{
     background-attachment: fixed;
     background-repeat: no-repeat;
     color: white;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Montserrat', sans-serif;
 }
-.divGrande{
+.divHeader{
     background-color: rgba(0, 0, 0, 0.508);
     backdrop-filter: blur( 4.5px );
     -webkit-backdrop-filter: blur( 4.5px );
 }
+#loaderCarregandoHeader{
+    border: 3px solid #f3f3f3; /* Light grey */
+    border-top: 3px solid #00233b; /* Blue */
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    animation: spin 700ms linear infinite;
+    margin: 10px auto;
+}
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
 header .containerHeader{
     margin: 0 auto;
     display: flex;
