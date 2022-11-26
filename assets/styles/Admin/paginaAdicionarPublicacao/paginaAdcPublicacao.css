@@ -157,7 +157,7 @@ fieldset .container form button:hover{
 }
 #loaderEditarPublicacao{
     border: 3px solid #f3f3f3; /* Light grey */
-    border-top: 3px solid #00233b; /* Blue */
+    border-top: 3px solid #306b91; /* Blue */
     border-radius: 50%;
     width: 20px;
     height: 20px;
