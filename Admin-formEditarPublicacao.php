@@ -83,7 +83,7 @@
 
                     <div class="divLabelEInput">
                         <label for="video">Adicionar novos vídeos</label>
-                        <select name="quantidadeDeNovosVideos" id="quantidadeDeNovosVideos" class="selectQuantidadeVideos">
+                        <select name="quantidadeDeNovosVideos" id="quantidadeDeVideos" class="selectQuantidadeVideos">
                             <option value="0">0</option>
                             <option value="1">1</option>
                             <option value="2">2</option>
