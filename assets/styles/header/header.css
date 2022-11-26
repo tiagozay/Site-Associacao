@@ -36,6 +36,7 @@ header{
 
 header .containerHeader{
     margin: 0 auto;
+    padding: 20px 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -45,7 +46,6 @@ header .containerHeader .a-Logo{
     display: flex;
     align-items: center;
     padding: 5px 0;
-    margin: 20px 0;
 }
 header .containerHeader .a-Logo img{
     width: 160px;

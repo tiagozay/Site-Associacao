@@ -8,7 +8,7 @@
 
     require_once "back-end/vendor/autoload.php";
 
-    $_SESSION['nivel'] = 'dsf';
+    $_SESSION['nivel'] = 'admin';
     $_SESSION['nome'] = 'Tiago zay';
 
 
@@ -60,8 +60,6 @@
     <header>
         <div class="divHeader">
 
-            <!-- <div class="" id="loaderCarregandoHeader"></div> -->
-
         </div>
 
         <nav class="navOpcoes">
@@ -76,6 +74,13 @@
     </header>
     
     <section class="secaoNoticias">
+
+        <div class="loaderDesativado" id="divLoaderBuscarPublicacoes">
+            <div class="" id="loaderBuscarPublicacoes"></div>
+            Buscando publicações...
+        </div>
+       
+
         <div class="noticias__container">
 
         </div>
@@ -88,9 +93,17 @@
     </footer>
 
     <script src="JavaScript/Services/HttpService.js"></script>
+    <script src="JavaScript/Helpers/DateHelper.js"></script>
     <script src="JavaScript/gerarHeader.js"></script>
     <script src="JavaScript/abrirMenuAcoesUsuario.js"></script>
+    <script src="JavaScript/buscaPublicacoesHome.js"></script>
   
+    <script>
+   
+        gerarHeader();
+        buscaPublicacoes();
+
+    </script>
 
     <!--       
     <script src="JavaScript/abrirOuFecharMenuSecoes.js"></script>  
