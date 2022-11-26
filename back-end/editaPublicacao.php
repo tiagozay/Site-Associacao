@@ -22,7 +22,7 @@
         $titulo = RequestService::pegaValorDoCampoPOSTOuLancaExcecao('titulo');
         $data = RequestService::pegaValorDoCampoPOSTOuLancaExcecao('data');
         $texto = RequestService::pegaValorDoCampoPOSTOuLancaExcecao('texto');
-        $quantidadeDeVideos = RequestService::pegaValorDoCampoPOSTOuLancaExcecao('quantidadeDeVideos');
+        $quantidadeDeVideos = RequestService::pegaValorDoCampoPOSTOuLancaExcecao('quantidadeDeNovosVideos');
 
         $urlsVideos = [];
 
@@ -31,7 +31,13 @@
         }
 
         $capa = RequestService::pegaValorDoCampoFILESOuLancaExcecao('capa');
-        $imagens = RequestService::pegaValorDoCampoFILESOuLancaExcecao('imagens');
+        $novasImagens = RequestService::pegaValorDoCampoFILESOuLancaExcecao('novasImagens');
+        $imagensRestantes = isset($_POST['imagensRestantes']) ? $_POST['imagensRestantes'] : [];
+        $videosRestantes = isset($_POST['videosRestantes']) ? $_POST['videosRestantes'] : [];
+
+        $imagensRestantes = json_decode($imagensRestantes);
+        $videosRestantes = json_decode($videosRestantes);
+
         $permitirComentarios = isset($_POST['permitirComentarios']) ? 1 : 0;
         $permitirCurtidas = isset($_POST['permitirCurtidas']) ? 1 : 0;
 
@@ -46,29 +52,20 @@
     /** @var Publicacao */
     $publicacao = $entityManager->find(Publicacao::class, $id);
 
-    $publicacao->edita(
-        $titulo,
-        $texto, 
-        $data,
-        $capa,
-        $imagens, 
-        $urlsVideos, 
-        $permitirCurtidas,
-        $permitirComentarios
-    );
-
-
-    
-
-    $entityManager->flush();
-
-
-    exit();
-
-
     try{
 
-       
+        $publicacao->edita(
+            $titulo,
+            $texto, 
+            $data,
+            $capa,
+            $novasImagens,
+            $imagensRestantes,
+            $urlsVideos,
+            $videosRestantes,
+            $permitirCurtidas,
+            $permitirComentarios
+        );
 
     }catch(DomainException $e){
         header('HTTP/1.1 500 Internal Server Error');
@@ -78,14 +75,8 @@
 
 
     try{
-
-        $entityManager->persist($publicacao);
     
         $entityManager->flush();
-    
-        $publicacao->salvarCapa();
-    
-        $publicacao->salvarImagens();
 
         header('HTTP/1.1 200 OK');
 

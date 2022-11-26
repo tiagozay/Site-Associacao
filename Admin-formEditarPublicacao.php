@@ -33,7 +33,7 @@
 
             <div class="divBtnVoltar">
 
-                <a href="" class="btnVoltarPagIniAdmin"><i class="material-icons">logout</i> Voltar</a>
+                <a href="Admin-pagInicial.php" class="btnVoltarPagIniAdmin"><i class="material-icons">logout</i> Voltar</a>
               
             </div>
 
@@ -72,8 +72,8 @@
 
                     <div class="divLabelEInput">
                         <label for="imagens">Adicionar novas imagens:</label>
-                        <input type="file" name="imagens[]" id="imagens" class="inputForm" accept="image/*" multiple="multiple">
-                        <span class="eror display-none" id='msgErro-imagens[]'></span>
+                        <input type="file" name="novasImagens[]" id="novasImagens" class="inputForm" accept="image/*" multiple="multiple">
+                        <span class="eror display-none" id='msgErro-novasImagens[]'></span>
                     </div>
 
                     Videos:
@@ -83,7 +83,7 @@
 
                     <div class="divLabelEInput">
                         <label for="video">Adicionar novos vídeos</label>
-                        <select name="quantidadeDeVideos" id="quantidadeDeVideos" class="selectQuantidadeVideos">
+                        <select name="quantidadeDeNovosVideos" id="quantidadeDeNovosVideos" class="selectQuantidadeVideos">
                             <option value="0">0</option>
                             <option value="1">1</option>
                             <option value="2">2</option>

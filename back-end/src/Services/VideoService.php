@@ -12,7 +12,7 @@
         {
             VideoService::validaIframe($iframe);
 
-            preg_match('~<iframe.+src="([A-Za-z0-9/.:-_]+)".+>~', $iframe, $matches);
+            preg_match('~<iframe.+src="([A-Za-z0-9/.:\-_]+)".+>~', $iframe, $matches);
 
             return $matches[1];
         }

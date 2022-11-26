@@ -13,6 +13,7 @@
     use Doctrine\ORM\Mapping\GeneratedValue;
     use Doctrine\ORM\Mapping\Id;
     use Doctrine\ORM\Mapping\OneToMany;
+    use stdClass;
 
     #[Entity()]
     class Publicacao
@@ -74,7 +75,7 @@
         }
 
         /** @throws DomainException */
-        public function edita(string $titulo, string $texto, string $data, array $capa, array $imagens, array $urlsVideos, bool $permitirCurtidas, bool $permitirComentarios)
+        public function edita(string $titulo, string $texto, string $data, array $capa, array $novasImagens, array $imagensRestantes, array $urlsVideos, array $videosRestantes ,bool $permitirCurtidas, bool $permitirComentarios)
         {
             $this->setTitulo($titulo);
             $this->setTexto($texto);
@@ -93,9 +94,19 @@
                 $this->salvarCapa();
             }
 
+            //Verifica se a quantidade de imagens que a publicação tem é maior que a que veio do cliente, se isso aconetecer é porque o usuário excluíu imagens, aí ele cai na função para removê-las do servidor
+            if($this->getImagens()->count() > count($imagensRestantes)){
+                $this->removeImagensQueForamExcluidasPeloUsuario($imagensRestantes);
+            }
+
+            //Verifica se a quantidade de videos que a publicação tem é maior que a que veio do cliente, se isso aconetecer é porque o usuário excluíu videos, aí ele cai na função para removê-los do servidor
+            if($this->getVideos()->count() > count($videosRestantes)){
+                $this->removeVideosQueForamExcluidasPeloUsuario($videosRestantes);
+            }
+          
             //Verifica se foram informadas novas imagens
-            if($imagens['error'][0] != 4){
-                $this->setImagens($imagens);
+            if($novasImagens['error'][0] != 4){
+                $this->setImagens($novasImagens);
 
                 $this->salvarImagens();
             }
@@ -104,6 +115,85 @@
             if(count($urlsVideos) > 0){
                 $this->setVideos($urlsVideos);
             }
+        }
+
+        private function removeImagensQueForamExcluidasPeloUsuario(array $imagensVindasDoUsuario)
+        {
+            $entityManager = EntityManagerCreator::create();
+
+            /** @var ArrayCollection */
+            $imagensPublicacao = $this->getImagens();
+
+            foreach($imagensPublicacao->toArray() as $imagem){
+
+                if($this->verificaSeImagemFoiExcluidaPeloUsuario($imagem->id, $imagensVindasDoUsuario)){
+
+                    $imagemParaExcluir = $entityManager->find(ImagemPublicacao::class, $imagem->id);
+
+                    $entityManager->remove($imagemParaExcluir);
+
+                    ImagemService::removeImagemDoDiretorio(
+                        caminhoImagem: __DIR__."\..\..\..\assets\imagens_dinamicas\imagens_publicacoes\\{$imagemParaExcluir->nome}"
+                    );
+
+                }
+
+            }
+
+            $entityManager->flush();         
+
+        }
+
+        private function verificaSeImagemFoiExcluidaPeloUsuario(int $id, array $imagensDoUsuario)
+        {
+            //Percorre o array de imagens que vieram do usuario buscando por id, se não encontrar é sinal que foi excluída, se encontrar, não foi excluída
+            $imagemEncontrada = null;
+
+            foreach($imagensDoUsuario as $imagem){
+                if($imagem->id == $id){
+                    $imagemEncontrada = $imagem;
+                    break;
+                }
+            }
+
+            return $imagemEncontrada ? false : true; 
+        }
+
+        private function removeVideosQueForamExcluidasPeloUsuario(array $videosVindosDoUsuario)
+        {
+            $entityManager = EntityManagerCreator::create();
+
+            /** @var ArrayCollection */
+            $videosPublicacao = $this->getVideos();
+
+            foreach($videosPublicacao->toArray() as $video){
+
+                if($this->verificaSeVideoFoiExcluidoPeloUsuario($video->id, $videosVindosDoUsuario)){
+
+                    $videoParaExcluir = $entityManager->find(VideoPublicacao::class, $video->id);
+
+                    $entityManager->remove($videoParaExcluir);
+                }
+
+            }
+
+            $entityManager->flush();         
+
+        }
+
+        private function verificaSeVideoFoiExcluidoPeloUsuario(int $id, array $videosDoUsuario)
+        {
+            //Percorre o array de videos que do usuario buscando por id, se não encontrar é sinal que foi excluído, se encontrar, não foi excluído
+            $videoEncontrado = null;
+
+            foreach($videosDoUsuario as $video){
+                if($video->id == $id){
+                    $videoEncontrado = $video;
+                    break;
+                }
+            }
+
+            return $videoEncontrado ? false : true; 
         }
 
         /** @throws DomainException */

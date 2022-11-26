@@ -1,4 +1,4 @@
-const select = document.querySelector("#quantidadeDeVideos");
+const select = document.querySelector("#quantidadeDeNovosVideos");
 
 var divInputsVideos = document.querySelector("#divInputsVideos");
 

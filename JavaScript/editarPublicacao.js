@@ -13,7 +13,7 @@ async function envia()
         formulario.texto,
         document.querySelectorAll(".inputVideo"),
         formulario.capa,
-        formulario.imagens,
+        formulario.novasImagens,
         formulario.permitirComentarios,
         formulario.permitirLikes,
     );
@@ -30,16 +30,20 @@ async function envia()
         formData.set('capa', capaDiminuida);
     }
 
-    if(formulario.imagens.files.length > 0){
+    if(formulario.novasImagens.files.length > 0){
 
-        let imagensDiminuidas = await ImagemService.diminuiTamanhoDeImagens(800, formulario.imagens.files);
+        let imagensDiminuidas = await ImagemService.diminuiTamanhoDeImagens(800, formulario.novasImagens.files);
 
-        formData.delete('imagens[]');
+        formData.delete('novasImagens[]');
 
         imagensDiminuidas.forEach( imagem => {
-            formData.append('imagens[]', imagem);
+            formData.append('novasImagens[]', imagem);
         } );
     }
+
+    formData.set("imagensRestantes", JSON.stringify(publicacaoEditada['imagens']));
+
+    formData.set("videosRestantes", JSON.stringify(publicacaoEditada['videos']));
 
     const httpService = new HttpService();
 
@@ -53,6 +57,8 @@ async function envia()
         loader.classList.add("display-none");
 
     }catch(e){
+        console.log(e);
+
         loader.classList.add("display-none");
         new MensagemLateralService("Não foi possível editar publicação.");
     }
@@ -70,6 +76,10 @@ formulario.onsubmit = (event) => {
 
 function excluirImagem(id)
 {
+    const confirmacao = confirm("Excluír esta imagem?");
+
+    if(!confirmacao) return;
+
     const imagens = publicacaoEditada['imagens'];
 
     let imagem = imagens.find( (imagem) => imagem.id == id );
@@ -77,6 +87,29 @@ function excluirImagem(id)
     let indice_imagem = imagens.indexOf(imagem);
 
     imagens.splice(indice_imagem, 1);
+
+    let divImg = document.querySelector(`#divImg-${id}`);
+    divImg.classList.add("fade-out");
+    setTimeout( () => divImg.remove(), 250 );
+}
+
+function excluirVideo(id)
+{
+    const confirmacao = confirm("Excluír este video?");
+
+    if(!confirmacao) return;
+
+    const videos = publicacaoEditada['videos'];
+
+    let video = videos.find( (video) => video.id == id );
+
+    let indice_video = videos.indexOf(video);
+
+    videos.splice(indice_video, 1);
+
+    let divVideo = document.querySelector(`#divVideo-${id}`);
+    divVideo.classList.add("fade-out");
+    setTimeout( () => divVideo.remove(), 250 );
 }
 
 

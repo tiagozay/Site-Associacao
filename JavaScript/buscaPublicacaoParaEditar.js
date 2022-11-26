@@ -3,8 +3,8 @@ const inputTitulo = document.querySelector("#titulo");
 const inputData = document.querySelector("#data");
 const inputTexto = document.querySelector("#texto");
 const inputCapa = document.querySelector("#capa");
-const inputImagens = document.querySelector("#imagens");
-const selectQtdeNovosVideos = document.querySelector("#quantidadeDeVideos");
+const inputImagens = document.querySelector("#novasImagens");
+const selectQtdeNovosVideos = document.querySelector("#quantidadeDeNovosVideos");
 const inputsVideos = document.querySelectorAll('.inputVideo');
 const inputPermitirComentarios = document.querySelector('#permitirComentarios');
 const inputPermitirCurtidas = document.querySelector('#permitirLikes');
@@ -56,7 +56,7 @@ async function buscaPublicacaoParaEditar()
         
         listaDeImagens.innerHTML += 
         `
-            <div class="divImg">
+            <div class="divImg" id="divImg-${imagem['id']}">
                 <div class="telaSuperiorImagem">
                     <button type="button" onclick="excluirImagem(${imagem['id']})" class="btnExcluirImagem">
                         <i class="material-icons">delete</i>
@@ -73,8 +73,10 @@ async function buscaPublicacaoParaEditar()
         
         listaDeVideos.innerHTML += 
         `
-            <div class="divVideo">
-                <button type="button" data-idvideo=${video['id']} onclick="create_modal('confirmação para excluir video')"><i class="material-icons" data-idvideo=${video['id']}>delete</i></button>
+            <div class="divVideo" id="divVideo-${video['id']}">
+                <button type="button" onclick="excluirVideo(${video['id']})">
+                    <i class="material-icons">delete</i>
+                </button>
                 <object>
                     <param name="movie" value="${video['url']}" />
                     <embed src="${video['url']}" type="application/x-shockwave-flash"/>
