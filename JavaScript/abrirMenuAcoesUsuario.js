@@ -1,7 +1,6 @@
 function configurar()
 {
     let menu = document.querySelector('.conteudo');
-    let cards = document.querySelectorAll(".card");
 
     if(menu){
         onclick = (event) => {
@@ -23,6 +22,8 @@ function configurar()
     function abrirConfiguracoesUsuario(){
         menu.classList.toggle('abrirMenuConfigUsuario')
         
+        let cards = document.querySelectorAll(".card");
+
         //Percorre todos os cards de noticias e adiciona ou remove o zindex ao abrir o menu
         cards.forEach(function(card){
             card.classList.toggle('card-com-zindex');
