@@ -20,6 +20,7 @@ function escrevePublicacoes(publicacoes)
 {
     publicacoes.forEach(publicacao => {
 
+        let id = publicacao['id'];
         let titulo = publicacao['titulo'];
         let data = DateHelper.formataData(new Date(publicacao['data']['date']));
         let nomeCapa = publicacao['capa'];
@@ -27,7 +28,7 @@ function escrevePublicacoes(publicacoes)
 
         listaNoticias.innerHTML += 
         `
-            <a href="publicacao.php?pag=<?php echo basename($_SERVER['PHP_SELF']) ?>&id=<?=$noticia['id']?>" class="card">
+            <a href="publicacao.php?id=${id}" class="card">
                 <div class="card__conteudo">
                     <h2 class="conteudo__titulo">${titulo}</h2>
                     <p class="conteudo__data">${data}</p>

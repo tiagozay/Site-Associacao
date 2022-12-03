@@ -19,7 +19,9 @@ formularioLogin.onsubmit = (event) => {
 
     loader.classList.remove("display-none");
 
-    httpService.postFormulario(formularioLogin, 'back-end/login.php')
+    const formData = new FormData(formularioLogin)
+
+    httpService.postFormulario(formData, 'back-end/login.php')
     .then( () => {
 
         formularioLogin.reset();
@@ -29,17 +31,21 @@ formularioLogin.onsubmit = (event) => {
         location.href = "index.php";
     } )
     .catch( resposta => {
-        
+    
         loader.classList.add("display-none");
 
         if(resposta.message == 'usuario_nao_encontrado' || resposta.message == 'senha_invalida'){
             abrirMensagemDeErroDoInputLogin(formularioLogin.email, "E-mail ou senha inválidos.");
             abrirMensagemDeErroDoInputLogin(formularioLogin.senha, "E-mail ou senha inválidos.");
+            return;
         }
 
         if(resposta.message == 'quantidade_de_tentativas_excedida'){
             new MensagemLateralService("Quantidade de tentativas excedida.");
+            return;
         }
+
+        new MensagemLateralService("Não foi possível realizar o login.");
 
     } );
 

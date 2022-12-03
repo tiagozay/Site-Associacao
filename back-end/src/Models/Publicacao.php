@@ -27,7 +27,7 @@
         #[Column(name: 'dataRegistro', type:'date')]
         private DateTime $data;
 
-        #[Column()]
+        #[Column(type:'text')]
         private string $texto;
 
         #[Column(length:50)]

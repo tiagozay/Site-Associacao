@@ -1,7 +1,7 @@
 .telaComentarios{
     color: rgb(255, 255, 255);
     font-family: 'Montserrat', sans-serif;
-    width: 74%;
+    width: 95%;
     margin: 0 auto;
     margin-top: 50px;
 }
@@ -20,6 +20,7 @@
     color: white;
     padding-bottom: 5px;
     font-weight: 400!important;
+    font-family: 'Montserrat', sans-serif;
 }
 .formAdcComentario input::placeholder{
     color: white;
@@ -49,7 +50,7 @@
     margin: 50px auto;
 }
 h2{
-    font-size: 30px;
+    font-size: 27px;
     margin-bottom: 20px;
 }
 
@@ -71,10 +72,11 @@ h2{
     margin-top: 2px;
     line-height: 20px;
 }
-
-
-@media(max-width: 600px){
-    .telaComentarios{
-        width: 95%;
+.comentariosDesativados{
+    display: none!important;
+}
+@media(max-width: 380px){
+    h2{
+        font-size: 25px;
     }
 }
