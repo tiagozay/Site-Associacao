@@ -32,10 +32,10 @@ fieldset .divBtnVoltar .btnVoltarPagIniAdmin {
     display: flex;
     align-items: center;
     width: 73px;
-    transition: 400ms all;
+    transition: 300ms all;
 }
 fieldset .btnVoltarPagIniAdmin:hover{
-    transform: scale(1.05);
+    background-color: rgba(0, 0, 0, 0.405);
 }
 fieldset .btnVoltarPagIniAdmin i{
     transform: rotate(180deg);

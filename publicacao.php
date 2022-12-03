@@ -68,7 +68,7 @@
     
     <main>
 
-        <a href="" class="btnVoltarPag"><i class="material-icons">logout</i> Voltar</a>
+        <a href="index.php" class="btnVoltarPag"><i class="material-icons">logout</i> Voltar</a>
         <section class="noticia">
 
             <!-- Armazena id da publicacao -->

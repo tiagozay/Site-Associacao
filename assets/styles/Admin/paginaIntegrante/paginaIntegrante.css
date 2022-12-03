@@ -41,7 +41,7 @@ fieldset .btnVoltarPagIniAdmin{
     transition: 400ms all;
 }
 fieldset .btnVoltarPagIniAdmin:hover{
-    transform: scale(1.05);
+    background-color: rgba(0, 0, 0, 0.405);
 }
 fieldset .btnVoltarPagIniAdmin i{
     transform: rotate(180deg);
