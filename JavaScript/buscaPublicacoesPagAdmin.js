@@ -32,7 +32,7 @@ function escrevePublicacoesNaLista(publicacoes)
     publicacoes.forEach(publicacao => {
         listaPublicacoes.innerHTML += 
         `
-            <li class="cardPublicacao">
+            <li class="cardPublicacao" onclick='redirecionarParaPublicacao(${publicacao['id']})'>
                 <div class="card__conteudo">
                     <h2 class="conteudo__titulo">${publicacao['titulo']}</h2>
 
@@ -65,4 +65,9 @@ function escrevePublicacoesNaLista(publicacoes)
             </li> 
         `
     });
+}
+
+function redirecionarParaPublicacao(id)
+{
+    window.location.href = `publicacao.php?id=${id}`;
 }

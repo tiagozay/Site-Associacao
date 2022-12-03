@@ -181,7 +181,7 @@
     <script src="JavaScript/removerAdminDeUsuario.js"></script>
     <script src="JavaScript/excluirPublicacao.js"></script>
     <script src="JavaScript/ajustarCardDeAcordoComTela.js"></script>
-    <script src="JavaScript/buscaPublicacoes.js"></script>
+    <script src="JavaScript/buscaPublicacoesPagAdmin.js"></script>
 
 
 
