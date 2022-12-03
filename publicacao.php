@@ -1,16 +1,13 @@
 <?php
     session_start();
 
-    $nivelDoUsuario = 'admin';
+    $nivelDoUsuario = 'deslogado';
     $idUsuario = null;
-
-    // $nivelDoUsuario = 'deslogado';
-    // $idUsuario = null;
-    // if(isset($_SESSION['id'])){
-    //     $idUsuario = $_SESSION['id'];
-    //     $nomeUsuario = $_SESSION['nome'];
-    //     $nivelDoUsuario = $_SESSION['nivel'];
-    // }
+    if(isset($_SESSION['id'])){
+        $idUsuario = $_SESSION['id'];
+        $nomeUsuario = $_SESSION['nome'];
+        $nivelDoUsuario = $_SESSION['nivel'];
+    }
 
 ?>
 <!DOCTYPE html>

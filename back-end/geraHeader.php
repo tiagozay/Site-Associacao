@@ -1,7 +1,7 @@
 <?php
     session_start();
 
-    $nivel = $_SESSION['nivel'];
+    $nivel = isset($_SESSION['nivel']) ? $_SESSION['nivel'] : 'deslogado';
 
     if($nivel == 'admin'){
         echo '
@@ -24,7 +24,7 @@
 
                                     <a href="Usuario-alterarSenha.php?pag='.basename($_SERVER['PHP_SELF']).'" class="btnOpcoesUsuario">Alterar senha</a>
 
-                                    <a href="src/logout.php" class="btnOpcoesUsuario">Sair</a>
+                                    <a href="back-end/logout.php" class="btnOpcoesUsuario">Sair</a>
                                 </nav>
                             </div>
                         </div>
@@ -56,7 +56,7 @@
 
                                     <a href="Usuario-alterarSenha.php?pag='.basename($_SERVER['PHP_SELF']).'" class="btnOpcoesUsuario">Alterar senha</a>
 
-                                    <a href="src/logout.php" class="btnOpcoesUsuario">Sair</a>
+                                    <a href="back-end/logout.php" class="btnOpcoesUsuario">Sair</a>
                                 </nav>
                             </div>
                         </div>
