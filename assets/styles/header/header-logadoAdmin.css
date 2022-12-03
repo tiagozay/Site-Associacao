@@ -22,19 +22,22 @@
     cursor: pointer;
     border: 1px rgb(191, 191, 191) solid;
     border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     
 }
 .btnAbrirMenuConfigUser:hover{
     border: 1px rgb(226, 226, 226) solid;
 }
 .btnAbrirMenuConfigUser i{
-    font-size: 37px;
+    font-size: 35px;
     color: white;
 }
 .conteudo{
     display: none;
     position: absolute;
-    top: 75px;
+    top: 74px;
     flex-direction: column;
     align-items: center;
     z-index: 10!important;
@@ -60,7 +63,7 @@
 }
 .btnOpcoesUsuario{
     padding: 15px 10px;
-    font-size: 22px;
+    font-size: 19px!important;
     text-align: center;
     background-color: transparent;
     border: none;

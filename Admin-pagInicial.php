@@ -58,7 +58,11 @@
             </div>
         </div>
     </div>
+
     <header>
+        <div class="divHeader">
+
+        </div>
     </header>
     
 
@@ -172,6 +176,8 @@
             </div>
         </div>
     </section>
+    <script src="JavaScript/gerarHeader.js"></script>
+    <script src="JavaScript/abrirMenuAcoesUsuario.js"></script>
     <script src="JavaScript/Services/HttpService.js"></script>
     <script src="JavaScript/Services/MensagemLateralService.js"></script>
     <script src="JavaScript/Helpers/DateHelper.js"></script>
@@ -184,8 +190,9 @@
     <script src="JavaScript/buscaPublicacoesPagAdmin.js"></script>
 
 
-
     <script>
+        gerarHeader();
+
 
         var btnMostrarUsuarios = document.querySelector("#btnMostrarUsuarios")
         btnMostrarUsuarios.addEventListener("click", function(){buscaUsuarios()})
@@ -223,12 +230,7 @@
             btnMostrarUsuarios.classList.toggle("bordaInferior")
         }
     </script>
- 
-    <script src="JavaScript/configConformeTamanhoDeTela.js"></script>
-    <script src="JavaScript/abrirMenuAcoesUsuario.js"></script>
-    <script src="JavaScript/verMaisUsuarios.js"></script>
-    <script src="JavaScript/tornarUsuarioAdmin.js"></script>
-    <script src="JavaScript/removerUsuarioDeAdmin.js"></script>
-    <script src="JavaScript/excluirUsuario.js"></script>
+    
+
 </body>
 </html>

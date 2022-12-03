@@ -32,7 +32,7 @@ function escrevePublicacoesNaLista(publicacoes)
     publicacoes.forEach(publicacao => {
         listaPublicacoes.innerHTML += 
         `
-            <li class="cardPublicacao" onclick='redirecionarParaPublicacao(${publicacao['id']})'>
+            <li class="cardPublicacao card" onclick='redirecionarParaPublicacao(${publicacao['id']})'>
                 <div class="card__conteudo">
                     <h2 class="conteudo__titulo">${publicacao['titulo']}</h2>
 

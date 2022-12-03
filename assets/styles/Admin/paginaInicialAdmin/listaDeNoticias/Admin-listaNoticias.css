@@ -17,6 +17,9 @@
     border: 1px rgb(0, 0, 0) solid;
     border-radius: 5px;
 }
+.card-com-zindex{
+    z-index: -1;
+}
 .card__conteudo{
     background-image: linear-gradient(rgba(0, 0, 0, 0.252), rgba(0, 0, 0, 0.95));
     width: var(--larguraCard);
