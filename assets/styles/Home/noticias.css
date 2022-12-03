@@ -34,7 +34,9 @@ body{
 .card:nth-child(2n){
     margin-right: 0;
 }
-
+.card-com-zindex{
+    z-index: -1;
+}
 .card__conteudo{
     background-image: linear-gradient(rgba(0, 0, 0, 0.104), rgba(0, 0, 0, 0.957));
     position: absolute;
