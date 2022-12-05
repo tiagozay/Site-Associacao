@@ -34,8 +34,3 @@ async function curtirPublicacao(event)
     console.log(text);
 
 }
-
-function escreveQuantidadeDeCurtidas(quantidade)
-{
-    spanQuantidade.innerHTML = `(${quantidade})`;
-}

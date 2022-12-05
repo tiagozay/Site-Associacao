@@ -28,7 +28,7 @@
         {
             $comentario = trim($comentario);
 
-            if( empty($comentario) || strlen($comentario) > 400) throw new DomainException();
+            if( empty($comentario) || strlen($comentario) > 400) throw new DomainException('Comentario muito longo.');
 
             $this->publicacao = $publicacao;
             $this->usuario = $usuario;

@@ -5,8 +5,12 @@ const campoTexto = document.querySelector(".noticia__paragrafo");
 const campoImagens = document.querySelector(".imagens");
 const btnCurtir = document.querySelector(".btnGostei");
 const comentarios = document.querySelector(".telaComentarios");
+const divListaComentarios = document.querySelector(".comentarios");
+
+const loaderComentarios = document.querySelector("#loaderBuscarComentarios");
 
 let idUsuario = document.querySelector(".idUsuario").value;
+let nivelUsuario = document.querySelector(".nivelUsuario").value;
 
 let idPublicacao;
 
@@ -61,6 +65,54 @@ async function buscaPublicacao()
     if(!publicacaoExibida['permitirComentarios']){
         comentarios.classList.add("comentariosDesativados");
     }
+
+    escreveComentarios(publicacaoExibida['comentarios']);
+
+
+}
+
+function escreveQuantidadeDeCurtidas(quantidade)
+{
+    spanQuantidade.innerHTML = `(${quantidade})`;
+}
+
+function escreveComentarios(comentarios)
+{   
+    divListaComentarios.innerHTML = "";
+
+    comentarios.forEach( (comentario) => {
+
+        let btnExcluirComentario = "";
+
+        if(comentario['usuario']['id'] == idUsuario){
+            btnExcluirComentario = 
+            `
+                <button class='btnExluirComentario material-icons' onclick='excluirComentario(${comentario['id']})'>
+                delete</button> 
+            `            
+        }else if(nivelUsuario == 'admin'){
+            btnExcluirComentario = 
+            `
+                <button class='btnExluirComentario material-icons' onclick='excluirComentarioAdmin(${comentario['id']})'>
+                    delete
+                </button> 
+            `
+        }
+
+
+        divListaComentarios.innerHTML += `
+            <article class="comentario" data-idComentario=${comentario['id']}>
+                <div class="comentario__usuario">
+                    <i class="material-icons">person</i>
+                    ${comentario['usuario']['nome']}
+                    ${btnExcluirComentario}
+                </div>
+                <div class="comentario__conteudo">
+                    ${comentario['comentario']}
+                </div>
+            </article>
+        `;
+    } );
 }
 
 function verificaSeUsuarioJaCurtiu(curtidas)

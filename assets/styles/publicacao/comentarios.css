@@ -8,7 +8,18 @@
 .formAdcComentario{
     display: flex;
     justify-content: center;
+    align-items: flex-start;
     margin-top: 50px;
+}
+#formAdcComentario__divInput{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+#erro_form_comentario{
+    margin-top: 5px;
+    margin-left: 3px;
+    color: rgb(207, 0, 0);
 }
 .formAdcComentario input{
     width: 100%;
@@ -55,7 +66,7 @@ h2{
 }
 
 .comentario{
-    margin-top: 45px;
+    margin-top: 37px;
 }
 .comentario__usuario{
     font-size: 21px;
@@ -74,6 +85,17 @@ h2{
 }
 .comentariosDesativados{
     display: none!important;
+}
+#loaderBuscarComentarios{
+    border: 2px solid #f3f3f3;
+    border-top: 2px solid #6e6e6e;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    animation: spin 700ms linear infinite;
+    margin: 0 auto;
+    margin-bottom: 5px;
+    margin-top: 30px;
 }
 @media(max-width: 380px){
     h2{

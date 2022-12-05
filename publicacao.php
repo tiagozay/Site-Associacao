@@ -1,4 +1,9 @@
 <?php
+    if(empty($_GET['id'])){
+        header("Location: index.php");
+        exit();
+    }
+
     session_start();
 
     $nivelDoUsuario = 'deslogado';
@@ -29,6 +34,7 @@
 
     <link rel="stylesheet" href="assets/styles/base.css">
     <link rel="stylesheet" href="assets/styles/header/header.css">
+    <link rel="stylesheet" href="assets/styles/mensagemLateral.css">
 
     <link rel="stylesheet" href="assets/styles/header/header-deslogado.css">
     <link rel="stylesheet" href="assets/styles/header/header-logadoUsuario.css">
@@ -40,6 +46,12 @@
     <link rel="stylesheet" href="assets/styles/publicacao/publicacao.css">
     <link rel="stylesheet" href="assets/styles/publicacao/comentarios.css">
     <link rel="stylesheet" href="assets/styles/publicacao/maisPublicacoes.css">
+
+    <style>
+        .mensagemLateralDaTela{
+            background-color: rgba(0, 0, 0, 0.87);
+        }
+    </style>
 </head>
 <body>
     <div class="containerModal">
@@ -105,12 +117,18 @@
             <h2>Comentários</h2>
 
             <form class="formAdcComentario">
-                <input type="text" placeholder="Ecreva um comentário" class="inputComentar">
+                <div id="formAdcComentario__divInput">
+                    <input type="text" placeholder="Ecreva um comentário" class="inputComentar" name="comentario">
+                    <p id="erro_form_comentario" class="display-none"></p>
+                </div>
+    
                 <button class="material-icons btnComentar">send</button>
             </form>
 
+            <div class="display-none" id="loaderBuscarComentarios"></div>
+
             <div class="comentarios">
-            
+ 
             </div>
         </section>
 
@@ -136,10 +154,12 @@
     </main>
 
     <script src="JavaScript/Services/HttpService.js"></script>
+    <script src="JavaScript/Services/MensagemLateralService.js"></script>
     <script src="JavaScript/Helpers/DateHelper.js"></script>
     <script src="JavaScript/gerarHeader.js"></script>
     <script src="JavaScript/buscaPublicacao.js"></script>
     <script src="JavaScript/curtirPublicacao.js"></script>
+    <script src="JavaScript/comentarPublicacao.js"></script>
    
 
     <!-- <script src="JavaScript/modal.js"></script> -->
