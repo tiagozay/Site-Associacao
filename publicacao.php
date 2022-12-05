@@ -160,6 +160,7 @@
     <script src="JavaScript/buscaPublicacao.js"></script>
     <script src="JavaScript/curtirPublicacao.js"></script>
     <script src="JavaScript/comentarPublicacao.js"></script>
+    <script src="JavaScript/excluirComentario.js"></script>
    
 
     <!-- <script src="JavaScript/modal.js"></script> -->
