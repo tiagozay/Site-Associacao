@@ -199,6 +199,10 @@
         /** @throws DomainException */
         public function comentar(string $comentario, Usuario $usuario)
         {
+            if(!$this->permitirComentarios){
+                throw new DomainException("Publicação não aceita comentários.");
+            }
+
             $comentario = new Comentario($this, $usuario, $comentario);
 
             $this->setComentario($comentario);
@@ -207,6 +211,10 @@
         /** @throws DomainException */
         public function curtir(Usuario $usuario)
         {
+            if(!$this->permitirCurtidas){
+                throw new DomainException("Publicação não aceita curtidas.");
+            }
+
             if($this->verificaSeUsuarioJaCurtiu($usuario)){
 
                 $this->descurtir($usuario);
@@ -217,6 +225,7 @@
             $curtida = new Curtida($this, $usuario);
 
             $this->setCurtida($curtida);
+
         }
 
         public function verificaSeUsuarioJaCurtiu(Usuario $usuario): bool
@@ -226,14 +235,16 @@
 
         private function buscaCurtidaDeUsuario(Usuario $usuario): ?Curtida
         {
-            return array_filter($this->curtidas->toArray(), function($curtida){
+            $curtidaArr = array_filter($this->curtidas->toArray(), function($curtida){
 
                 global $usuario;
 
                 if($curtida->getUsuario()->id == $usuario->id){
                     return true;
                 }
-            })[0];
+            });
+
+            return count($curtidaArr) == 0 ? null : array_values($curtidaArr)[0];
         }
 
         /** @throws DomainException */
@@ -387,9 +398,11 @@
 
         private function descurtir(Usuario $usuario): void
         {
-            $curtida = $this->buscaCurtidaDeUsuario($usuario);
-
+            $curtidaDesanexada = $this->buscaCurtidaDeUsuario($usuario);
+  
             $entityManager = EntityManagerCreator::create();
+
+            $curtida = $entityManager->find(Curtida::class, $curtidaDesanexada->id);
 
             $entityManager->remove($curtida);
 

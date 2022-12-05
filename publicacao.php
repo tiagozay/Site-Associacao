@@ -93,7 +93,7 @@
             <div class="imagens">
             </div>
 
-            <button class="btnGostei" onclick="curtirPublicacao()">
+            <button class="btnGostei" onclick="curtirPublicacao(event)">
                 Gostei 
                 <i class="material-icons">thumb_up</i> 
                 <span id="quantidade">(0)</span>

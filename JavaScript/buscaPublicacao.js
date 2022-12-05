@@ -6,24 +6,30 @@ const campoImagens = document.querySelector(".imagens");
 const btnCurtir = document.querySelector(".btnGostei");
 const comentarios = document.querySelector(".telaComentarios");
 
+let idUsuario = document.querySelector(".idUsuario").value;
+
+let idPublicacao;
+
+let publicacaoExibida;
+
 async function buscaPublicacao()
 {
     const queryString = location.search;
 
-    const id = queryString.match(/\?id=(.*)/)[1];
+    idPublicacao = queryString.match(/\?id=(.*)/)[1];
 
     const httpService = new HttpService();
 
-    let res = await httpService.get(`back-end/buscaPublicacao.php?id=${id}`);
+    let res = await httpService.get(`back-end/buscaPublicacao.php?id=${idPublicacao}`);
 
-    let publicacao = await res.json();
+    publicacaoExibida = await res.json();
 
-    campoTitulo.innerText = publicacao['titulo'];
-    campoData.innerText = DateHelper.formataData(new Date(publicacao['data']['date']));
-    campoCapa.src = `assets/imagens_dinamicas/capas_publicacoes/${publicacao['capa']}`;
-    campoTexto.innerText = publicacao['texto'];
+    campoTitulo.innerText = publicacaoExibida['titulo'];
+    campoData.innerText = DateHelper.formataData(new Date(publicacaoExibida['data']['date']));
+    campoCapa.src = `assets/imagens_dinamicas/capas_publicacoes/${publicacaoExibida['capa']}`;
+    campoTexto.innerText = publicacaoExibida['texto'];
 
-    publicacao['imagens'].forEach(imagem => {
+    publicacaoExibida['imagens'].forEach(imagem => {
         campoImagens.innerHTML += 
         `
             <button class="btnImg" onclick="openModalImg('assets/imagens_dinamicas/imagens_publicacoes/${imagem['nome']}')">
@@ -33,7 +39,7 @@ async function buscaPublicacao()
         `;
     });
 
-    publicacao['videos'].forEach(video => {
+    publicacaoExibida['videos'].forEach(video => {
         campoImagens.innerHTML += 
         `
             <object class="btnImg">
@@ -43,17 +49,27 @@ async function buscaPublicacao()
         `;
     });
 
-    if(!publicacao['permitirCurtidas']){
+    escreveQuantidadeDeCurtidas(publicacaoExibida['quantidadeCurtidas']);
+
+    if(!publicacaoExibida['permitirCurtidas']){
         btnCurtir.classList.add("btnGosteiDesativado");
+    }else{
+        toggleBoolean_usuarioJaCurtiu = verificaSeUsuarioJaCurtiu(publicacaoExibida['curtidas']);
     }
 
-    if(!publicacao['permitirComentarios']){
+
+    if(!publicacaoExibida['permitirComentarios']){
         comentarios.classList.add("comentariosDesativados");
     }
+}
 
-    
+function verificaSeUsuarioJaCurtiu(curtidas)
+{
+    let curtidaUsuario = curtidas.find((curtida) => 
+        curtida['usuario']['id'] == idUsuario
+    );
 
-
+    return curtidaUsuario ? true : false;
 }
 
 buscaPublicacao();
