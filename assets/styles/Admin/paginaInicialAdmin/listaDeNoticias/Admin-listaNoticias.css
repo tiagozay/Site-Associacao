@@ -140,8 +140,8 @@
 
 }
 #loaderBuscarPublicacoes{
-    border: 3px solid #f3f3f3; /* Light grey */
-    border-top: 3px solid #788690; /* Blue */
+    border: 3px solid #f3f3f3;
+    border-top: 3px solid #363636;
     border-radius: 50%;
     width: 20px;
     height: 20px;
