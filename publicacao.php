@@ -161,6 +161,7 @@
     <script src="JavaScript/curtirPublicacao.js"></script>
     <script src="JavaScript/comentarPublicacao.js"></script>
     <script src="JavaScript/excluirComentario.js"></script>
+    <script src="JavaScript/excluirComentarioAdmin.js"></script>
    
 
     <!-- <script src="JavaScript/modal.js"></script> -->

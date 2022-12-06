@@ -30,6 +30,13 @@
             return isset($_SESSION['id']);
         }
 
+        public static function verificaSeUsuarioEAdmin(): bool
+        {
+            session_start();
+
+            return $_SESSION['nivel'] == 'admin';
+        }
+
         public static function testaSenha(string $senhaDigitada, Usuario $usuario): bool
         {
             return password_verify($senhaDigitada, $usuario->getSenha());
