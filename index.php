@@ -1,16 +1,7 @@
 <?php
     session_start();
 
-    use Componentes\Fontes;
-    use Componentes\Header;
-    use Classes\Publicacao;
-    use Classes\ConectionCreator;
-
     require_once "back-end/vendor/autoload.php";
-
-    $_SESSION['nivel'] = 'admin';
-    $_SESSION['nome'] = 'Tiago zay';
-
 
     // echo "==============<br>";
     // echo "Seja bem vindo: ".$_SESSION['nome'];
@@ -47,7 +38,6 @@
     <link rel="stylesheet" href="assets/styles/header/header.css">
 
     <link rel="stylesheet" href="assets/styles/header/header-deslogado.css">
-
     <link rel="stylesheet" href="assets/styles/header/header-logadoUsuario.css">
     <link rel="stylesheet" href="assets/styles/header/header-logadoAdmin.css">
     
