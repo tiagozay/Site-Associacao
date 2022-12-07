@@ -1,3 +1,4 @@
+const titlePagina = document.querySelector("title");
 const campoTitulo = document.querySelector(".noticia__titulo");
 const campoData = document.querySelector(".noticia__data");
 const campoCapa = document.querySelector(".noticia__imagem");
@@ -27,6 +28,8 @@ async function buscaPublicacao()
     let res = await httpService.get(`back-end/buscaPublicacao.php?id=${idPublicacao}`);
 
     publicacaoExibida = await res.json();
+
+    titlePagina.textContent = publicacaoExibida['titulo'];
 
     campoTitulo.innerText = publicacaoExibida['titulo'];
     campoData.innerText = DateHelper.formataData(new Date(publicacaoExibida['data']['date']));
