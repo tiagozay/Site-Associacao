@@ -409,65 +409,6 @@
             $entityManager->flush();
         }
 
-        private function buscaChaveComentario(Comentario $comentario): ?int
-        {
-            $chave = null;
-
-            for($i = 0; $i < $this->comentarios->count(); $i++){
-                if($this->comentarios->get($i)->id == $comentario->id){
-                    $chave = $i;
-                    break;
-                }
-            }
-
-            return $chave;
-        }
-
-        private function buscaChaveCurtida(Curtida $curtida): ?int
-        {
-            $chave = null;
-
-            for($i = 0; $i < $this->curtidas->count(); $i++){
-                if($this->curtidas->get($i)->id == $curtida->id){
-                    $chave = $i;
-                    break;
-                }
-            }
-
-            return $chave;
-        }
-
-        private function buscaChaveVideo(VideoPublicacao $video): ?int
-        {
-            $chave = null;
-
-            for($i = 0; $i < $this->videos->count(); $i++){
-                if($this->videos->get($i)->id == $video->id){
-                    $chave = $i;
-                    break;
-                }
-            }
-
-            return $chave;
-        }
-
-        private function buscaChaveImagem(ImagemPublicacao $imagem): ?int
-        {
-            $chave = null;
-
-            for($i = 0; $i < $this->imagens->count(); $i++){
-                if($this->imagens->get($i)->id == $imagem->id){
-                    $chave = $i;
-                    break;
-                }
-            }
-
-            return $chave;
-        }
-
-       
-
-
         public function getTitulo(): string
         {
             return $this->titulo;
