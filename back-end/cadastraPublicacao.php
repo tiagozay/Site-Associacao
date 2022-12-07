@@ -73,9 +73,9 @@
 
         header('HTTP/1.1 200 OK');
 
-    }catch(Exception){
+    }catch(Throwable $e){
         header('HTTP/1.1 500 Internal Server Error');
-        echo "Erro inesperado";
+        echo $e->getMessage();
     }
 
 

@@ -28,9 +28,8 @@
 
         header('HTTP/1.1 200 OK');
 
-    }catch(Exception $e){
+    }catch(Throwable $e){
         header('HTTP/1.1 500 Internal Server Error');
         echo $e->getMessage();
-        exit();
     }
 ?>
