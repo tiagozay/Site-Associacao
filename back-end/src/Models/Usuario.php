@@ -1,8 +1,8 @@
 <?php
     namespace APBPDN\Models;
 
-use APBPDN\Models\Operacoes\Operacao;
-use Doctrine\Common\Collections\ArrayCollection;
+    use APBPDN\Models\Operacoes\Operacao;
+    use Doctrine\Common\Collections\ArrayCollection;
     use Doctrine\Common\Collections\Collection;
     use Doctrine\ORM\Mapping\Column;
     use DomainException;
@@ -10,7 +10,9 @@ use Doctrine\Common\Collections\ArrayCollection;
     use Doctrine\ORM\Mapping\GeneratedValue;
     use Doctrine\ORM\Mapping\Id;
     use Doctrine\ORM\Mapping\OneToMany;
-use Doctrine\ORM\Mapping\OneToOne;
+    use Doctrine\ORM\Mapping\OneToOne;
+
+use function PHPSTORM_META\map;
 
     #[Entity]
     class Usuario
@@ -30,6 +32,12 @@ use Doctrine\ORM\Mapping\OneToOne;
         #[Column(length: 255)]
         private string $senha;
 
+        #[OneToMany(mappedBy: 'usuario', targetEntity: Comentario::class, cascade:['persist', 'remove'])]
+        private Collection $comentarios;
+
+        #[OneToMany(mappedBy: 'usuario', targetEntity: Curtida::class, cascade:['persist', 'remove'])]
+        private Collection $curtidas;
+
         #[OneToMany(mappedBy: 'usuario', targetEntity: Operacao::class, cascade:['persist', 'remove'])]
         private Collection $operacoes;
 
@@ -40,6 +48,9 @@ use Doctrine\ORM\Mapping\OneToOne;
             $this->setEmail($email);
             $this->setNivel($nivel);
             $this->setSenha($senha, $confSenha);
+
+            $this->comentarios = new ArrayCollection();
+            $this->curtidas = new ArrayCollection();
         }
 
 

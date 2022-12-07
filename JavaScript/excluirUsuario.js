@@ -1,6 +1,6 @@
 function excluirUsuario(id)
 {
-    const confirmacao = confirm("Deseja excluír este usuário?");
+    const confirmacao = confirm("Deseja excluír este usuário? Todos seus comentários e curtidas serão removidos!");
 
     if(!confirmacao) return;
 

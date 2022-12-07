@@ -33,7 +33,7 @@
 
             <div class="divBtnVoltar">
 
-                <a href="index.php" class="btnVoltarPagIniAdmin"><i class="material-icons">logout</i> Voltar</a>
+                <a href="Admin-pagInicial.php" class="btnVoltarPagIniAdmin"><i class="material-icons">logout</i> Voltar</a>
               
             </div>
 
