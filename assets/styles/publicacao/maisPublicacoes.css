@@ -52,14 +52,14 @@
 }
 .tituloOutraNoticia{
     line-height: 20px;
-    margin-left: 8px;
-    font-size: 19px;
+    margin-left: 5px;
+    font-size: 17px;
 }
 .dataOutraNoticia{
-    margin-bottom: 10px;
+    margin-bottom: 5px;
     margin-top: 23px;
-    margin-left: 8px;
-    font-size: 14px;
+    margin-left: 5px;
+    font-size: 13px;
 }
 @media(max-width: 1260px){
     :root{

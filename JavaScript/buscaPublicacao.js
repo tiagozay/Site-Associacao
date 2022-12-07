@@ -7,6 +7,7 @@ const campoImagens = document.querySelector(".imagens");
 const btnCurtir = document.querySelector(".btnGostei");
 const comentarios = document.querySelector(".telaComentarios");
 const divListaComentarios = document.querySelector(".comentarios");
+const divListaMaisPublicacoes = document.querySelector(".noticias");
 
 const loaderComentarios = document.querySelector("#loaderBuscarComentarios");
 
@@ -71,7 +72,31 @@ async function buscaPublicacao()
 
     escreveComentarios(publicacaoExibida['comentarios']);
 
+    buscaMaisPublicacoes();
 
+
+}
+
+async function buscaMaisPublicacoes()
+{
+    const httpService = new HttpService();
+
+    let res = await httpService.get(`back-end/busca3UltimasPublicacoesComExcessao.php?idExcessao=${idPublicacao}`);
+
+    let publicacoes = await res.json();
+
+    publicacoes.forEach( publicacao => {
+        divListaMaisPublicacoes.innerHTML +=
+        `
+            <a href="publicacao.php?id=${publicacao['id']}" class="linkNoticia">
+                <div class="conteudoOutraNoticia">
+                    <h3 class="tituloOutraNoticia">${publicacao['titulo']}</h3>
+                    <h4 class="dataOutraNoticia">${DateHelper.formataData(new Date(publicacao['data']['date']))}</h4>
+                </div>
+                <img src="assets/imagens_dinamicas/capas_publicacoes/${publicacao['capa']}" class="capaNoticia" alt="">
+            </a>
+        `;
+    } )
 }
 
 function escreveQuantidadeDeCurtidas(quantidade)
