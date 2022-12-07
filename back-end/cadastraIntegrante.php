@@ -2,15 +2,15 @@
 
     use APBPDN\Helpers\EntityManagerCreator;
     use APBPDN\Models\Integrante;
+    use APBPDN\Models\Usuario;
+    use APBPDN\Models\Operacoes\OperacaoCadastrarIntegrante;
     use APBPDN\Services\RequestService;
+    use APBPDN\Services\LoginService;
 
     require_once 'vendor/autoload.php';
 
-    session_start();
 
-    $_SESSION['nivel'] = 'admin';
-
-    if($_SESSION['nivel'] != 'admin'){
+    if(!LoginService::verificaSeUsuarioEAdmin()){
         header('HTTP/1.1 403 Forbidden');
         echo "Acesso negado!";
         exit();
@@ -39,11 +39,20 @@
 
         $integrante->salvarImagem();
 
-        $entityManeger = EntityManagerCreator::create();
+        $entityManager = EntityManagerCreator::create();
 
-        $entityManeger->persist($integrante);
+        $entityManager->persist($integrante);
     
-        $entityManeger->flush();
+        $entityManager->flush();
+
+        $operacao = new OperacaoCadastrarIntegrante(
+            LoginService::buscaUsuarioLogado($entityManager),
+            $integrante->getNome()
+        );
+
+        $entityManager->persist($operacao);
+
+        $entityManager->flush();
 
         header('HTTP/1.1 200 OK');
 

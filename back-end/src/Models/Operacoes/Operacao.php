@@ -38,7 +38,7 @@
         private Usuario $autor;
 
         #[Column()]
-        protected string $operacao;
+        protected string $acao;
 
         #[Column(name: 'dataRegistro')]
         private DateTime $data;

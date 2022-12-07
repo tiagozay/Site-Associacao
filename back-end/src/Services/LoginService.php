@@ -2,13 +2,21 @@
     namespace APBPDN\Services;
 
     use APBPDN\Models\Usuario;
+    use APBPDN\Helpers\EntityManagerCreator;
+use Doctrine\ORM\EntityManager;
+use Doctrine\ORM\Query\Expr;
+    use Exception;
+
+    // require_once '../vendor/autoload.php';
 
     class LoginService
     {
         public static function setarSessoes(Usuario $usuario)
         {
-            session_start();
-
+            if(session_status() == PHP_SESSION_NONE){
+                session_start();
+            }
+          
             $_SESSION['id'] = $usuario->id;
             $_SESSION['nome'] = $usuario->getNome();
             $_SESSION['nivel'] = $usuario->getNivel();
@@ -16,7 +24,9 @@
 
         public static function limparSessoes()
         {
-            session_start();
+            if(session_status() == PHP_SESSION_NONE){
+                session_start();
+            }
 
             unset($_SESSION['id']);
             unset($_SESSION['nome']);
@@ -25,14 +35,18 @@
 
         public static function verificaSeHaUsuarioLogado(): bool
         {
-            session_start();
+            if(session_status() == PHP_SESSION_NONE){
+                session_start();
+            }
 
             return isset($_SESSION['id']);
         }
 
         public static function verificaSeUsuarioEAdmin(): bool
         {
-            session_start();
+            if(session_status() == PHP_SESSION_NONE){
+                session_start();
+            }
 
             return $_SESSION['nivel'] == 'admin';
         }
@@ -42,6 +56,15 @@
             return password_verify($senhaDigitada, $usuario->getSenha());
         }
 
+        /** @throws Exception */
+        public static function buscaUsuarioLogado(EntityManager $entityManager): ?Usuario
+        {
+            if(!LoginService::verificaSeHaUsuarioLogado()){
+                throw new Exception("Não há um usuário logado");
+            }
+
+            return $entityManager->find(Usuario::class, $_SESSION['id']);
+        }
 
         public static function buscaQuantidadeDeTentativasUsuario(Usuario $usuario): int 
         {
