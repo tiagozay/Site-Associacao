@@ -43,16 +43,15 @@ async function cadastra()
     try{
         let res = await httpService.postFormulario(formData, 'back-end/cadastraPublicacao.php');
 
-        let text = await res.text();
+        let idPublicacaoInserida = await res.text();
     
-        console.log(text);
+        console.log(idPublicacaoInserida);
 
-        
         formulario.reset();
 
         loader.classList.add("display-none");
 
-        new MensagemLateralService("Publicação adicionada com sucesso.");
+        location.href = `publicacao.php?id=${idPublicacaoInserida}`;
 
     }catch(e){
         console.log("Caiu no catch. ", e);

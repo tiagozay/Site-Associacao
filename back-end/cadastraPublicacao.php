@@ -71,6 +71,8 @@
     
         $publicacao->salvarImagens();
 
+        echo $publicacao->id;
+
         header('HTTP/1.1 200 OK');
 
     }catch(Throwable $e){
