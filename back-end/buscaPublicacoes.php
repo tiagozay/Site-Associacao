@@ -11,7 +11,7 @@
 
         $publicacaoRepository = $entityManeger->getRepository(Publicacao::class);
     
-        $publicacoes = $publicacaoRepository->findAll();
+        $publicacoes = $publicacaoRepository->findBy([], ['data' => 'DESC']);
     
         $publicacoes = Publicacao::toArraysSimples($publicacoes);
     
