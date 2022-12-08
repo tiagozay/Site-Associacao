@@ -38,7 +38,7 @@ use function PHPSTORM_META\map;
         #[OneToMany(mappedBy: 'usuario', targetEntity: Curtida::class, cascade:['persist', 'remove'])]
         private Collection $curtidas;
 
-        #[OneToMany(mappedBy: 'usuario', targetEntity: Operacao::class, cascade:['persist', 'remove'])]
+        #[OneToMany(mappedBy: 'autor', targetEntity: Operacao::class, cascade:['persist', 'remove'])]
         private Collection $operacoes;
 
         /** @throws \DomainException */
