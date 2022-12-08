@@ -54,7 +54,7 @@ function escrevePublicacoesNaLista(publicacoes)
 
                         <div id="divOpcoesPublicacao">
                             <a href='Admin-formEditarPublicacao.php?id=${publicacao['id']}' class="material-icons" id="btnEditarPublicacao">edit</a>
-                            <button class="material-icons" id="btnExcluirPublicacao" onclick='excluirPublicacao(${publicacao['id']})'>delete</button>
+                            <button class="material-icons" id="btnExcluirPublicacao" onclick='excluirPublicacao(event, ${publicacao['id']})'>delete</button>
                         </div>
                     </div>
                 

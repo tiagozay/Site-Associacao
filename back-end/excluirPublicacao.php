@@ -1,10 +1,9 @@
 <?php
 
     use APBPDN\Helpers\EntityManagerCreator;
-use APBPDN\Models\ImagemPublicacao;
-use APBPDN\Models\Integrante;
-use APBPDN\Models\Publicacao;
-use APBPDN\Services\ImagemService;
+    use APBPDN\Models\Operacoes\OperacaoExcluirPublicacao;
+    use APBPDN\Models\Publicacao;
+    use APBPDN\Services\LoginService;
     use APBPDN\Services\RequestService;
 
     require_once 'vendor/autoload.php';
@@ -29,18 +28,26 @@ use APBPDN\Services\ImagemService;
 
     try{
 
-        $entityManeger = EntityManagerCreator::create();
+        $entityManager = EntityManagerCreator::create();
 
         /** @var Publicacao */
-        $publicacao = $entityManeger->find(Publicacao::class, $id);
+        $publicacao = $entityManager->find(Publicacao::class, $id);
     
-        $entityManeger->remove($publicacao);
+        $entityManager->remove($publicacao);
     
-        $entityManeger->flush();
+        $entityManager->flush();
     
         $publicacao->removerCapa();
     
         $publicacao->removerImagens();
+
+        $operacao = new OperacaoExcluirPublicacao(
+            LoginService::buscaUsuarioLogado($entityManager)
+        );
+
+        $entityManager->persist($operacao);
+
+        $entityManager->flush();
     
         header('HTTP/1.1 200 OK');
 

@@ -1,5 +1,8 @@
-function excluirPublicacao(id)
+function excluirPublicacao(event, id)
 {
+    //Para o event bubbling do JavaScript, pois aí nesse caso, quando clicar no btn de excluír, o método onclick da li seria chamado, redirecionando a página
+    event.stopPropagation();
+
     let confirmacao = confirm("Deseja excluír esta publicação?");
     if(!confirmacao) return;
 
@@ -13,7 +16,8 @@ function excluirPublicacao(id)
 
         buscaPublicacoes();
     })
-    .catch( () => {
-        new MensagemLateralService("Não foi possível exclúir esta publicação.");
+    .catch( (e) => {
+        console.log(e);
+        new MensagemLateralService("Não foi possível excluír esta publicação.");
     })
 }
