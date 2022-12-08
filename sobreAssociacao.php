@@ -36,8 +36,8 @@
                 <div class="container" id="containerOpcoes">
                     <a href="index.php" class="links">Início</a>
                     <a href="sobreAssociacao.php" class="links active">Sobre <span class="textoAAssociacao">a associação</span> <span class="textoNos">nós</span></a>
-                    <a href="Usuario-integrantes.php" class="links">Integrantes</a>
-                    <a href="Usuario-contato.php" class="links">Contato</a>
+                    <a href="integrantes.php" class="links">Integrantes</a>
+                    <a href="contato.php" class="links">Contato</a>
                 </div>
             </nav>
     </header>
@@ -56,7 +56,6 @@
 
     <script src="JavaScript/Services/HttpService.js"></script>
     <script src="JavaScript/gerarHeader.js"></script>
-    <!-- <script src="JavaScript/abrirOuFecharMenuSecoes.js"></script>           -->
     <script src="JavaScript/abrirMenuAcoesUsuario.js"></script>
 
     <script>

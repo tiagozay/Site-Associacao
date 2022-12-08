@@ -19,12 +19,12 @@ li{
     color: white;
     background-color: rgba(0, 0, 0, 0.727);
     border: 1px solid white;
-    margin-top: 15px;
+    margin-top: 12px;
     border-radius: 5px;
 }
 .foto{
-    width: 90px;
-    height: 90px;
+    width: 80px;
+    height: 70px;
     object-fit: cover;
     border-top-left-radius: 5px;
     border-bottom-left-radius: 5px;
@@ -36,7 +36,7 @@ li{
 }
 .divInfo{
     padding: 0 10px;
-    font-size: 27px;
+    font-size: 24px;
     font-family: 'Roboto', sans-serif;
     font-weight: lighter;
     text-align: center;
@@ -56,11 +56,6 @@ li{
     section{
         width: 98%;
     }
-    /* .foto{
-        width: 90px;
-    } */
-    .divInfo{
-        font-size: 27px;
     }
     .nome{
         width: 400px;
@@ -70,12 +65,6 @@ li{
     }
 }
 @media(max-width: 750px){
-    /* .foto{
-        width: 80px;
-    } */
-    .divInfo{
-        font-size: 25px;
-    }
     .nome{
         width: 360px;
     }
@@ -85,11 +74,7 @@ li{
 }
 @media(max-width: 690px){
     .foto{
-        width: 70px;
-        height: 70px;
-    }
-    .divInfo{
-        font-size: 23px;
+        width: 70px!important;
     }
     .nome{
         width: 330px;;
@@ -99,22 +84,16 @@ li{
     }
 }
 @media(max-width: 620px){
-    /* .foto{
-        width: 70px;
-    } */
     .divInfo{
-        font-size: 23px;
+        font-size: 21px!important;
     }
     .nome{
         width: 250px;
     }
 }
 @media(max-width: 540px){
-    /* .foto{
-        width: 60px;
-    } */
     .divInfo{
-        font-size: 20px;
+        font-size: 20px!important;
     }
     .nome{
         width: 200px;
@@ -136,7 +115,7 @@ li{
 }
 @media(max-width: 350px){
     .divInfo{
-        font-size: 17px;
+        font-size: 17px!important;
         line-height: 20px;
     }
     .nome{

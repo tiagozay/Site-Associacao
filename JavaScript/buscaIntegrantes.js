@@ -1,44 +1,30 @@
-let lista = document.querySelector("#divListaIntegrantes__lista");
+const listaIntegrantes = document.querySelector("#lista");
 
-let loader = document.querySelector("#divLoaderBuscarIntegrantes");
-
-buscarIntegrantes();
-
-function buscarIntegrantes()
+async function buscaIntegrantes()
 {
     const httpService = new HttpService();
 
+    let res = await httpService.get('back-end/buscaIntegrantes.php');
 
-    loader.classList.remove("desativarLoader");
+    // let text = await res.text();
 
-    httpService.get('back-end/buscaIntegrantes.php')
-    .then( res => res.json() )
-    .then( integrantes => {
+    // console.log(text);
 
-        loader.classList.add("desativarLoader");
+    let integrantes = await res.json();
 
-        lista.innerHTML = "";
+    integrantes.forEach(integrante => {
 
-        integrantes.forEach(integrante => {
-            lista.innerHTML += 
-            `
-                <li>
-                    <div>
-                        <div class="fotoIntegrante">
-                            <img src="assets/imagens_dinamicas/imagens_integrantes/${integrante['nomeImagem']}" alt="">
-                        </div>
-                        <div class="nomeIntegrante">${integrante['nome']}</div>
-                        <div class="cargoIntegrante">${integrante['cargo']}</div>
-                        <div class="divAcoes">
-                            <a class='divAcoes__btn' href="Admin-formEditarIntegrante.php?id=${integrante['id']}"><i class="material-icons">edit</i></a>
-
-                            <button class='divAcoes__btn' onclick="excluirIntegrante(${integrante['id']})"><i class="material-icons">delete</i></button>
-                        </div>
-                    </div>
-                </li>
-            `
-        });
-
+        listaIntegrantes.innerHTML += 
+        `
+            <li>
+                <img class="foto" src="assets/imagens_dinamicas/imagens_integrantes/${integrante['nomeImagem']}"></img>
+                <div class="detalhes">
+                    <div class="nome divInfo">${integrante['nome']}</div>
+                    <div class="cargo divInfo">${integrante['cargo']}</div>
+                </div>
+            </li>
+        `
     });
 }
 
+buscaIntegrantes();

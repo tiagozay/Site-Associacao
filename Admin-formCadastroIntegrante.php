@@ -103,7 +103,7 @@
     <script src="JavaScript/Services/HttpService.js"></script>
     <script src="JavaScript/Services/MensagemLateralService.js"></script>
     <script src="JavaScript/Services/ImagemService.js"></script>
-    <script src="JavaScript/buscaIntegrantes.js"></script>
+    <script src="JavaScript/buscaIntegrantesAdmin.js"></script>
     <script src="JavaScript/excluirIntegrante.js"></script>
     <script>
 

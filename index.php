@@ -57,8 +57,8 @@
             <div class="container" id="containerOpcoes">
                 <a href="index.php" class="links active">Início</a>
                 <a href="sobreAssociacao.php" class="links">Sobre <span class="textoAAssociacao">a associação</span> <span class="textoNos">nós</span> </a>
-                <a href="Usuario-integrantes.php" class="links">Integrantes</a>
-                <a href="Usuario-contato.php" class="links">Contato</a>
+                <a href="integrantes.php" class="links">Integrantes</a>
+                <a href="contato.php" class="links">Contato</a>
             </div>
         </nav>
     </header>
