@@ -23,10 +23,11 @@
         $operacoes = $operacaoRepository->findBy([], $oderBy);
 
         $operacoes = Operacao::toArrays($operacoes);
-    
-        echo json_encode($operacoes);
 
         header('HTTP/1.1 200 OK');
+
+        echo json_encode($operacoes);
+
 
     }catch(Throwable $e){
         header('HTTP/1.1 500 Internal Server Error');

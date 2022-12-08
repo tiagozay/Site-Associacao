@@ -28,9 +28,9 @@
 
         $publicacoes=  $qb->getResult();
             
-        echo json_encode($publicacoes);
-    
         header('HTTP/1.1 200 OK');
+
+        echo json_encode($publicacoes);
 
 
     }catch( Throwable $e ){

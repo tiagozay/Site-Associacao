@@ -24,9 +24,9 @@
             exit();
         }
 
-        echo json_encode($publicacao->toArray());
-
         header('HTTP/1.1 200 OK');
+
+        echo json_encode($publicacao->toArray());
 
     }catch(Throwable $e){
         header('HTTP/1.1 500 Internal Server Error');

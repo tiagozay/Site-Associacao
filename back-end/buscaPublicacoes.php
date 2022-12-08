@@ -14,11 +14,10 @@
         $publicacoes = $publicacaoRepository->findBy([], ['data' => 'DESC']);
     
         $publicacoes = Publicacao::toArraysSimples($publicacoes);
-    
-        echo json_encode($publicacoes);
-    
+                
         header('HTTP/1.1 200 OK');
 
+        echo json_encode($publicacoes);
 
     }catch( Throwable $e ){
         header('HTTP/1.1 500 Internal Server Error');

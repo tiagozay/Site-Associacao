@@ -49,11 +49,10 @@
         $usuarios = $usuarioRepository->findBy($selectNiveis[$niveis], $selectOrdem[$ordem]);
     
         $usuarios = Usuario::toArrays($usuarios);
-    
-        echo json_encode($usuarios);
 
         header('HTTP/1.1 200 OK');
 
+        echo json_encode($usuarios);
 
     }catch( Throwable $e ){
         header('HTTP/1.1 500 Internal Server Error');
