@@ -22,6 +22,7 @@
             'Cadastrar integrante' =>  OperacaoCadastrarIntegrante::class,
             'Cadastrar usuário' =>  OperacaoCadastrarUsuario::class,
             'Editar integrante' =>  OperacaoEditarIntegrante::class,
+            'Remover integrante' =>  OperacaoRemoverIntegrante::class,
             'Editar publicação' =>  OperacaoEditarPublicacao::class,
             'Excluir publicação' =>  OperacaoExcluirPublicacao::class,
             'Remover admin de usuário' =>  OperacaoRemoverAdminDeUsuario::class,

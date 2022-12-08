@@ -2,7 +2,9 @@
 
     use APBPDN\Helpers\EntityManagerCreator;
     use APBPDN\Models\Integrante;
+    use APBPDN\Models\Operacoes\OperacaoRemoverIntegrante;
     use APBPDN\Services\ImagemService;
+    use APBPDN\Services\LoginService;
     use APBPDN\Services\RequestService;
 
     require_once 'vendor/autoload.php';
@@ -27,18 +29,27 @@
 
     try{
 
-        $entityManeger = EntityManagerCreator::create();
+        $entityManager = EntityManagerCreator::create();
 
         /** @var Integrante */
-        $integrante = $entityManeger->find(Integrante::class, $id);
+        $integrante = $entityManager->find(Integrante::class, $id);
     
-        $entityManeger->remove($integrante);
+        $entityManager->remove($integrante);
     
-        $entityManeger->flush();
+        $entityManager->flush();
     
         ImagemService::removeImagemDoDiretorio(
             __DIR__."\..\assets\imagens_dinamicas\imagens_integrantes\\".$integrante->getNomeImagem()
         );
+
+        $operacao = new OperacaoRemoverIntegrante(
+            LoginService::buscaUsuarioLogado($entityManager),
+            $integrante->getNome()
+        );
+
+        $entityManager->persist($operacao);
+
+        $entityManager->flush();
     
         header('HTTP/1.1 200 OK');
 
