@@ -54,6 +54,7 @@ async function buscaOperacoes()
         });
 
     }catch(e){
+        console.log(e);
         loader.classList.add('loaderDesativado');
         new MensagemLateralService("Não foi possível buscar as operações.");
     }

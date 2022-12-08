@@ -17,7 +17,7 @@ class DateHelper
         const hora = data.getHours();
         const minuto = data.getMinutes();
 
-        return `${dia}/${mes}/${ano} ${hora}:${minuto}`;
+        return `${dia}/${mes}/${ano} ${hora}:${minuto >= 10 ? minuto : "0"+minuto}`;
     }
 
     static removeHorarioDaData(stringData)
