@@ -7,10 +7,10 @@
     #[Entity()]
     class OperacaoCadastrarUsuario extends Operacao
     {
-        public function __construct(Usuario $autor, string $nomeUsuario)
+        public function __construct(Usuario $autor, string $nomeUsuarioCadastrado)
         {
             parent::__construct($autor);
-            $this->acao = "Cadastrou usuário <strong class='nomeForte'>$nomeUsuario</strong>";
+            $this->acao = "Cadastrou usuário <strong class='nomeForte'>$nomeUsuarioCadastrado</strong>";
         }
     }
 ?>

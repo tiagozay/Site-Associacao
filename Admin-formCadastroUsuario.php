@@ -117,7 +117,9 @@
 
             loader.classList.remove("display-none");
 
-            httpService.postFormulario(formulario, 'back-end/cadastraUsuarioAdmin.php')
+            let formData = new FormData(formulario);
+
+            httpService.postFormulario(formData, 'back-end/cadastraUsuarioAdmin.php')
             .then( resposta => {
                 new MensagemLateralService("Usuário cadastrado com sucesso!");
 
@@ -126,6 +128,7 @@
                 loader.classList.add("display-none");
             } )
             .catch( resposta => {
+                console.log(resposta);
 
                 loader.classList.add("display-none");
 

@@ -1,8 +1,10 @@
 <?php
 
     use APBPDN\Helpers\EntityManagerCreator;
+    use APBPDN\Models\Operacoes\OperacaoCadastrarUsuario;
     use APBPDN\Models\Usuario;
     use APBPDN\Services\RequestService;
+    use APBPDN\Services\LoginService;
 
     require_once 'vendor/autoload.php';
 
@@ -28,9 +30,9 @@
         exit();
     }
 
-    $entityManeger = EntityManagerCreator::create();
+    $entityManager = EntityManagerCreator::create();
 
-    $userRepository = $entityManeger->getRepository(Usuario::class);
+    $userRepository = $entityManager->getRepository(Usuario::class);
 
     $usuarioComEmail = $userRepository->findOneBy(['email' => $email]);
 
@@ -51,11 +53,20 @@
 
     try{
 
-        $entityManeger = EntityManagerCreator::create();
+        $entityManager = EntityManagerCreator::create();
 
-        $entityManeger->persist($usuario);
+        $entityManager->persist($usuario);
     
-        $entityManeger->flush();
+        $entityManager->flush();
+
+        $operacao = new OperacaoCadastrarUsuario(
+            LoginService::buscaUsuarioLogado($entityManager),
+            $usuario->getNome()
+        );
+
+        $entityManager->persist($operacao);
+
+        $entityManager->flush();
 
         header('HTTP/1.1 200 OK');
 
