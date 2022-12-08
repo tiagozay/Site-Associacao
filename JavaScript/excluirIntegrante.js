@@ -13,7 +13,8 @@ function excluirIntegrante(id)
         buscarIntegrantes();
       
     } )
-    .catch( () => {
+    .catch( (e) => {
+        console.log(e);
         new MensagemLateralService("Não foi possível excluír integrante.");
     } )
     
