@@ -63,7 +63,6 @@ li{
     .cargo{
         width: 180px;
     }
-}
 @media(max-width: 750px){
     .nome{
         width: 360px;
