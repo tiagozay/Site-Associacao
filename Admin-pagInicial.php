@@ -1,8 +1,6 @@
 <?php
     session_start();
 
-    $_SESSION['nivel'] = 'admin';
-
     if($_SESSION['nivel'] != 'admin'){
         header("Location: index.php");
         exit();
@@ -72,7 +70,7 @@
             <a href="Admin-formCadastroPublicacao.php" class="btnAcoes">PUBLICAR</a>
             <a href="Admin-formCadastroUsuario.php" class="btnAcoes">CADASTRAR USUÁRIO</a>
             <a href="Admin-formCadastroIntegrante.php" class="btnAcoes">INTEGRANTES</a>
-            <a href="Admin-atividade.php" class="btnAcoes">ATIVIDADE</a>
+            <a href="Admin-operacoes.php" class="btnAcoes">ATIVIDADE</a>
         </div>
     </section>
 

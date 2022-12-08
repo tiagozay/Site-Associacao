@@ -65,11 +65,27 @@
             return DateHelper::formataDataEHora($this->data);
         }
 
-        public function getOperacao(): string
+        public function getAcao(): string
         {
-            return $this->operacao;
+            return $this->acao;
         }
 
+        public function toArray(): array
+        {
+            return [
+                'id' => $this->id,
+                'autor' => $this->getAutor()->toArray(),
+                'data' => $this->getData(),
+                'acao' => $this->getAcao()
+            ];
+        }
+
+        public static function toArrays(array $operacoes): array 
+        {
+            return array_map(function($operacao){
+                return $operacao->toArray();
+            }, $operacoes);
+        }
 
     }
 

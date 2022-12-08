@@ -1,8 +1,8 @@
 .secaoListaDeUsuarios .container .cabecalhoDaTabela{
     padding: 10px 0;
     background-color: #005a98;
-    color: rgb(226, 226, 226);
-    font-family: 'Roboto', sans-serif;
+    color: rgb(244, 244, 244);
+    font-family: 'Montserrat', sans-serif;
     font-weight: 400;
     width: 100%;
     display: flex;
@@ -20,9 +20,6 @@
     align-items: center;
     width: 73px;
     transition: 400ms all;
-}
-.btnVoltarPagIniAdmin:hover{
-    transform: scale(1.05);
 }
 .btnVoltarPagIniAdmin i{
     transform: rotate(180deg);
@@ -51,14 +48,21 @@
     align-items: center;
 }
 .secaoListaDeUsuarios .container .cabecalhoDaTabela .conteudoCabecalho label select{
-    font-size: 14px;
+    font-size: 15px;
+    border: none;
+    outline: none;
+    width: 158px;
     margin-left: 3px;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Montserrat', sans-serif;
+    padding: 1px;
+    border-radius: 4px;
+    box-shadow: 0 0 4px rgb(120 120 120);
+    background-color: rgb(234, 234, 234);
 }
 .secaoListaDeUsuarios .container .cabecalhoDaTabela .conteudoCabecalho label input{
     font-size: 14px;
     margin-left: 3px;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Montserrat', sans-serif;
 }
 @media(max-width: 930px){
     .secaoListaDeUsuarios .container .cabecalhoDaTabela .conteudoCabecalho{

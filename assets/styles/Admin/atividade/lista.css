@@ -1,10 +1,12 @@
+body{
+    background-color: rgb(200, 200, 200);
+}
 .secaoListaDeUsuarios{
-    background-color: rgb(165, 165, 165);
     padding-bottom: 50px;
 }
 /* ==================THEAD=======================THEAD=================================THEAD=============THEAD*/
 table{
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     width: 100%;
 }
 thead{
@@ -30,7 +32,7 @@ thead{
    
 }
 .secaoListaDeUsuarios .container table tbody tr:nth-child(2n){
-    background-color: rgb(199, 199, 199);
+    background-color: rgb(179, 179, 179);
 }
 .tbody__tr__tdGenerico{
     padding: 10px 0;
@@ -71,7 +73,7 @@ thead{
     padding: 5px 8px;
     text-decoration: none;
     font-size: 21px;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     background-color: transparent;
     cursor: pointer;
     transition: 400ms;
@@ -81,6 +83,32 @@ thead{
 }
 .nomeForte{
     font-weight: 500;
+}
+.loaderDesativado{
+    display: none!important;
+}
+#divLoaderBuscarOperacoes{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    cursor: progress;
+    font-family: 'Montserrat', sans-serif;
+}
+#loaderBuscarOperacoes{
+    border: 3px solid #f3f3f3;
+    border-top: 3px solid #686868;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    animation: spin 700ms linear infinite;
+    margin-bottom: 6px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }
 @media(max-width: 800px){
     .data{
