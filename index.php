@@ -56,7 +56,7 @@
             <button class="btnAbrirMenu" onclick="abrirFecharMenu()"><i class="material-icons">menu_open</i></button>
             <div class="container" id="containerOpcoes">
                 <a href="index.php" class="links active">Início</a>
-                <a href="Usuario-sobreAssociacao.php" class="links">Sobre <span class="textoAAssociacao">a associação</span> <span class="textoNos">nós</span> </a>
+                <a href="sobreAssociacao.php" class="links">Sobre <span class="textoAAssociacao">a associação</span> <span class="textoNos">nós</span> </a>
                 <a href="Usuario-integrantes.php" class="links">Integrantes</a>
                 <a href="Usuario-contato.php" class="links">Contato</a>
             </div>
