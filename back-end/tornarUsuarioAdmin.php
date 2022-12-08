@@ -1,8 +1,10 @@
 <?php
 
     use APBPDN\Helpers\EntityManagerCreator;
-    use APBPDN\Models\Usuario;
+use APBPDN\Models\Operacoes\OperacaoTornarUsuarioAdmin;
+use APBPDN\Models\Usuario;
     use APBPDN\Services\RequestService;
+    use APBPDN\Services\LoginService;
 
     require_once 'vendor/autoload.php';
 
@@ -26,14 +28,23 @@
 
     try{
 
-        $entityManeger = EntityManagerCreator::create();
+        $entityManager = EntityManagerCreator::create();
 
         /** @var Usuario */
-        $usuario = $entityManeger->find(Usuario::class, $id);
+        $usuario = $entityManager->find(Usuario::class, $id);
     
         $usuario->tornarAdmin();
     
-        $entityManeger->flush();
+        $entityManager->flush();
+
+        $operacao = new OperacaoTornarUsuarioAdmin(
+            LoginService::buscaUsuarioLogado($entityManager),
+            $usuario->getNome()
+        );
+
+        $entityManager->persist($operacao);
+
+        $entityManager->flush();
     
         header('HTTP/1.1 200 OK');
 
