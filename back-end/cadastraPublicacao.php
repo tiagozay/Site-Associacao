@@ -1,7 +1,8 @@
 <?php
     use APBPDN\Helpers\EntityManagerCreator;
-    use APBPDN\Models\Integrante;
+    use APBPDN\Models\Operacoes\OperacaoAdicionarPublicacao;
     use APBPDN\Models\Publicacao;
+    use APBPDN\Services\LoginService;
     use APBPDN\Services\RequestService;
     use APBPDN\Services\VideoService;
 
@@ -71,9 +72,18 @@
     
         $publicacao->salvarImagens();
 
-        echo $publicacao->id;
+        $operacao = new OperacaoAdicionarPublicacao(
+            LoginService::buscaUsuarioLogado($entityManager), 
+            $publicacao->id
+        );
+
+        $entityManager->persist($operacao);
+
+        $entityManager->flush();
 
         header('HTTP/1.1 200 OK');
+
+        echo $publicacao->id;
 
     }catch(Throwable $e){
         header('HTTP/1.1 500 Internal Server Error');
