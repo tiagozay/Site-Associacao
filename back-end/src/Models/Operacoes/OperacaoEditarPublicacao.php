@@ -10,7 +10,7 @@
         public function __construct(Usuario $autor, int $idPublicacao)
         {
             parent::__construct($autor);
-            $this->acao = "Editou a <a href='publicacao.php?pag=Admin-atividade.php&id=$idPublicacao'>Publicação</a>";
+            $this->acao = "Editou a <a href='publicacao.php?id=$idPublicacao'>Publicação</a>";
         }
     }
 ?>

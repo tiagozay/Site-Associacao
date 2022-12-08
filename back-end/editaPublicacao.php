@@ -1,9 +1,10 @@
 <?php
     use APBPDN\Helpers\EntityManagerCreator;
-    use APBPDN\Models\Integrante;
+    use APBPDN\Models\Operacoes\OperacaoEditarPublicacao;
     use APBPDN\Models\Publicacao;
     use APBPDN\Services\RequestService;
     use APBPDN\Services\VideoService;
+    use APBPDN\Services\LoginService;
 
     require_once 'vendor/autoload.php';
 
@@ -76,6 +77,15 @@
 
     try{
     
+        $entityManager->flush();
+
+        $operacao = new OperacaoEditarPublicacao(
+            LoginService::buscaUsuarioLogado($entityManager),
+            $publicacao->id
+        );
+
+        $entityManager->persist($operacao);
+
         $entityManager->flush();
 
         header('HTTP/1.1 200 OK');
