@@ -2,7 +2,9 @@
 
     use APBPDN\Helpers\EntityManagerCreator;
     use APBPDN\Models\Integrante;
+    use APBPDN\Models\Operacoes\OperacaoEditarIntegrante;
     use APBPDN\Services\RequestService;
+    use APBPDN\Services\LoginService;
 
     require_once 'vendor/autoload.php';
 
@@ -29,14 +31,23 @@
 
     try{
         
-        $entityManeger = EntityManagerCreator::create();
+        $entityManager = EntityManagerCreator::create();
 
         /** @var Integrante */
-        $integrante = $entityManeger->find(Integrante::class, $id);
+        $integrante = $entityManager->find(Integrante::class, $id);
     
         $integrante->edita($nome, $cargo, $imagem);
     
-        $entityManeger->flush();
+        $entityManager->flush();
+
+        $operacao = new OperacaoEditarIntegrante(
+            LoginService::buscaUsuarioLogado($entityManager),
+            $integrante->getNome()
+        );
+
+        $entityManager->persist($operacao);
+
+        $entityManager->flush();
     
     }catch( Throwable $e ){
         header('HTTP/1.1 500 Internal Server Error');
