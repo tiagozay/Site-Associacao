@@ -18,9 +18,7 @@
                                 <div class="triangulo"></div>
                                 <nav class="opcoes">
                                     <p class="nomeNoMenu">'.$_SESSION['nome'].'</p>
-                                    <a href="Usuario-alterarNome.php?pag='. basename($_SERVER['PHP_SELF']) .' "class="btnOpcoesUsuario">Alterar nome</a>
-
-                                    <a href="Usuario-alterarEmail.php?pag='.basename($_SERVER['PHP_SELF']).'" class="btnOpcoesUsuario">Alterar email</a>
+                                    <a href="Usuario-alterarNome.php" class="btnOpcoesUsuario">Alterar nome</a>
 
                                     <a href="Usuario-alterarSenha.php?pag='.basename($_SERVER['PHP_SELF']).'" class="btnOpcoesUsuario">Alterar senha</a>
 
@@ -50,9 +48,7 @@
                                 <div class="triangulo"></div>
                                 <nav class="opcoes">
                                     <p class="nomeNoMenu">'.$_SESSION['nome'].'</p>
-                                    <a href="Usuario-alterarNome.php?pag='. basename($_SERVER['PHP_SELF']) .' "class="btnOpcoesUsuario">Alterar nome</a>
-
-                                    <a href="Usuario-alterarEmail.php?pag='.basename($_SERVER['PHP_SELF']).'" class="btnOpcoesUsuario">Alterar email</a>
+                                    <a href="Usuario-alterarNome.php" "class="btnOpcoesUsuario">Alterar nome</a>
 
                                     <a href="Usuario-alterarSenha.php?pag='.basename($_SERVER['PHP_SELF']).'" class="btnOpcoesUsuario">Alterar senha</a>
 
