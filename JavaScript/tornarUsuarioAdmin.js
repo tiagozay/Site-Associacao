@@ -13,8 +13,8 @@ function tornarUsuarioAdmin(id)
 
             buscaUsuarios();
         })
-        .catch(() => {
-
+        .catch((e) => {
+            console.log(e);
             new MensagemLateralService("Erro ao editar usuário.");
         })
 }

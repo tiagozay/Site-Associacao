@@ -9,11 +9,7 @@
 
     require_once 'vendor/autoload.php';
 
-    session_start();
-
-    $_SESSION['nivel'] = 'admin';
-
-    if($_SESSION['nivel'] != 'admin'){
+    if(!LoginService::verificaSeUsuarioEAdmin()){
         header('HTTP/1.1 403 Forbidden');
         echo "Acesso negado!";
         exit();

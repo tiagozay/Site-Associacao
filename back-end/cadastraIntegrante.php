@@ -9,7 +9,6 @@
 
     require_once 'vendor/autoload.php';
 
-
     if(!LoginService::verificaSeUsuarioEAdmin()){
         header('HTTP/1.1 403 Forbidden');
         echo "Acesso negado!";
