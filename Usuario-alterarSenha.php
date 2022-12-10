@@ -1,15 +1,10 @@
-<?php
-    session_start();
-
-    $nome = $_SESSION['nome'];
-?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Editar nome</title>
+    <title>Editar senha</title>
     <link rel="stylesheet" href="assets/styles/reset.css">
     <link rel="stylesheet" href="assets/styles/alterarNomeESenhaUsuario.css">
 
@@ -24,24 +19,37 @@
 <body>
     <main>
         <form id="formulario">
-            <label for="inputSenha">
-                Digite sua senha
+            <label for="inputSenhaAntiga">
+                Digite sua senha atual
                 <div class="divInputSenha">
-                    <input type="password" class="inputSenha" name="senha" data-pagina='alterarNomeOuSenha' id='inputSenha'>
-                    <img src="assets/icons/eyePreto - .svg" onclick="exibirOuOcultarSenha('inputSenha')">
+                    <input type="password" class="inputSenha" data-pagina='alterarNomeOuSenha' id='inputSenhaAntiga' name="senha">
+                    <img src="assets/icons/eyePreto - .svg" onclick="exibirOuOcultarSenha('inputSenhaAntiga')">
                 </div>
                 <p class="error display-none" id="msgErro-senha"></p>
+            </label>
+
+            <label for="inputSenhaNova">
+                Digite sua senha nova
+                <div class="divInputSenha">
+                    <input type="password" class="inputSenha" data-pagina='alterarNomeOuSenha' id='inputSenhaNova' name="senhaNova">
+                    <img src="assets/icons/eyePreto - .svg" onclick="exibirOuOcultarSenha('inputSenhaNova')">
+                </div>
+                <p class="error display-none" id="msgErro-senhaNova"></p>
+
+            </label>
+
+            <label for="inputSenhaNovaC" class="terceiroInputSenha"> 
+                Confirme sua senha nova
+                <div class="divInputSenha">
+                    <input type="password" class="inputSenha" data-pagina='alterarNomeOuSenha' id='inputSenhaNovaC' name="confSenhaNova">
+                    <img src="assets/icons/eyePreto - .svg" onclick="exibirOuOcultarSenha('inputSenhaNovaC')">
+                </div>
+                <p class="error display-none" id="msgErro-confSenhaNova"></p>
                 
             </label>
-          
-            <label for="nome">
-                Nome
-                <input type="text" value="<?=$nome?>" id="nome" name="nome">
-                <p class="error display-none" id="msgErro-nome"></p>
-            </label>
-            
-            <button class="btnEnviar" type="submit">
-                SALVAR
+                  
+            <button type="submit" class="btnEnviar">
+                CONFIRMAR
                 <div class="display-none" id="loader"></div>
             </button>
         </form>
@@ -49,15 +57,19 @@
     <script src="JavaScript/exibirOuOcultarSenhaInput.js"></script>
     <script src="JavaScript/Services/HttpService.js"></script>
     <script src="JavaScript/Services/MensagemLateralService.js"></script>
-    <script>
 
+    <script>
         const form = document.querySelector("#formulario");
         const loader = document.querySelector("#loader");
 
         form.onsubmit = async (event) => {
             event.preventDefault();
 
-            let validacao = validaForm(form.senha, form.nome);
+            let validacao = validaForm(
+                form.senha, 
+                form.senhaNova,
+                form.confSenhaNova,
+            );
 
             if(!validacao){
                 return;
@@ -72,12 +84,12 @@
 
                 let res = await httpService.postFormulario(
                     formData,
-                    'back-end/editarNomeUsuario.php'
+                    'back-end/editarSenhaUsuario.php'
                 );
 
                 loader.classList.add("display-none");
 
-                location.href = "index.php";
+                location.href = "login.php";
             
             }catch(e){
                 console.log(e);
@@ -98,9 +110,11 @@
 
         }
 
-        function validaForm(campoSenha, campoNome){
+        function validaForm(campoSenha, campoSenhaNova, campoConfSenhaNova){
             let senha = campoSenha.value.trim();
-            let nome = campoNome.value.trim();
+            let senhaNova = campoSenhaNova.value.trim();
+            let confSenhaNova = campoConfSenhaNova.value.trim();
+            
 
             if(senha.length == 0){
                 abrirMensagemDeErroDoInput(campoSenha, "Informe sua senha.");
@@ -114,19 +128,27 @@
             }
             fecharMensagemDeErroDoInput(campoSenha);
 
-            if(nome.length == 0){
-                abrirMensagemDeErroDoInput(campoNome, "Preencha com seu nome.");
+            
+            if(senhaNova.length == 0 || senhaNova.length < 8 || senhaNova.length > 200){
+                abrirMensagemDeErroDoInput(campoSenhaNova, "Senha inválida.");
                 return false;
             }
-            fecharMensagemDeErroDoInput(campoNome);
+            fecharMensagemDeErroDoInput(campoSenhaNova);
 
-            if(nome.length < 3 || nome.length > 80){
-                abrirMensagemDeErroDoInput(campoNome, "Nome inválido.");
+            if(confSenhaNova.length == 0 || confSenhaNova.length < 8 || confSenhaNova.length > 200){
+                abrirMensagemDeErroDoInput(campoConfSenhaNova, "Senha inválida.");
                 return false;
             }
-            fecharMensagemDeErroDoInput(campoNome);
+            fecharMensagemDeErroDoInput(campoConfSenhaNova);
+
+            if(senhaNova != confSenhaNova){
+                abrirMensagemDeErroDoInput(campoConfSenhaNova, "As senhas não coincidem!");
+                return false;
+            }
+            fecharMensagemDeErroDoInput(campoConfSenhaNova);
 
             return true;
+
 
         }
 
@@ -143,7 +165,7 @@
             msgErro.classList.add('display-none');
             msgErro.innerHTML = "";
         }
-
     </script>
+
 </body>
 </html>

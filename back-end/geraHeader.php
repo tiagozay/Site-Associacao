@@ -20,7 +20,7 @@
                                     <p class="nomeNoMenu">'.$_SESSION['nome'].'</p>
                                     <a href="Usuario-alterarNome.php" class="btnOpcoesUsuario">Alterar nome</a>
 
-                                    <a href="Usuario-alterarSenha.php?pag='.basename($_SERVER['PHP_SELF']).'" class="btnOpcoesUsuario">Alterar senha</a>
+                                    <a href="Usuario-alterarSenha.php" class="btnOpcoesUsuario">Alterar senha</a>
 
                                     <a href="back-end/logout.php" class="btnOpcoesUsuario">Sair</a>
                                 </nav>
@@ -50,7 +50,7 @@
                                     <p class="nomeNoMenu">'.$_SESSION['nome'].'</p>
                                     <a href="Usuario-alterarNome.php" "class="btnOpcoesUsuario">Alterar nome</a>
 
-                                    <a href="Usuario-alterarSenha.php?pag='.basename($_SERVER['PHP_SELF']).'" class="btnOpcoesUsuario">Alterar senha</a>
+                                    <a href="Usuario-alterarSenha.php" class="btnOpcoesUsuario">Alterar senha</a>
 
                                     <a href="back-end/logout.php" class="btnOpcoesUsuario">Sair</a>
                                 </nav>

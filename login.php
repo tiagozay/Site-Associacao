@@ -1,3 +1,12 @@
+<?php
+    //Lógica que verifica se há conteúdo na sessão "senhaAlterada", a mesma e definida nos lugares onde acontece a alteração de senha. Aí se tiver definida e com valor true, no script é gerada uma mensagem de alerta informando que a senha foi alterada. Tem o unset() para limpar a sesssão para exibir a mensagem somente uma vez.
+    
+    session_start();
+
+    $mensagemAlterada = isset($_SESSION['senhaAlterada']) ? $_SESSION['senhaAlterada'] : false;
+
+    unset($_SESSION['senhaAlterada']);
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -88,6 +97,16 @@
 
 
     <script>
+
+        <?php
+            if($mensagemAlterada){
+                echo 
+                "
+                    new MensagemLateralService('Senha alterada com sucesso.');
+                ";
+            }
+        ?>
+
 
         //ALTERNAR ENTRE O FORM DE LOGIN E CADASTRO
 
