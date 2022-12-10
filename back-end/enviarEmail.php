@@ -5,7 +5,6 @@
     use APBPDN\Models\Usuario;
     use APBPDN\Services\RequestService;
     use PHPMailer\PHPMailer\PHPMailer;
-    use PHPMailer\PHPMailer\Exception;
 
     require "vendor/autoload.php";
     require "credenciais-email.php";
@@ -72,11 +71,11 @@
             $_SESSION['emailParaQualFoiEnviado'] = $emailUsuario;
             header('HTTP/1.1 200 OK');
         }else{
-            throw new Exception();
+            throw new \Exception();
         }
 
 
-    } catch (Exception $e) {
+    } catch (Throwable $e) {
         header('HTTP/1.1 500 Internal Server Error');
         echo $e->getMessage();
     }
