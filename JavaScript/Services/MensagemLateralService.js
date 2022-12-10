@@ -13,6 +13,14 @@ class MensagemLateralService
 
         const body = document.querySelector("body");
 
+        const mensagemJaExistente = document.querySelector(".mensagemLateralDaTela");
+        if(mensagemJaExistente){
+            mensagemJaExistente.classList.remove('fade-out-1000');
+            clearInterval(this._time_out_iniciar_fade_out);
+            clearInterval(this._time_out_remover_elemento);
+            body.removeChild(mensagemJaExistente);
+        }
+
         const containerMensagem = document.createElement("div");
         containerMensagem.classList.add("mensagemLateralDaTela");
 
@@ -67,7 +75,9 @@ class MensagemLateralService
 
         const containerMensagem = document.querySelector(".mensagemLateralDaTela");
 
-        body.removeChild(containerMensagem);
+        if(containerMensagem){
+            body.removeChild(containerMensagem); 
+        } 
 
     }
 }
