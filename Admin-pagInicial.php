@@ -34,28 +34,11 @@
     <link rel="stylesheet" href="assets/styles/Admin/paginaInicialAdmin/listaDeUsuarios/Admin-sectionLista.css"> 
     <link rel="stylesheet" href="assets/styles/Admin/paginaInicialAdmin/listaDeUsuarios/Admin-cabecalhoDaLista.css"> 
     <link rel="stylesheet" href="assets/styles/Admin/paginaInicialAdmin/listaDeUsuarios/Admin-listaUsuarios.css">   
-    <link rel="stylesheet" href="assets/styles/modais/modal.css">   
-    <link rel="stylesheet" href="assets/styles/modais/modaisDeConfirmações.css">   
-    <link rel="stylesheet" href="assets/styles/modais/modalAcoesUsuarios.css">   
     
-
-
     <title>Painel administrativo</title>
 </head>
 <body>
     <input type="hidden" class="idUsuario" value="<?=$id?>">
-
-    <div class="containerModal">
-        <div class="modal">
-            <div class="divSuperiorBtnFechar">
-                <p class="tituloModal"></p>
-                <i onclick="fecharMenu()" class="material-icons">close</i>
-            </div>
-            <div class="modal__conteudo">
-
-            </div>
-        </div>
-    </div>
 
     <header>
         <div class="divHeader">

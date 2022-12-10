@@ -22,24 +22,11 @@
 
     <link rel="stylesheet" href="assets/styles/base.css">
     <link rel="stylesheet" href="assets/styles/Admin/paginaIntegrante/paginaIntegrante.css">
-    <link rel="stylesheet" href="assets/styles/modais/modal.css">
-    <link rel="stylesheet" href="assets/styles/modais/modaisDeConfirmações.css">
     <link rel="stylesheet" href="assets/styles/mensagemLateral.css">
     
     <title>Integrantes</title>
 </head>
 <body>
-    <div class="containerModal">
-        <div class="modal">
-            <div class="divSuperiorBtnFechar">
-                <p class="tituloModal"></p>
-                <i onclick="fecharMenu()" class="material-icons">close</i>
-            </div>
-            <div class="modal__conteudo">
-
-            </div>
-        </div>
-    </div>
     <section class="sectionIntegrantes">
         <fieldset>
             <legend>Integrantes</legend>
@@ -98,8 +85,7 @@
             </div>
         </fieldset>
     </section>
-    <script src="JavaScript/modal.js"></script>
-
+    
     <script src="JavaScript/Services/HttpService.js"></script>
     <script src="JavaScript/Services/MensagemLateralService.js"></script>
     <script src="JavaScript/Services/ImagemService.js"></script>

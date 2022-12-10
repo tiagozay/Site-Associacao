@@ -1,21 +1,3 @@
-<?php
-    session_start();
-
-    require_once "back-end/vendor/autoload.php";
-
-    // echo "==============<br>";
-    // echo "Seja bem vindo: ".$_SESSION['nome'];
-    // echo "<br>==============<br>";
-
-    // $nivelDoUsuario = 'deslogado';
-    // if(isset($_SESSION['id'])){
-    //     $id = $_SESSION['id'];
-    //     $nome = $_SESSION['nome'];
-    //     $nivelDoUsuario = $_SESSION['nivel'];
-    // }
-    
-    
-?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -94,10 +76,5 @@
         buscaPublicacoes();
 
     </script>
-
-    <!--       
-    <script src="JavaScript/abrirOuFecharMenuSecoes.js"></script>  
-    <script src="JavaScript/verMaisNoticias.js"></script>
-    <script src="JavaScript/enviarTamanhoDeTela.js"></script> -->
 </body>
 </html>

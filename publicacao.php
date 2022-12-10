@@ -40,9 +40,6 @@
     <link rel="stylesheet" href="assets/styles/header/header-logadoUsuario.css">
     <link rel="stylesheet" href="assets/styles/header/header-logadoAdmin.css">
 
-
-    <link rel="stylesheet" href="assets/styles/modais/modal.css"> 
-    <link rel="stylesheet" href="assets/styles/modais/modaisDeConfirmações.css"> 
     <link rel="stylesheet" href="assets/styles/publicacao/publicacao.css">
     <link rel="stylesheet" href="assets/styles/publicacao/comentarios.css">
     <link rel="stylesheet" href="assets/styles/publicacao/maisPublicacoes.css">
@@ -54,17 +51,6 @@
     </style>
 </head>
 <body>
-    <div class="containerModal">
-        <div class="modal">
-            <div class="divSuperiorBtnFechar">
-                <p class="tituloModal"></p>
-                <i onclick="fecharMenu()" class="material-icons">close</i>
-            </div>
-            <div class="modal__conteudo">
-
-            </div>
-        </div>
-    </div>
 
     <div class="containerModalImg">
         
@@ -164,12 +150,7 @@
     <script src="JavaScript/excluirComentarioAdmin.js"></script>
    
 
-    <!-- <script src="JavaScript/modal.js"></script> -->
     <script src="JavaScript/abrirMenuAcoesUsuario.js"></script>
-    <!-- <script src="JavaScript/curtirNoticia.js"></script>
-    <script src="JavaScript/comentarNoticia.js"></script>
-    <script src="JavaScript/excluirComentario.js"></script>
-    <script src="JavaScript/adminExcluirComentario.js"></script> -->
     <script>
                         
         gerarHeader();
