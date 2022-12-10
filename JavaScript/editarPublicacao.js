@@ -56,6 +56,8 @@ async function envia()
 
         loader.classList.add("display-none");
 
+        location.href = `publicacao.php?id=${formulario.id.value}`;
+
     }catch(e){
         console.log(e);
 

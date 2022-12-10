@@ -38,7 +38,17 @@ class ImagemService
                 image.src = image_url;
         
                 image.onload = (e) => {
-        
+    
+                    //Quando a imagem carregar, verifica se a largura dela já é menor ou igual a informada, se for, não faz nenhuma modificação, pois aí acabaria tendo uma perda de qualidade. 
+                    if(e.target.width <= width){
+
+                        let arquivo = ImagemService._urlToFile(image_url);
+
+                        resolve(arquivo);
+
+                        return;
+                    }
+
                     let canvas = document.createElement("canvas");
                     let ratio = width / e.target.width;
                     canvas.width = width;
