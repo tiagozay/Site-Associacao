@@ -39,10 +39,7 @@ form{
     align-items: center;
     width: 73px;
     transition: 400ms all;
-    font-family: 'Roboto', sans-serif;
-}
-.btnVoltarPagIniAdmin:hover{
-    transform: scale(1.05);
+    font-family: 'Montserrat', sans-serif;
 }
 .btnVoltarPagIniAdmin i{
     transform: rotate(180deg);
@@ -51,14 +48,14 @@ form{
 .nome{
     color: white;
     font-size: 20px;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Montserrat', sans-serif;
 
 }
 label{
     display: flex;
     flex-direction: column;
-    font-size: 22px;
-    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    font-family: 'Montserrat', sans-serif;
     color: rgb(255, 255, 255);
     font-weight: 300;
 }
@@ -72,8 +69,8 @@ label input{
     font-size: 20px;
     height: 35px;
     width: 400px;
-    padding: 5px 5px;
-    font-family: 'Roboto', sans-serif;
+    padding: 2px 5px;
+    font-family: 'Montserrat', sans-serif;
     margin-top: 4px;
     background-color:  rgb(223, 223, 223);
     border: none;
@@ -105,8 +102,11 @@ label input{
 .btnEnviar{
     margin-top: 20px;
     width: 100%;
-    height: 50px;
-    font-size: 20px;
+    height: 40px;
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: rgb(10, 179, 10);
     border: none;
     border-radius: 3px;
@@ -115,18 +115,27 @@ label input{
     cursor: pointer;
     transition: 400ms;
 }
-.btnEnviar:hover{
-    transform: scale(1.02);
+.display-none{
+    display: none;
 }
-.erro{
-    background-color: rgba(255, 0, 0, 0.357);
-    border: 1px red solid;
-    padding: 10px;
-    width: 94%;
-    color: white;
-    font-family: 'Roboto', sans-serif;
-    
+.error{
+    margin-top: 3px;
+    color: rgb(206, 2, 2);
+    font-weight: 500;
+    font-size: 17px;
 }
+#loader{
+    border: 3px solid #f3f3f3; /* Light grey */
+    border-top: 3px solid #616161; /* Blue */
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    animation: spin 700ms linear infinite;
+    margin-left: 10px;
+}
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100
 @media(max-width: 470px){
     form{
         padding: 15px;

@@ -51,7 +51,7 @@
 
        
             <div class="divEsqueciASenhaEBtn marginBtnEnviar">
-                <a href="Usuario-confirmarEmail.php">Esqueci minha senha</a>
+                <a href="confirmarEmail.php">Esqueci minha senha</a>
                 <button type="submit" class="btnEnviarLogin">
                     ENTRAR
                     <div class="display-none" id="loaderLogin"></div>

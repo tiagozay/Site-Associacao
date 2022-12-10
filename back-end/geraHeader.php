@@ -48,7 +48,7 @@
                                 <div class="triangulo"></div>
                                 <nav class="opcoes">
                                     <p class="nomeNoMenu">'.$_SESSION['nome'].'</p>
-                                    <a href="Usuario-alterarNome.php" "class="btnOpcoesUsuario">Alterar nome</a>
+                                    <a href="Usuario-alterarNome.php" class="btnOpcoesUsuario">Alterar nome</a>
 
                                     <a href="Usuario-alterarSenha.php" class="btnOpcoesUsuario">Alterar senha</a>
 
