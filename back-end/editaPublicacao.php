@@ -76,7 +76,7 @@
         $entityManager->flush();
 
         $operacao = new OperacaoEditarPublicacao(
-            LoginService::buscaUsuarioLogado($entityManager),
+            LoginService::buscaUsuarioLogado($entityManager)->getNome(),
             $publicacao->id
         );
 

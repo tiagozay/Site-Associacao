@@ -34,7 +34,7 @@
         $entityManager->flush();
 
         $operacao = new OperacaoRemoverAdminDeUsuario(
-            LoginService::buscaUsuarioLogado($entityManager),
+            LoginService::buscaUsuarioLogado($entityManager)->getNome(),
             $usuario->getNome()
         );
 

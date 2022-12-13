@@ -2,7 +2,6 @@
     namespace APBPDN\Models\Operacoes;
 
     use DateTime;
-    use APBPDN\Models\Usuario;
     use APBPDN\Helpers\DateHelper;
     use Doctrine\ORM\Mapping\Column;
     use Doctrine\ORM\Mapping\Entity;
@@ -11,7 +10,6 @@
     use Doctrine\ORM\Mapping\DiscriminatorMap;
     use Doctrine\ORM\Mapping\GeneratedValue;
     use Doctrine\ORM\Mapping\Id;
-    use Doctrine\ORM\Mapping\ManyToOne;
 
     #[
         Entity, 
@@ -35,8 +33,8 @@
         #[Id(), GeneratedValue(), Column()]
         public int $id;
 
-        #[ManyToOne(targetEntity: Usuario::class, inversedBy: 'operacoes')]
-        private Usuario $autor;
+        #[Column()]
+        private string $autor;
 
         #[Column()]
         protected string $acao;
@@ -44,14 +42,14 @@
         #[Column(name: 'dataRegistro')]
         private DateTime $data;
 
-        public function __construct(Usuario $autor)
+        public function __construct(string $autor)
         {
             $this->autor = $autor;
 
             $this->data = DateHelper::dataEHoraAtual();
         }
 
-        public function getAutor(): Usuario
+        public function getAutor(): string
         {
             return $this->autor;
         }
@@ -75,7 +73,7 @@
         {
             return [
                 'id' => $this->id,
-                'autor' => $this->getAutor()->toArray(),
+                'autor' => $this->getAutor(),
                 'data' => $this->getData(),
                 'acao' => $this->getAcao()
             ];

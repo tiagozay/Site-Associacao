@@ -1,7 +1,6 @@
 <?php
     namespace APBPDN\Models;
 
-    use APBPDN\Models\Operacoes\Operacao;
     use Doctrine\Common\Collections\ArrayCollection;
     use Doctrine\Common\Collections\Collection;
     use Doctrine\ORM\Mapping\Column;
@@ -10,9 +9,7 @@
     use Doctrine\ORM\Mapping\GeneratedValue;
     use Doctrine\ORM\Mapping\Id;
     use Doctrine\ORM\Mapping\OneToMany;
-    use Doctrine\ORM\Mapping\OneToOne;
 
-use function PHPSTORM_META\map;
 
     #[Entity]
     class Usuario
@@ -37,9 +34,6 @@ use function PHPSTORM_META\map;
 
         #[OneToMany(mappedBy: 'usuario', targetEntity: Curtida::class, cascade:['persist', 'remove'])]
         private Collection $curtidas;
-
-        #[OneToMany(mappedBy: 'autor', targetEntity: Operacao::class, cascade:['persist', 'remove'])]
-        private Collection $operacoes;
 
         /** @throws \DomainException */
         public function __construct(string $nome, string $email, string $nivel, string $senha, string $confSenha)
@@ -136,11 +130,6 @@ use function PHPSTORM_META\map;
             if(strlen($senha) > 200) throw new DomainException("senha_invalida");
         }
 
-        public function setOperacao(Operacao $operacao): void
-        {
-            $this->operacoes->add($operacao);
-        }
-
         public function getNome(): string
         {
             return $this->nome;
@@ -171,7 +160,7 @@ use function PHPSTORM_META\map;
             $this->nivel = 'usuario';
         }
 
-        public static function criptografarSenha(string $senha): string
+        private static function criptografarSenha(string $senha): string
         {
             return password_hash($senha, PASSWORD_DEFAULT);
         }

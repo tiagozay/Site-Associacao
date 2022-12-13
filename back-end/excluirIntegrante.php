@@ -39,7 +39,7 @@
         );
 
         $operacao = new OperacaoRemoverIntegrante(
-            LoginService::buscaUsuarioLogado($entityManager),
+            LoginService::buscaUsuarioLogado($entityManager)->getNome(),
             $integrante->getNome()
         );
 

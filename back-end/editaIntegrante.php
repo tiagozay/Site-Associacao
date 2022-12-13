@@ -37,7 +37,7 @@
         $entityManager->flush();
 
         $operacao = new OperacaoEditarIntegrante(
-            LoginService::buscaUsuarioLogado($entityManager),
+            LoginService::buscaUsuarioLogado($entityManager)->getNome(),
             $integrante->getNome()
         );
 

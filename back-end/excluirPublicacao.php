@@ -38,7 +38,7 @@
         $publicacao->removerImagens();
 
         $operacao = new OperacaoExcluirPublicacao(
-            LoginService::buscaUsuarioLogado($entityManager)
+            LoginService::buscaUsuarioLogado($entityManager)->getNome()
         );
 
         $entityManager->persist($operacao);

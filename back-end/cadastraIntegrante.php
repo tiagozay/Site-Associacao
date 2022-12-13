@@ -45,7 +45,7 @@
         $entityManager->flush();
 
         $operacao = new OperacaoCadastrarIntegrante(
-            LoginService::buscaUsuarioLogado($entityManager),
+            LoginService::buscaUsuarioLogado($entityManager)->getNome(),
             $integrante->getNome()
         );
 

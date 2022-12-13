@@ -69,7 +69,7 @@
         $publicacao->salvarImagens();
 
         $operacao = new OperacaoAdicionarPublicacao(
-            LoginService::buscaUsuarioLogado($entityManager), 
+            LoginService::buscaUsuarioLogado($entityManager)->getNome(),
             $publicacao->id
         );
 

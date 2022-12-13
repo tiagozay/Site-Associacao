@@ -56,7 +56,7 @@
         $entityManager->flush();
 
         $operacao = new OperacaoCadastrarUsuario(
-            LoginService::buscaUsuarioLogado($entityManager),
+            LoginService::buscaUsuarioLogado($entityManager)->getNome(),
             $usuario->getNome()
         );
 

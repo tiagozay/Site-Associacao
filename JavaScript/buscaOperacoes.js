@@ -36,7 +36,7 @@ async function buscaOperacoes()
                 <tr class="tbody__tr">
                     <td class="tbody__tr__tdGenerico tbody__tr__tdNome">
                         <div class="tbody__tr__td__divConteudoGenerica tbody__tr__td__divNome">
-                            <p>${operacao['autor']['nome']}</p>
+                            <p>${operacao['autor']}</p>
                         </div>
                     </td>
                     <td class="tbody__tr__tdGenerico tbody__tr__tdAcao">
