@@ -26,9 +26,22 @@ async function buscaPublicacao()
 
     const httpService = new HttpService();
 
-    let res = await httpService.get(`back-end/buscaPublicacao.php?id=${idPublicacao}`);
+    try{
+        let res = await httpService.get(`back-end/buscaPublicacao.php?id=${idPublicacao}`);
+    
+        publicacaoExibida = await res.json();
+    }catch(e){
 
-    publicacaoExibida = await res.json();
+        if(e.message == 'Publicacao não encontrada!'){
+            location.href = 'index.php';
+            return;
+        }
+
+        new MensagemLateralService("Não foi possível buscar a publicação.");
+
+        return;
+    }
+
 
     titlePagina.textContent = publicacaoExibida['titulo'];
 
