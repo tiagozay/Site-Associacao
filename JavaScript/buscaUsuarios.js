@@ -5,6 +5,8 @@ const selectOrdem = document.querySelector("#ordenarPor");
 const selectNivel = document.querySelector("#niveis");
 const inputBuscarUsuario = document.querySelector("#buscar");
 
+const idUsuarioLogado = document.querySelector(".idUsuarioLogado").value;
+
 selectOrdem.onchange = () => {
     ordem = selectOrdem.value;
     buscaUsuarios();
@@ -41,6 +43,10 @@ const tbdoy = document.querySelector(".tbody");
 
 function geraCampoDeAcoes(id, nivel)
 {
+    if(id == idUsuarioLogado){
+        return "";
+    }
+
     if(nivel == 'usuario'){
         return `
             <div class='divAcoesNivel divGenericaBtnAcoes'>

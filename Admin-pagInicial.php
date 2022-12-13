@@ -6,6 +6,8 @@
         exit();
     }
 
+    $id = isset($_SESSION['id']) ? $_SESSION['id'] : null;
+
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -38,7 +40,7 @@
     <title>Painel administrativo</title>
 </head>
 <body>
-    <input type="hidden" class="idUsuario" value="<?=$id?>">
+    <input type="hidden" class="idUsuarioLogado" value="<?=$id?>">
 
     <header>
         <div class="divHeader">
