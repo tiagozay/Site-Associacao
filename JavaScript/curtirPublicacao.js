@@ -28,9 +28,4 @@ async function curtirPublicacao(event)
         'back-end/curtirPublicacao.php',
         `idPublicacao=${idPublicacao}&idUsuario=${idUsuario}`
     );
-
-    let text = await res.text();
-
-    console.log(text);
-
 }

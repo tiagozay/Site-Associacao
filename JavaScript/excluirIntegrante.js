@@ -14,7 +14,6 @@ function excluirIntegrante(id)
       
     } )
     .catch( (e) => {
-        console.log(e);
         new MensagemLateralService("Não foi possível excluír integrante.");
     } )
     

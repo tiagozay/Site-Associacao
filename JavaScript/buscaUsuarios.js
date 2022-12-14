@@ -93,8 +93,8 @@ function buscaUsuarios()
         escreveUsuariosNaLista(usuarios);
     } )
     .catch( msg => {
+        new MensagemLateralService("Não foi possível buscar usuários.");
         loader.classList.add("desativarLoader");
-        console.log(msg)
     } )
 }
 

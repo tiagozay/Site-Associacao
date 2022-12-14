@@ -14,7 +14,6 @@ function excluirUsuario(id)
             buscaUsuarios();
         })
         .catch((e) => {
-            console.log(e);
             new MensagemLateralService("Erro ao excluír usuário.");
         })
 

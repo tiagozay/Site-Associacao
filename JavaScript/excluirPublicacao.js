@@ -17,7 +17,6 @@ function excluirPublicacao(event, id)
         buscaPublicacoes();
     })
     .catch( (e) => {
-        console.log(e);
         new MensagemLateralService("Não foi possível excluír esta publicação.");
     })
 }

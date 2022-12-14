@@ -6,10 +6,6 @@ async function buscaIntegrantes()
 
     let res = await httpService.get('back-end/buscaIntegrantes.php');
 
-    // let text = await res.text();
-
-    // console.log(text);
-
     let integrantes = await res.json();
 
     integrantes.forEach(integrante => {

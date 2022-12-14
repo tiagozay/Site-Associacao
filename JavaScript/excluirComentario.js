@@ -13,11 +13,7 @@ async function excluirComentario(id)
             'back-end/excluirComentario.php',
             `id=${id}`
         );
-    
-        // const text = await res.text();
-
-        // console.log(text);
-            
+                
         const comentarios = await res.json();
     
         loaderComentarios.classList.add("display-none");
@@ -26,7 +22,6 @@ async function excluirComentario(id)
         
 
     }catch(e){
-        console.log(e);
         loaderComentarios.classList.add("display-none");
         new MensagemLateralService("Erro ao excluír comentário.");
     }

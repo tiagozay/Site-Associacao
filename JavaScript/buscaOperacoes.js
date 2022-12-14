@@ -23,10 +23,6 @@ async function buscaOperacoes()
 
         let res = await httpService.get(`back-end/buscaOperacoes.php?ordem=${ordem}`);
 
-        // let text = await res.text();
-
-        // console.log(text);
-
         let operacoes = await res.json();
 
         loader.classList.add('loaderDesativado');
@@ -54,7 +50,6 @@ async function buscaOperacoes()
         });
 
     }catch(e){
-        console.log(e);
         loader.classList.add('loaderDesativado');
         new MensagemLateralService("Não foi possível buscar as operações.");
     }

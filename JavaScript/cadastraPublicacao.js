@@ -45,8 +45,6 @@ async function cadastra()
 
         let idPublicacaoInserida = await res.text();
     
-        console.log(idPublicacaoInserida);
-
         formulario.reset();
 
         loader.classList.add("display-none");
@@ -54,8 +52,6 @@ async function cadastra()
         location.href = `publicacao.php?id=${idPublicacaoInserida}`;
 
     }catch(e){
-        console.log("Caiu no catch. ", e);
-
         loader.classList.add("display-none");
 
         new MensagemLateralService("Não foi possível adicionar publicação.");

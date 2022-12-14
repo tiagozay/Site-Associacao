@@ -50,17 +50,11 @@ async function envia()
     try{
         let res = await httpService.postFormulario(formData, 'back-end/editaPublicacao.php');
 
-        let txt = await res.text();
-
-        console.log(txt);
-
         loader.classList.add("display-none");
 
         location.href = `publicacao.php?id=${formulario.id.value}`;
 
     }catch(e){
-        console.log(e);
-
         loader.classList.add("display-none");
         new MensagemLateralService("Não foi possível editar publicação.");
     }

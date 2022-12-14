@@ -22,7 +22,6 @@ function buscaIntegranteParaEditar()
 
     httpService.get(`back-end/buscaIntegrante.php?id=${id}`)
     .then(res => res.json())
-    // .then(res => res.text())
     .then( integrante => {
         inputNome.value = integrante.nome;
         inputCargo.value = integrante.cargo;
@@ -30,7 +29,9 @@ function buscaIntegranteParaEditar()
 
         habilitarForm();
     })
-    .catch(msg => console.log(msg))
+    .catch(msg => {
+        new MensagemLateralService("Não foi possível buscar o integrante.");
+    })
 }
 
 function desabilitarForm()

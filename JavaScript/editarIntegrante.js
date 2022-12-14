@@ -29,8 +29,6 @@ async function enviar()
 
         location.href = 'Admin-formCadastroIntegrante.php';
     }catch(e){
-        console.log(e);
-
         loader.classList.add("display-none");
 
         new MensagemLateralService("Erro ao editar integrante.");
