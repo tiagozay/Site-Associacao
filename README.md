@@ -29,4 +29,4 @@ back-end foi refeita, já que quando foi desenvolvido, eu ainda não tinha conhe
 Nesta refatoração também foi implemantado um sistema para diminuir o tamanho das imagens no cadastro de publicações e integrantes, antes de enviá-las para o servidor, isso
 para que o desempenho na hora de carregar as páginas seja maior e o consumo de memória do servidor seja menor.
 
-
+<h3>Site: <a href="https://apbpdanielniemiec.org.br">apbpdanielniemiec.org.br</a></h3>
