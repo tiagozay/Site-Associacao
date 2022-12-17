@@ -11,6 +11,7 @@ cadastrados e os integrantes, enquanto o Usuário pode apenas interagir nas publ
 - ***HTML***
 - ***CSS***
 - ***JavaScript***
+- ***Ajax**
 - ***PHP***
 - ***MYSQL***
 - ***Doctrine ORM***
