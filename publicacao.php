@@ -132,7 +132,7 @@
      
     <footer class="rodape">
         <h1>2023 - Associação Polono-Brasileira Padre Daniel Niemec &copy;</h1>
-        <h2 class="textoDesenvolvido">Desenvolvido por <a href="https://tiagozay.github.io/portfolio/" target="blank"> Tiago zay </a>e <a href="https://github.com/WillianMateusUss" target="blank">Willian uss</a> </h2>
+        <h2 class="textoDesenvolvido">Desenvolvido por <a href="https://tiagozay.github.io/portfolio/"> Tiago zay </a>e colaboração de <a href="https://github.com/WillianMateusUss"> Willian uss </a></h2>
     </footer>
 
 
